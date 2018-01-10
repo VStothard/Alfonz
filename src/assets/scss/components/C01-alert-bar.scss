@@ -1,0 +1,9 @@
+.C01-alert-bar {
+    @include themify($themes) {
+        color: themed('blogWhite');  
+        background-color: themed('secondaryColor');  
+    }
+
+    padding: 5px 0;
+    text-align: center;
+}

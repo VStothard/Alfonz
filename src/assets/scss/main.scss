@@ -1,1 +1,13 @@
+
+//theme
+@import 'settings/theme-settings';
+@import 'settings/typography';
+
+//atoms
+@import 'atoms/A01-blog-header-logo';
+@import 'atoms/A02-social-icons';
+
+//components
+@import 'components/C01-alert-bar';
+@import 'components/C02-blog-header';
 @import 'components/mainNavigation';
