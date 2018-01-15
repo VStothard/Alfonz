@@ -1,0 +1,57 @@
+.C07-instafetch {
+     @include themify($themes) {
+        color: themed('tertiaryColor');  
+    }
+
+    background: url('../img/desk.jpg');
+    background-size: cover;
+    background-position: center;
+  
+    -webkit-box-shadow: inset 2px 15px 17px -7px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow:    inset 2px 15px 17px -7px rgba(50, 50, 50, 0.75);
+            box-shadow:         inset 2px 15px 17px -7px rgba(50, 50, 50, 0.75);
+    padding: 60px 0;
+
+    .instafetch {
+          display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    }
+    article {
+        background: #fff;
+        // display: inline-block;
+        padding: 5px;
+        margin: 5px;
+        width: 100%;
+        -webkit-box-shadow: 0px 5px 13px 3px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow:    0px 5px 13px 3px rgba(50, 50, 50, 0.75);
+        box-shadow:         0px 5px 13px 3px rgba(50, 50, 50, 0.75);
+        transition: $blog-tile-transition;
+
+        @include breakpoint(medium) {
+            padding: 10px;
+            width: 24%;
+        }
+
+        &:hover {
+            -webkit-transform : rotate(5deg); /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform     : rotate(5deg); /* IE 9 */
+            transform         : rotate(5deg);
+            transition: $blog-tile-transition;
+        }
+
+        p {
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+    }
+
+    .insta-title {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+    }
+} 

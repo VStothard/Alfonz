@@ -1,4 +1,6 @@
 var contentful = require('contentful');
+require('instafetch.js');
+
 import $ from 'jquery';
 import whatInput from 'what-input';
 //var config = require('config'); -- this works
@@ -34,3 +36,12 @@ client.getEntries()
 });
 
 console.log('TEST', 2000);
+
+//instafetch
+
+instafetch.init({
+  accessToken: '769159276.1677ed0.67d2617666634feb9e5d1102636c8bef',
+  target: 'instafetch',
+  numOfPics: 4,
+  caption: true
+});
