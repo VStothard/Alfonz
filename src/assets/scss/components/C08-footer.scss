@@ -1,0 +1,19 @@
+.C08-footer {
+    padding: 20px 0;
+
+    .social-icon-cont {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .social-icon {
+            display: inline-block;
+            
+            svg {
+                width: 30px;
+                fill: yellow;
+            }
+        }
+    }
+    
+}
