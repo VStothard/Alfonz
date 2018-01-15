@@ -31,3 +31,9 @@ $themes: (
 @function themed($key) {
   @return map-get($theme-map, $key);
 }
+
+/** 
+* Transitions
+*/
+
+$blog-tile-transition: all 0.2s ease-in-out;

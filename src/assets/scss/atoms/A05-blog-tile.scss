@@ -1,0 +1,55 @@
+.blog-tile {
+    cursor: pointer; 
+    padding: 15px;
+
+    &:hover {
+        .blog-tile-details {
+            bottom: 0;
+            transition: $blog-tile-transition;
+        }
+
+        .blog-tile-image {
+
+           opacity: 0.9;
+           transition: $blog-tile-transition;
+
+        }
+    }
+
+    .blog-tile-cont {
+        overflow: hidden;
+        position: relative;
+
+    }
+
+    .blog-tile-image {
+        background: url(https://source.unsplash.com/random);
+        background-size: cover;
+        content: '';
+        height: 300px;
+        width: 100%;
+    }
+
+    .blog-tile-details {
+        @include themify($themes) {
+            background-color: themed('blogWhite'); 
+        }
+
+        bottom: -50px;
+        left: 0;
+        margin: auto;
+        opacity: 0.9;
+        padding: 30px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        transition: $blog-tile-transition;
+        width: 80%;
+
+        
+    }
+
+    .blog-tile-title {
+        padding-bottom: 15px;
+    }
+}

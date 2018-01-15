@@ -1,0 +1,35 @@
+.A03-navigation-items {
+    padding: 15px 0;
+
+    .nav-list {
+        display: flex;
+        justify-content: space-between;
+
+        .nav-list-item {
+            padding: 0 10px;
+            position: relative;
+            text-align: center;
+
+            .title,
+            svg {
+                display: block;
+            }
+
+            svg {
+                display: none;
+                position: absolute;
+            }
+
+            &:hover {
+                @include themify($themes) {
+                    color: themed('secondaryColor'); 
+                    cursor: pointer; 
+                }
+
+                svg {
+                    display: block;
+                }
+            }
+        }
+    }
+}

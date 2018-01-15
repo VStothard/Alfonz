@@ -6,8 +6,13 @@
 //atoms
 @import 'atoms/A01-blog-header-logo';
 @import 'atoms/A02-social-icons';
+@import 'atoms/A03-navigation-items';
+@import 'atoms/A05-blog-tile';
+
 
 //components
 @import 'components/C01-alert-bar';
 @import 'components/C02-blog-header';
-@import 'components/mainNavigation';
+@import 'components/C03-navigation-bar';
+@import 'components/C05-blog-tiles';
+
