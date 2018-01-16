@@ -17053,6 +17053,8 @@ var _foundationSites2 = _interopRequireDefault(_foundationSites);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//TODO set up JS classes
+
 var contentful = __webpack_require__(98);
 __webpack_require__(124);
 

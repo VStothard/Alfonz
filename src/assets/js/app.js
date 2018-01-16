@@ -1,3 +1,5 @@
+//TODO set up JS classes
+
 var contentful = require('contentful');
 require('instafetch.js');
 
