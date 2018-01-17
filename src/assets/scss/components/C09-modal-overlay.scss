@@ -1,0 +1,29 @@
+.C09-modal-overlay {
+    @include themify($themes) {
+        background-color: themed('primaryColor');  
+    }
+
+    content: ' ';
+    height: 100vh;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+
+    transition: all 0.5s ease;
+    z-index: 4000;
+
+    &.modal-active {
+        opacity: 0.9;
+        width: 100%;
+        
+        transition: all 0.5s ease;
+    }
+}
+
+.no-scroll {
+    position: fixed;
+}

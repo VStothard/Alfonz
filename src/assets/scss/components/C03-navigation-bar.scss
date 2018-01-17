@@ -3,4 +3,45 @@
         color: themed('blogWhite');  
         background-color: themed('primaryColor');  
     }
+
+    .nav-controls {
+        border: 1px solid red;
+    }
+
+    .nav-cont {
+        @include themify($themes) {
+            color: themed('blogWhite');  
+            background-color: themed('primaryColor');  
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        max-width: 500px;
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        transition: all 0.7s ease;
+        z-index: 5000;
+
+        &.nav-active {
+            width: 100%;
+            transition: all 0.7s ease;
+        }
+
+        .search {
+            label {
+                display: none;
+            }
+
+            input {
+                border-radius: 20px;
+                outline: none;
+                border: none;
+                padding: 10px 20px;
+                width: 100%;
+            }
+        }
+    }
 }

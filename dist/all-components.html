@@ -159,42 +159,26 @@
     <div class="grid-x grid-margin-x">
         <div class="large-12 cell">
             <div class="C03-navigation-bar" data-id="C03">
-                <div class="nav-items-cont grid-container">
-                    <div class="grid-x grid-margin-x">
-                       <!--<div class="small-10 medium-8 large-8 cell">
-                            <div class="A03-navigation-items" data-id="A03">
-                                <div class="nav-list">
-                                    <div class="nav-list-item" data-id="nav1">
-                                        <span class="title">Item 1</span>
-                                    </div>
-                                    <div class="nav-list-item" data-id="nav2">
-                                        <span class="title">Item 2</span>
-                                    </div>
-                                    <div class="nav-list-item" data-id="nav3">
-                                        <span class="title">Item 3</span>
-                                    </div>
-                                    <div class="nav-list-item" data-id="nav4">
-                                        <span class="title">Item 4</span>
-                                    </div>
-                                    <div class="nav-list-item" data-id="nav5">
-                                        <span class="title">Item 5</span>
-                                    </div>
-                                </div>
-                            
-                                <div class="nav-modals">
-                                    <div class="modal" data-id="nav1">
-                                        modal for item 1
-                                    </div>
-                                    <div class="modal" data-id="nav2">
-                                        modal for item 2
-                                    </div>
-                                </div>
-                            </div>            </div>
-                        <div class="small-2 medium-2 medium-offset-2 large-2 large-offset-2 cell">                
-                            <div class="A04-search-bar" data-id="A04">
-                                <p>X</p>
-                            </div>            </div>-->
+                <div class="nav-controls grid-container">
+                    <div class="grid-x">
+                       <div class="small-1 cell open">BURGER</div>
+                       <div class="small-1 small-offset-10 cell search">SEARCH</div>
                     </div> 
+                </div>
+                <div class="nav-cont nav-active grid-x">
+                    <div class="search small-10 cell">
+                        <label for="mob-search">Search</label>
+                        <input id="mob-search" class="mob-seach" placeholder="Search">
+                    </div>
+                    <div class="close small-1 small-offset-1">X</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">Lifestyle</li>
+                        <li class="menu-item">Beauty</li>
+                        <li class="menu-item">Food</li>
+                        <li class="menu-item">Technology</li>
+                    </ul>
+                    <div class="subscribe-button">JOIN</div>
+                    <div class="social">F T I Ls</div>
                 </div>
             </div>    </div>
     </div>
@@ -462,8 +446,9 @@
         </div>
     </div>
     
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <div class="C09-modal-overlay modal-active" data-id="C09">
+        <!-- this will be styled as an overlay when a modal is activated on the site-->
+    </div>    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
