@@ -1,0 +1,62 @@
+.C04-feature-carousel {
+    .feature-carousel {
+        // position: relative;
+    }
+
+    .slide {
+        position: relative;
+        overflow: hidden;
+
+        .slide-cover {
+            content: ' ';
+            background: url('https://source.unsplash.com/random');
+            background-size: cover;
+            height: 100vh;
+            max-height: 500px;
+            width: 100%;
+        }
+
+        .slide-details {
+
+            @include themify($themes) {
+                background-color: themed('blogWhite'); 
+            }
+
+            bottom: 0;
+            left: 0;
+            opacity: 0.9;
+            padding: 40px;
+            position: absolute;
+            max-width: 500px;
+            margin: 0 auto;
+            right: 0;
+            text-align: center;
+            transform: translateY(100px);
+            transition: all 2s ease-in;
+            width: 100%;
+
+            .slide-title {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; 
+            }
+        }
+
+        &.slick-active {
+            .slide-details {
+                transform: translateY(0px);
+                transition: all 0.8s ease-in-out;
+            }
+        }
+    }
+
+
+    .slick-dots {
+        width: auto;
+        transform: rotate(90deg);
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

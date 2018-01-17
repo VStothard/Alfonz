@@ -1872,6 +1872,7 @@ var featureCarousel = function (_Component) {
     value: function initSlick() {
       $(".feature-carousel").slick({
         autoplay: true,
+        dots: true,
         infinite: true,
         vertical: true,
         verticalSwiping: true
