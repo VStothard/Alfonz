@@ -26,6 +26,7 @@ class Component {
    * @memberof Component
    */
   exists() {
+    console.log('this is running');
     this.elements = document.querySelectorAll(`[data-id='${this.componentId.toLowerCase()}']`);
 
     if (!isElement(this.elements[0])) {

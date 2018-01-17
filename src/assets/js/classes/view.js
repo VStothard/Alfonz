@@ -21,12 +21,13 @@ class View {
    * @memberof View
    */
   exists() {
+    console.log('checking if exists');
     this.elements = document.querySelectorAll(`[data-id='${this.nodeId}']`);
 
     if (!isElement(this.elements[0])) {
-      // console.info(`View ${this.nodeId} Node ✖ is not present, aborting.`);
+      console.info(`View ${this.nodeId} Node ✖ is not present, aborting.`);
     } else {
-      // console.info(`View ${this.nodeId} Node ✔ is present, running class.`);
+      console.info(`View ${this.nodeId} Node ✔ is present, running class.`);
     }
 
     return isElement(this.elements[0]);

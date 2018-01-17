@@ -2,8 +2,9 @@
  * Import Classes
  */
 import {
-  employeeQuoteComponent as employeeQuote,
-  cookieComponent
+  View,
+  instaFeed,
+  featureCarousel
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * Classes
    */
   // new Browser();
+  new View();
 
   /**
    * Views
@@ -22,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
    * Components
    */
-  
-  new cookieComponent();
+  new instaFeed();
+  new featureCarousel();
 
   /**
    * Init modules

@@ -10,7 +10,8 @@ export * from './classes/view';
 export * from './classes/device';
 
 // Components
-export * from './components/cookieComponent';
+export * from './components/instaFeed';
+export * from './components/featureCarousel';
 
 // Services
 
