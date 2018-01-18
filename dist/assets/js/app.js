@@ -63,50 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-}
-
-module.exports = isObjectLike;
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -181,6 +142,45 @@ var Component = function () {
 exports.Component = Component;
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+}
+
+module.exports = isObjectLike;
+
+/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -235,7 +235,7 @@ module.exports = baseGetTag;
 "use strict";
 
 
-var isObjectLike = __webpack_require__(0),
+var isObjectLike = __webpack_require__(1),
     isPlainObject = __webpack_require__(17);
 
 /**
@@ -270,7 +270,7 @@ module.exports = isElement;
 
 var baseGetTag = __webpack_require__(3),
     isArray = __webpack_require__(16),
-    isObjectLike = __webpack_require__(0);
+    isObjectLike = __webpack_require__(1);
 
 /** `Object#toString` result references. */
 var stringTag = '[object String]';
@@ -339,7 +339,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _component = __webpack_require__(1);
+var _component = __webpack_require__(0);
 
 Object.keys(_component).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -399,6 +399,18 @@ Object.keys(_featureCarousel).forEach(function (key) {
   });
 });
 
+var _mainNavigation = __webpack_require__(25);
+
+Object.keys(_mainNavigation).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _mainNavigation[key];
+    }
+  });
+});
+
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -426,6 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
    */
   new _modules.instaFeed();
   new _modules.featureCarousel();
+  new _modules.mainNav();
 
   /**
    * Init modules
@@ -1182,7 +1195,7 @@ module.exports = isArray;
 
 var baseGetTag = __webpack_require__(3),
     getPrototype = __webpack_require__(11),
-    isObjectLike = __webpack_require__(0);
+    isObjectLike = __webpack_require__(1);
 
 /** `Object#toString` result references. */
 var objectTag = '[object Object]';
@@ -1818,7 +1831,7 @@ exports.featureCarousel = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(1);
+var _component = __webpack_require__(0);
 
 var _modules = __webpack_require__(7);
 
@@ -1899,7 +1912,7 @@ exports.instaFeed = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(1);
+var _component = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1984,6 +1997,90 @@ exports.instaFeed = instaFeed;
 
 /***/ }),
 /* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mainNav = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _component = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ *
+ *
+ * @class mainNav
+ * @extends {Component}
+ */
+var mainNav = function (_Component) {
+  _inherits(mainNav, _Component);
+
+  /**
+   * Creates an instance of Component.
+   *
+   * @memberof mainNav
+   */
+  function mainNav() {
+    _classCallCheck(this, mainNav);
+
+    //super not working currently
+    var _this = _possibleConstructorReturn(this, (mainNav.__proto__ || Object.getPrototypeOf(mainNav)).call(this, 'C03'));
+
+    console.log('C03 running');
+
+    _this.mainNavControls();
+    return _this;
+  }
+
+  _createClass(mainNav, [{
+    key: 'mainNavControls',
+    value: function mainNavControls(param) {
+      console.log('main nav controls');
+      var open = $('#open-main-nav');
+      var mainNav = $('.nav-cont');
+      var modalOverlay = $('#modal-overlay');
+      var close = $('#close-main-nav');
+      var body = $('body');
+
+      open.on('click touch', function () {
+        console.log('open');
+        mainNav.addClass('nav-active');
+        modalOverlay.addClass('modal-active');
+        body.addClass('no-scroll');
+      });
+
+      modalOverlay.on('click touch', function () {
+        mainNav.removeClass('nav-active');
+        modalOverlay.removeClass('modal-active');
+        body.removeClass('no-scroll');
+      });
+
+      close.on('click touch', function () {
+        mainNav.removeClass('nav-active');
+        modalOverlay.removeClass('modal-active');
+        body.removeClass('no-scroll');
+      });
+    }
+  }]);
+
+  return mainNav;
+}(_component.Component);
+
+exports.mainNav = mainNav;
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(8);

@@ -12,6 +12,7 @@ export * from './classes/device';
 // Components
 export * from './components/instaFeed';
 export * from './components/featureCarousel';
+export * from './components/mainNavigation';
 
 // Services
 

@@ -4,7 +4,8 @@
 import {
   View,
   instaFeed,
-  featureCarousel
+  featureCarousel,
+  mainNav
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
    */
   new instaFeed();
   new featureCarousel();
+  new mainNav();
 
   /**
    * Init modules
