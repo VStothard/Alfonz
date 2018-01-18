@@ -5,7 +5,20 @@
     }
 
     .nav-controls {
-        border: 1px solid red;
+        padding: 10px 0;
+
+        .search {
+            overflow: auto;
+            svg {
+                float: right;
+                padding-top: 3px;
+            }
+        }
+
+        .search,
+        .open {
+            cursor: pointer;
+        }
     }
 
     .nav-cont {
@@ -13,6 +26,8 @@
             color: themed('blogWhite');  
             background-color: themed('primaryColor');  
         }
+
+        padding: 60px 0px;
         position: absolute;
         top: 0;
         left: 0;
@@ -26,22 +41,41 @@
         z-index: 5000;
 
         &.nav-active {
+            padding: 60px 40px;
             width: 100%;
             transition: all 0.7s ease;
         }
 
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 15px 20px;
+
+            svg {
+                width: 20px;
+            }
+        }
+
         .search {
+            margin: 0 0 40px;
             label {
                 display: none;
             }
 
             input {
-                border-radius: 20px;
+                background: none;
+                border-bottom: 1px solid #ffffff;
+                color: #ffffff;
                 outline: none;
                 border: none;
-                padding: 10px 20px;
+                padding: 10px 20px 10px 0px;
                 width: 100%;
             }
+        }
+
+        .close {
+            cursor: pointer;
         }
     }
 }
