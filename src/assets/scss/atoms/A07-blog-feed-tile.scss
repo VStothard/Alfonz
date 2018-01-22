@@ -1,0 +1,32 @@
+.A07-blog-feed-tile {
+
+    .bf-feature-image {        
+        img {
+            width: 100%;
+        }
+    }
+
+    .bf-content-overlap {
+       transform: translateY(-55px);
+       padding: 20px;
+    }
+
+    .bf-heading {
+        background: #ffffff;
+        display: inline-block;
+        padding: 10px 20px;
+    }
+
+    .bf-desc {
+        padding: 0 0 20px 20px;
+    }
+
+    .bf-button {
+        @include themify($themes) {
+            background-color: themed('secondaryColor');  
+        }
+        
+        margin-left: 20px;
+        padding: 15px 40px;
+    }
+}
