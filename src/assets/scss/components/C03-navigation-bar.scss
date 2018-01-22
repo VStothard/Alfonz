@@ -7,18 +7,26 @@
     .nav-controls {
         padding: 10px 0;
 
+
         .search {
             overflow: auto;
             svg {
                 float: right;
                 padding-top: 3px;
             }
+
+            .search-overlay {
+                border: 1px solid red;
+            }
+
         }
 
         .search,
         .open {
             cursor: pointer;
         }
+
+
     }
 
     .nav-cont {
@@ -71,7 +79,24 @@
                 outline: none;
                 border: none;
                 padding: 10px 20px 10px 0px;
-                width: 100%;
+                width: 80%;
+            }
+
+            .mob-search-submit {
+                cursor: pointer;
+                float: right;
+                padding: 10px 0 0 20px;
+                transition: transform 0.2s ease;
+                width: 19%;
+
+                &:hover {
+                    transform: translateX(5px);
+                    transition: transform 0.2s ease;
+                }
+                svg {
+                    fill: #ffffff;
+                }
+
             }
         }
 

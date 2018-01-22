@@ -2052,12 +2052,22 @@ var mainNav = function (_Component) {
       var modalOverlay = $('#modal-overlay');
       var close = $('#close-main-nav');
       var body = $('body');
+      var search = $('#main-nav-search');
+      var mobSearch = $('#mob-search');
 
       open.on('click touch', function () {
         console.log('open');
         mainNav.addClass('nav-active');
         modalOverlay.addClass('modal-active');
         body.addClass('no-scroll');
+      });
+
+      search.on('click touch', function () {
+        console.log('open');
+        mainNav.addClass('nav-active');
+        modalOverlay.addClass('modal-active');
+        body.addClass('no-scroll');
+        mobSearch.focus();
       });
 
       modalOverlay.on('click touch', function () {
@@ -2070,6 +2080,13 @@ var mainNav = function (_Component) {
         mainNav.removeClass('nav-active');
         modalOverlay.removeClass('modal-active');
         body.removeClass('no-scroll');
+      });
+
+      body.on('click', function (e) {
+
+        if (e.target == $('#main-nav-search').children()) {
+          console.log('search');
+        }
       });
     }
   }]);

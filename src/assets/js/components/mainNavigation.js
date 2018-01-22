@@ -27,12 +27,22 @@ class mainNav extends Component {
     const modalOverlay = $('#modal-overlay');
     const close = $('#close-main-nav');
     const body = $('body');
+    const search = $('#main-nav-search');
+    const mobSearch = $('#mob-search');
 
     open.on('click touch', () => {
         console.log('open');
         mainNav.addClass('nav-active');
         modalOverlay.addClass('modal-active');
         body.addClass('no-scroll');
+    });
+
+    search.on('click touch', () => {
+        console.log('open');
+        mainNav.addClass('nav-active');
+        modalOverlay.addClass('modal-active');
+        body.addClass('no-scroll');
+        mobSearch.focus();
     });
 
     modalOverlay.on('click touch', () => {
@@ -46,6 +56,13 @@ class mainNav extends Component {
         modalOverlay.removeClass('modal-active');
         body.removeClass('no-scroll');
     });
+
+    body.on('click', (e) => {
+
+      if (e.target == $('#main-nav-search').children()) {
+        console.log('search');
+      }
+    })
   }
 }
 
