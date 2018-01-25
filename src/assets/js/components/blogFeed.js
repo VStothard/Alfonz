@@ -18,9 +18,12 @@ class blogFeed extends Component {
    */
   constructor() {
     super('C11'); //super not working currently
+
+    //check if element exists on the page
     const dataID = 'C11';
     const self = this;
     $("div[data-id]").each(function() {
+        // if exists, execute blogFeed
         if ($(this).data("id") === dataID) {
           self.blogFeed();
         }
@@ -51,61 +54,37 @@ class blogFeed extends Component {
       content_type: '2wKn6yEnZewu2SCCkus4as'
     })
     .then((response) => {
-        // var response = response.items;
+        //create the element you will be plugging into the blog feed container
+        var html = '';
 
-        var html = [];
-
+        //for each item there is, create an A07 blog tile
+          //Todo 
+           // - limit the numebr of entries per page, implement pagination
+           // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
         response.items.forEach(function (entry) {
-            console.log(entry.fields);
+
+            //TODO swap this out with handlebars templating
             var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
                               + '<div class="bf-feature-image">'
                                 + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
                               + '</div>'
+                              + '<div class="bf-content-overlap">'
+                                + '<div class="bf-heading">'
+                                  + '<h2>' + entry.fields.title + '</h2>'
+                                + '</div>'
+                                + '<div class="bf-desc">'
+                                  + '<p>' + entry.fields.body + '</p>'
+                                + '</div>'
+                                + '<div class="bf-button button bold"><a href="' + '#' + '">Read post</a></div>'
+                              + '</div>'
                             + '</div>';
+            
+            //add the entry to the element
+            html = html + blogTile;
         });
 
-        // feedCont.html(() => {
-        //   response.items.forEach(function (entry) {
-        //     console.log(entry.fields);
-        //     return '<div data-id="A07" class="A07-blog-feed-tile small-12">'
-        //               + '<div class="bf-feature-image">'
-        //                 + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
-        //               + '</div>'
-        //             + '</div>'
-        //   });
-        // });
-        // response.items.forEach(function (entry) {
-        //   console.log(entry.fields);
-        // });
-      // feedCont.html(function(response) {
-      
-      //   return '<div data-id="A07" class="A07-blog-feed-tile small-12">'
-      //             + '<div class="bf-feature-image">'
-      //               + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
-      //             + '</div>'
-      //           + '</div>'
-      // });
-        
-
-
-        // <div data-id="A07" class="A07-blog-feed-tile small-12">
-        //   <div class="bf-feature-image">
-        //       <!--image set as background-->
-        //       <img src="https://source.unsplash.com/random/750x450" alt="feature image">
-        //   </div>
-        //   <div class="bf-content-overlap">
-        //       <div class="bf-heading">
-        //           <h2>Dream house in brighton</h2>
-        //       </div>
-        //       <div class="bf-desc">
-        //           <p> ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit felis, venenatis sed consectetur non, euismod ac leo. Donec sed massa ac felis cursus faucibus. Phasellus pellentesque odio quis lectus elementum tincidunt. Pellentesque vestibulum massa mauris, nec consectetur risus bibendum feugiat. Suspendisse porta condimentum sodales. Nam ut ligula bibendum, pretium odio eu, fermentum eros.</p>
-        //       </div>
-        //       <div class="bf-button button bold">Read post</div>
-        //   </div>
-        // </div>
-        // if(entry.fields.title) {
-        //   console.log(entry.fields.title)
-        // }
+        // replace html with the created blog tiles to display 
+        feedCont.html(html); 
     })
     .catch(console.error);
   }

@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Handlebars testing
-// var Handlebars = require('handlebars');
 // var source   = document.getElementById("entry-template").innerHTML;
 // var template = Handlebars.compile(source);
 
