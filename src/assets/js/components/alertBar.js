@@ -62,7 +62,6 @@ class alertBar extends Component {
     // get all blog posts and render to the page
     client.getEntry('1sIbBvEzuYQKeoG2IkQwGG')
     .then((entry) => {
-        console.log(entry);
         if (entry.fields.alertActive === true) {
             alertCont.html(entry.fields.alertBarContent);
         } else {

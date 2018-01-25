@@ -75,7 +75,7 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var bind = __webpack_require__(29);
+var bind = __webpack_require__(31);
 var isBuffer = __webpack_require__(95);
 
 /*global toString:true*/
@@ -529,7 +529,7 @@ module.exports = cloneDeep;
 "use strict";
 
 
-var _Symbol = __webpack_require__(19),
+var _Symbol = __webpack_require__(21),
     getRawTag = __webpack_require__(133),
     objectToString = __webpack_require__(161);
 
@@ -1146,10 +1146,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(25);
+    adapter = __webpack_require__(27);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(25);
+    adapter = __webpack_require__(27);
   }
   return adapter;
 }
@@ -1222,6 +1222,122 @@ module.exports = defaults;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var config = exports.config = {
+  example: 'buildTest',
+  space: '4mjv06nmwwqe',
+  accessToken: 'd924f186a56ef0d8ad255750431af692ced8b6efdc63100822467706a30dd2b7'
+};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createClient = createClient;
+
+var _axios = __webpack_require__(61);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+var _createContentfulApi = __webpack_require__(86);
+
+var _createContentfulApi2 = _interopRequireDefault(_createContentfulApi);
+
+var _createLinkResolver = __webpack_require__(87);
+
+var _createLinkResolver2 = _interopRequireDefault(_createLinkResolver);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+/**
+ * Contentful Delivery API SDK. Allows you to create instances of a client
+ * with access to the Contentful Content Delivery API.
+ * @namespace contentful
+ * @see ContentfulClientAPI
+ */
+
+/**
+ * Create a client instance
+ * @func
+ * @name createClient
+ * @memberof contentful
+ * @param {Object} params - Client initialization parameters
+ * @prop {string} params.space - Space ID
+ * @prop {string} params.accessToken - Contentful CDA Access Token
+ * @prop {boolean=} params.insecure - Requests will be made over http instead of the default https (default: true)
+ * @prop {string=} params.host - API host (default: cdn.contentful.com). Also usable with preview.contentful.com.
+ * @prop {string=} params.basePath - Path appended to the host to support gateways/proxies with custom urls.
+ * @prop {Object=} params.httpAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
+ * @prop {Object=} params.httpsAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
+ * @prop {Object=} params.proxy - Optional Axios proxy (see <a href="https://github.com/mzabriskie/axios#request-config"> axios docs </a>)
+ * @prop {Object=} params.headers - Optional additional headers
+ * @prop {boolean=?} params.resolveLinks - If we should resolve links between entries (default: true)
+ * @prop {boolean=?} params.retryOnError - If we should retry on errors and 429 rate limit exceptions (default: true)
+ * @prop {string=?} params.application - Application name and version e.g myApp/version
+ * @prop {string=?} params.integration - Integration name and version e.g react/version
+ * @returns {ContentfulClientAPI.ClientAPI}
+ * @example
+ * const contentful = require('contentful')
+ * const client = contentful.createClient({
+ *  accessToken: 'myAccessToken',
+ *  space: 'mySpaceId'
+ * })
+ */
+
+function createClient(params) {
+  if (!params.accessToken) {
+    throw new TypeError('Expected parameter accessToken');
+  }
+
+  if (!params.space) {
+    throw new TypeError('Expected parameter space');
+  }
+
+  // Use resolveLinks param if specified, otherwise default to true
+  var resolveLinks = !!('resolveLinks' in params ? params.resolveLinks : true);
+  var shouldLinksResolve = (0, _createLinkResolver2.default)(resolveLinks);
+  var userAgentHeader = (0, _contentfulSdkCore.getUserAgentHeader)('contentful.js/' + '5.0.5', params.application, params.integration);
+  params.defaultHostname = 'cdn.contentful.com';
+  params.headers = _extends({}, params.headers, {
+    'Content-Type': 'application/vnd.contentful.delivery.v1+json',
+    'X-Contentful-User-Agent': userAgentHeader
+  });
+
+  var http = (0, _contentfulSdkCore.createHttpClient)(_axios2.default, params);
+
+  return (0, _createContentfulApi2.default)({
+    http: http,
+    shouldLinksResolve: shouldLinksResolve
+  });
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var getNative = __webpack_require__(3),
     root = __webpack_require__(1);
 
@@ -1231,7 +1347,7 @@ var Map = getNative(root, 'Map');
 module.exports = Map;
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1245,7 +1361,7 @@ var _Symbol = root.Symbol;
 module.exports = _Symbol;
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1269,7 +1385,7 @@ function cloneArrayBuffer(arrayBuffer) {
 module.exports = cloneArrayBuffer;
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1283,7 +1399,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 module.exports = getPrototype;
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1321,7 +1437,7 @@ var getSymbols = !nativeGetSymbols ? stubArray : function (object) {
 module.exports = getSymbols;
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1347,7 +1463,7 @@ function isPrototype(value) {
 module.exports = isPrototype;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1392,7 +1508,7 @@ function keys(object) {
 module.exports = keys;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1403,7 +1519,7 @@ var settle = __webpack_require__(68);
 var buildURL = __webpack_require__(71);
 var parseHeaders = __webpack_require__(77);
 var isURLSameOrigin = __webpack_require__(75);
-var createError = __webpack_require__(28);
+var createError = __webpack_require__(30);
 var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(70);
 
 module.exports = function xhrAdapter(config) {
@@ -1573,7 +1689,7 @@ module.exports = function xhrAdapter(config) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1599,7 +1715,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1610,7 +1726,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1634,7 +1750,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1649,122 +1765,6 @@ module.exports = function bind(fn, thisArg) {
     return fn.apply(thisArg, args);
   };
 };
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var config = exports.config = {
-  example: 'buildTest',
-  space: '4mjv06nmwwqe',
-  accessToken: 'd924f186a56ef0d8ad255750431af692ced8b6efdc63100822467706a30dd2b7'
-};
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createClient = createClient;
-
-var _axios = __webpack_require__(61);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-var _createContentfulApi = __webpack_require__(86);
-
-var _createContentfulApi2 = _interopRequireDefault(_createContentfulApi);
-
-var _createLinkResolver = __webpack_require__(87);
-
-var _createLinkResolver2 = _interopRequireDefault(_createLinkResolver);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-/**
- * Contentful Delivery API SDK. Allows you to create instances of a client
- * with access to the Contentful Content Delivery API.
- * @namespace contentful
- * @see ContentfulClientAPI
- */
-
-/**
- * Create a client instance
- * @func
- * @name createClient
- * @memberof contentful
- * @param {Object} params - Client initialization parameters
- * @prop {string} params.space - Space ID
- * @prop {string} params.accessToken - Contentful CDA Access Token
- * @prop {boolean=} params.insecure - Requests will be made over http instead of the default https (default: true)
- * @prop {string=} params.host - API host (default: cdn.contentful.com). Also usable with preview.contentful.com.
- * @prop {string=} params.basePath - Path appended to the host to support gateways/proxies with custom urls.
- * @prop {Object=} params.httpAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
- * @prop {Object=} params.httpsAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
- * @prop {Object=} params.proxy - Optional Axios proxy (see <a href="https://github.com/mzabriskie/axios#request-config"> axios docs </a>)
- * @prop {Object=} params.headers - Optional additional headers
- * @prop {boolean=?} params.resolveLinks - If we should resolve links between entries (default: true)
- * @prop {boolean=?} params.retryOnError - If we should retry on errors and 429 rate limit exceptions (default: true)
- * @prop {string=?} params.application - Application name and version e.g myApp/version
- * @prop {string=?} params.integration - Integration name and version e.g react/version
- * @returns {ContentfulClientAPI.ClientAPI}
- * @example
- * const contentful = require('contentful')
- * const client = contentful.createClient({
- *  accessToken: 'myAccessToken',
- *  space: 'mySpaceId'
- * })
- */
-
-function createClient(params) {
-  if (!params.accessToken) {
-    throw new TypeError('Expected parameter accessToken');
-  }
-
-  if (!params.space) {
-    throw new TypeError('Expected parameter space');
-  }
-
-  // Use resolveLinks param if specified, otherwise default to true
-  var resolveLinks = !!('resolveLinks' in params ? params.resolveLinks : true);
-  var shouldLinksResolve = (0, _createLinkResolver2.default)(resolveLinks);
-  var userAgentHeader = (0, _contentfulSdkCore.getUserAgentHeader)('contentful.js/' + '5.0.5', params.application, params.integration);
-  params.defaultHostname = 'cdn.contentful.com';
-  params.headers = _extends({}, params.headers, {
-    'Content-Type': 'application/vnd.contentful.delivery.v1+json',
-    'X-Contentful-User-Agent': userAgentHeader
-  });
-
-  var http = (0, _contentfulSdkCore.createHttpClient)(_axios2.default, params);
-
-  return (0, _createContentfulApi2.default)({
-    http: http,
-    shouldLinksResolve: shouldLinksResolve
-  });
-}
 
 /***/ }),
 /* 32 */
@@ -12059,8 +12059,8 @@ module.exports = freeGlobal;
 
 
 var arrayPush = __webpack_require__(37),
-    getPrototype = __webpack_require__(21),
-    getSymbols = __webpack_require__(22),
+    getPrototype = __webpack_require__(23),
+    getSymbols = __webpack_require__(24),
     stubArray = __webpack_require__(55);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -12404,7 +12404,7 @@ module.exports = isLength;
 
 
 var baseGetTag = __webpack_require__(5),
-    getPrototype = __webpack_require__(21),
+    getPrototype = __webpack_require__(23),
     isObjectLike = __webpack_require__(6);
 
 /** `Object#toString` result references. */
@@ -12996,7 +12996,7 @@ module.exports = __webpack_require__(62);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(29);
+var bind = __webpack_require__(31);
 var Axios = __webpack_require__(64);
 var defaults = __webpack_require__(17);
 
@@ -13031,9 +13031,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(26);
+axios.Cancel = __webpack_require__(28);
 axios.CancelToken = __webpack_require__(63);
-axios.isCancel = __webpack_require__(27);
+axios.isCancel = __webpack_require__(29);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -13053,7 +13053,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(26);
+var Cancel = __webpack_require__(28);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -13261,7 +13261,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(69);
-var isCancel = __webpack_require__(27);
+var isCancel = __webpack_require__(29);
 var defaults = __webpack_require__(17);
 var isAbsoluteURL = __webpack_require__(74);
 var combineURLs = __webpack_require__(72);
@@ -13360,7 +13360,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var createError = __webpack_require__(28);
+var createError = __webpack_require__(30);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -16035,7 +16035,7 @@ module.exports = arrayFilter;
 
 
 var copyObject = __webpack_require__(12),
-    keys = __webpack_require__(24);
+    keys = __webpack_require__(26);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -16102,7 +16102,7 @@ var Stack = __webpack_require__(101),
     isArray = __webpack_require__(15),
     isBuffer = __webpack_require__(48),
     isObject = __webpack_require__(8),
-    keys = __webpack_require__(24);
+    keys = __webpack_require__(26);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -16402,7 +16402,7 @@ module.exports = baseIsTypedArray;
 "use strict";
 
 
-var isPrototype = __webpack_require__(23),
+var isPrototype = __webpack_require__(25),
     nativeKeys = __webpack_require__(158);
 
 /** Used for built-in method references. */
@@ -16441,7 +16441,7 @@ module.exports = baseKeys;
 
 
 var isObject = __webpack_require__(8),
-    isPrototype = __webpack_require__(23),
+    isPrototype = __webpack_require__(25),
     nativeKeysIn = __webpack_require__(159);
 
 /** Used for built-in method references. */
@@ -16577,7 +16577,7 @@ module.exports = cloneBuffer;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(20);
+var cloneArrayBuffer = __webpack_require__(22);
 
 /**
  * Creates a clone of `dataView`.
@@ -16686,7 +16686,7 @@ module.exports = cloneSet;
 "use strict";
 
 
-var _Symbol = __webpack_require__(19);
+var _Symbol = __webpack_require__(21);
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = _Symbol ? _Symbol.prototype : undefined,
@@ -16712,7 +16712,7 @@ module.exports = cloneSymbol;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(20);
+var cloneArrayBuffer = __webpack_require__(22);
 
 /**
  * Creates a clone of `typedArray`.
@@ -16765,7 +16765,7 @@ module.exports = copyArray;
 
 
 var copyObject = __webpack_require__(12),
-    getSymbols = __webpack_require__(22);
+    getSymbols = __webpack_require__(24);
 
 /**
  * Copies own symbols of `source` to `object`.
@@ -16846,8 +16846,8 @@ module.exports = defineProperty;
 
 
 var baseGetAllKeys = __webpack_require__(41),
-    getSymbols = __webpack_require__(22),
-    keys = __webpack_require__(24);
+    getSymbols = __webpack_require__(24),
+    keys = __webpack_require__(26);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -16894,7 +16894,7 @@ module.exports = getAllKeysIn;
 "use strict";
 
 
-var _Symbol = __webpack_require__(19);
+var _Symbol = __webpack_require__(21);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -16949,7 +16949,7 @@ module.exports = getRawTag;
 
 
 var DataView = __webpack_require__(97),
-    Map = __webpack_require__(18),
+    Map = __webpack_require__(20),
     Promise = __webpack_require__(99),
     Set = __webpack_require__(100),
     WeakMap = __webpack_require__(103),
@@ -17218,7 +17218,7 @@ module.exports = initCloneArray;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(20),
+var cloneArrayBuffer = __webpack_require__(22),
     cloneDataView = __webpack_require__(120),
     cloneMap = __webpack_require__(121),
     cloneRegExp = __webpack_require__(122),
@@ -17307,8 +17307,8 @@ module.exports = initCloneByTag;
 
 
 var baseCreate = __webpack_require__(111),
-    getPrototype = __webpack_require__(21),
-    isPrototype = __webpack_require__(23);
+    getPrototype = __webpack_require__(23),
+    isPrototype = __webpack_require__(25);
 
 /**
  * Initializes an object clone.
@@ -17560,7 +17560,7 @@ module.exports = listCacheSet;
 
 var Hash = __webpack_require__(98),
     ListCache = __webpack_require__(10),
-    Map = __webpack_require__(18);
+    Map = __webpack_require__(20);
 
 /**
  * Removes all key-value entries from the map.
@@ -17942,7 +17942,7 @@ module.exports = stackHas;
 
 
 var ListCache = __webpack_require__(10),
-    Map = __webpack_require__(18),
+    Map = __webpack_require__(20),
     MapCache = __webpack_require__(35);
 
 /** Used as the size to enable large array optimizations. */
@@ -18992,8 +18992,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var contentful = __webpack_require__(31);
-var config = __webpack_require__(30);
+var contentful = __webpack_require__(19);
+var config = __webpack_require__(18);
 
 /**
  *
@@ -19064,7 +19064,6 @@ var alertBar = function (_Component) {
 
             // get all blog posts and render to the page
             client.getEntry('1sIbBvEzuYQKeoG2IkQwGG').then(function (entry) {
-                console.log(entry);
                 if (entry.fields.alertActive === true) {
                     alertCont.html(entry.fields.alertBarContent);
                 } else {
@@ -19107,8 +19106,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var contentful = __webpack_require__(31);
-var config = __webpack_require__(30);
+var contentful = __webpack_require__(19);
+var config = __webpack_require__(18);
 
 /**
  *
@@ -19221,6 +19220,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var contentful = __webpack_require__(19);
+var config = __webpack_require__(18);
+
 // const autocomplete = require('autocomplete.js');
 
 /**
@@ -19229,6 +19231,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @class featureCarousel
  * @extends {Component}
  */
+
 var featureCarousel = function (_Component) {
   _inherits(featureCarousel, _Component);
 
@@ -19240,36 +19243,61 @@ var featureCarousel = function (_Component) {
   function featureCarousel() {
     _classCallCheck(this, featureCarousel);
 
+    //check if element exists on the page
     var _this = _possibleConstructorReturn(this, (featureCarousel.__proto__ || Object.getPrototypeOf(featureCarousel)).call(this, 'C04'));
 
-    console.log('this file is running');
-
-    _this.initSlick();
-
-    // if (super.exists()) {
-    //   const device = new Device();
-
-    //   this.checkCookie();
-
-    //   if (device.mobile()) {
-    //     console.log("we're on mobile");
-    //   } else {
-    //     console.log("this ain't a mobile");
-    //   }
-    // }
+    var dataID = 'C04';
+    var self = _this;
+    $("div[data-id]").each(function () {
+      // if exists, execute alertBar
+      if ($(this).data("id") === dataID) {
+        self.populateSlides();
+        // self.initSlick();
+      }
+    });
     return _this;
   }
 
   _createClass(featureCarousel, [{
-    key: 'initSlick',
-    value: function initSlick() {
-      $(".feature-carousel").slick({
-        autoplay: true,
-        dots: true,
-        infinite: true,
-        vertical: true,
-        verticalSwiping: true
+    key: 'populateSlides',
+    value: function populateSlides() {
+      var self = this;
+      var carouselCont = $('.feature-carousel-cont');
+
+      //contentful initialisation 
+      var client = contentful.createClient({
+        space: config.config.space,
+        accessToken: config.config.accessToken
       });
+
+      // get all blog posts and render to the page
+      client.getEntries({
+        content_type: '2wKn6yEnZewu2SCCkus4as'
+      }).then(function (response) {
+        var html = '';
+
+        console.log(response.items);
+
+        response.items.forEach(function (entry) {
+          var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
+          console.log(slideBackground);
+          var featureSlide = '<div class="slide">' + '<div class="slide-cover" style="background-image: url(' + slideBackground + ')"></div>' + '<div class="slide-details">' + '<h2 class="slide-title"><a href="#">' + entry.fields.title + '</a></h2>' + '<p class="slide-date">' + entry.fields.date + '</p>' + '</div>' + '</div>';
+
+          //add the entry to the element
+          html = html + featureSlide;
+        });
+
+        // replace html with the created blog tiles to display 
+        carouselCont.html(html);
+
+        $(".feature-carousel").slick({
+          autoplay: true,
+          dots: true,
+          infinite: true,
+          vertical: true,
+          verticalSwiping: true
+        });
+      }).catch(console.error);
     }
   }]);
 
