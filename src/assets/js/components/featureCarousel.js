@@ -45,7 +45,8 @@ class featureCarousel extends Component {
 
     // get all blog posts and render to the page
     client.getEntries({
-      content_type: '2wKn6yEnZewu2SCCkus4as'
+      content_type: '2wKn6yEnZewu2SCCkus4as',
+      limit: 3
     })
     .then((response) => {
         var html = '';
