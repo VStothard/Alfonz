@@ -6,12 +6,13 @@
 
     @include themify($themes) {
         background-color: themed('tertiaryColor'); 
+        color: themed('blogWhite');
     }
 
     &:hover {
         @include themify($themes) {
-            background-color: themed('primaryColor'); 
-            color: white;
+            background-color: themed('spaceGrey'); 
+            color: themed('blogWhite');
         }
     }
 }

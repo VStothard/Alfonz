@@ -1,3 +1,27 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    @include themify($themes) {
+        color: themed('spaceGrey'); 
+    }
+}
+
 p {
     margin: 0;
 }
@@ -5,16 +29,13 @@ p {
 a {
     color: inherit;
     cursor: pointer;
-    font-weight: 600;
     text-decoration: none;
     &:hover {
-        color: inherit;
         @include themify($themes) {
             color: themed('tertiaryColor'); 
             cursor: pointer; 
         }
     }
-    
 }
 
 .bold {

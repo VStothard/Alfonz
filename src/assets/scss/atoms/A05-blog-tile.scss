@@ -9,14 +9,16 @@
         }
 
         .blog-tile-image {
-
-           opacity: 0.9;
+           opacity: 0.7;
            transition: $blog-tile-transition;
 
         }
     }
 
     .blog-tile-cont {
+        @include themify($themes) {
+            background-color: themed('spaceGrey'); 
+        }
         display: block;
         overflow: hidden;
         position: relative;

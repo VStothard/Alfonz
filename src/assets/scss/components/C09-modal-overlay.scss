@@ -1,6 +1,6 @@
 .C09-modal-overlay {
     @include themify($themes) {
-        background-color: themed('primaryColor'); 
+        background-color: themed('spaceGrey'); 
         z-index: themed('modalOverlay'); 
     }
 
