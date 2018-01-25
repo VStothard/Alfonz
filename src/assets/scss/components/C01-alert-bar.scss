@@ -4,6 +4,17 @@
         background-color: themed('secondaryColor');  
     }
 
-    padding: 5px 0;
+    padding: 5px 30px;
     text-align: center;
+
+    .close {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 3px;
+
+        svg {
+            width: 15px;
+        }
+    }
 }

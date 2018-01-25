@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 184);
+/******/ 	return __webpack_require__(__webpack_require__.s = 185);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -76,7 +76,7 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var bind = __webpack_require__(29);
-var isBuffer = __webpack_require__(94);
+var isBuffer = __webpack_require__(95);
 
 /*global toString:true*/
 
@@ -383,7 +383,7 @@ module.exports = {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var freeGlobal = __webpack_require__(39);
+var freeGlobal = __webpack_require__(42);
 
 /** Detect free variable `self`. */
 var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
@@ -404,7 +404,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createHttpClient = __webpack_require__(77);
+var _createHttpClient = __webpack_require__(79);
 
 Object.defineProperty(exports, 'createHttpClient', {
   enumerable: true,
@@ -413,7 +413,7 @@ Object.defineProperty(exports, 'createHttpClient', {
   }
 });
 
-var _createRequestConfig = __webpack_require__(78);
+var _createRequestConfig = __webpack_require__(80);
 
 Object.defineProperty(exports, 'createRequestConfig', {
   enumerable: true,
@@ -422,7 +422,7 @@ Object.defineProperty(exports, 'createRequestConfig', {
   }
 });
 
-var _enforceObjPath = __webpack_require__(79);
+var _enforceObjPath = __webpack_require__(81);
 
 Object.defineProperty(exports, 'enforceObjPath', {
   enumerable: true,
@@ -431,7 +431,7 @@ Object.defineProperty(exports, 'enforceObjPath', {
   }
 });
 
-var _freezeSys = __webpack_require__(80);
+var _freezeSys = __webpack_require__(82);
 
 Object.defineProperty(exports, 'freezeSys', {
   enumerable: true,
@@ -440,7 +440,7 @@ Object.defineProperty(exports, 'freezeSys', {
   }
 });
 
-var _getUserAgent = __webpack_require__(81);
+var _getUserAgent = __webpack_require__(83);
 
 Object.defineProperty(exports, 'getUserAgentHeader', {
   enumerable: true,
@@ -449,7 +449,7 @@ Object.defineProperty(exports, 'getUserAgentHeader', {
   }
 });
 
-var _toPlainObject = __webpack_require__(83);
+var _toPlainObject = __webpack_require__(85);
 
 Object.defineProperty(exports, 'toPlainObject', {
   enumerable: true,
@@ -602,6 +602,82 @@ module.exports = isObjectLike;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Component = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _isString = __webpack_require__(53);
+
+var _isString2 = _interopRequireDefault(_isString);
+
+var _isElement = __webpack_require__(49);
+
+var _isElement2 = _interopRequireDefault(_isElement);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Component Super Class
+ * @class Component
+ */
+var Component = function () {
+
+  /**
+   * Creates an instance of Component.
+   * @param {string} id The ID of the component.
+   *
+   * @memberof Component
+   */
+
+  function Component(id) {
+    _classCallCheck(this, Component);
+
+    this.componentId = (0, _isString2.default)(id) ? id : '';
+    this.elements;
+  }
+
+  /**
+   * Tests for the existance of a component/s.
+   *
+   * @returns {boolean} If the element exists.
+   * @memberof Component
+   */
+
+
+  _createClass(Component, [{
+    key: 'exists',
+    value: function exists() {
+      console.log('hellooo');
+      this.elements = document.querySelectorAll('[data-id=\'' + this.componentId.toLowerCase() + '\']');
+      console.log(this.elements, 1000);
+
+      if (!(0, _isElement2.default)(this.elements[0])) {
+        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2716 is not present, aborting.');
+      } else {
+        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2714 is present, running class.');
+      }
+
+      return (0, _isElement2.default)(this.elements[0]);
+    }
+  }]);
+
+  return Component;
+}();
+
+exports.Component = Component;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
@@ -637,7 +713,7 @@ function isObject(value) {
 module.exports = isObject;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -830,82 +906,6 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Component = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _isString = __webpack_require__(50);
-
-var _isString2 = _interopRequireDefault(_isString);
-
-var _isElement = __webpack_require__(46);
-
-var _isElement2 = _interopRequireDefault(_isElement);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Component Super Class
- * @class Component
- */
-var Component = function () {
-
-  /**
-   * Creates an instance of Component.
-   * @param {string} id The ID of the component.
-   *
-   * @memberof Component
-   */
-
-  function Component(id) {
-    _classCallCheck(this, Component);
-
-    this.componentId = (0, _isString2.default)(id) ? id : '';
-    this.elements;
-  }
-
-  /**
-   * Tests for the existance of a component/s.
-   *
-   * @returns {boolean} If the element exists.
-   * @memberof Component
-   */
-
-
-  _createClass(Component, [{
-    key: 'exists',
-    value: function exists() {
-      console.log('hellooo');
-      this.elements = document.querySelectorAll('[data-id=\'' + this.componentId.toLowerCase() + '\']');
-      console.log(this.elements, 1000);
-
-      if (!(0, _isElement2.default)(this.elements[0])) {
-        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2716 is not present, aborting.');
-      } else {
-        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2714 is present, running class.');
-      }
-
-      return (0, _isElement2.default)(this.elements[0]);
-    }
-  }]);
-
-  return Component;
-}();
-
-exports.Component = Component;
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -952,7 +952,7 @@ module.exports = ListCache;
 "use strict";
 
 
-var eq = __webpack_require__(43);
+var eq = __webpack_require__(46);
 
 /**
  * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -981,8 +981,8 @@ module.exports = assocIndexOf;
 "use strict";
 
 
-var assignValue = __webpack_require__(36),
-    baseAssignValue = __webpack_require__(37);
+var assignValue = __webpack_require__(39),
+    baseAssignValue = __webpack_require__(40);
 
 /**
  * Copies properties of `source` to `object`.
@@ -1130,7 +1130,7 @@ module.exports = function (module) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(73);
+var normalizeHeaderName = __webpack_require__(76);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1213,7 +1213,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 18 */
@@ -1275,7 +1275,7 @@ module.exports = cloneArrayBuffer;
 "use strict";
 
 
-var overArg = __webpack_require__(41);
+var overArg = __webpack_require__(44);
 
 /** Built-in value references. */
 var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -1290,7 +1290,7 @@ module.exports = getPrototype;
 
 
 var arrayFilter = __webpack_require__(107),
-    stubArray = __webpack_require__(52);
+    stubArray = __webpack_require__(55);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -1353,9 +1353,9 @@ module.exports = isPrototype;
 "use strict";
 
 
-var arrayLikeKeys = __webpack_require__(33),
+var arrayLikeKeys = __webpack_require__(36),
     baseKeys = __webpack_require__(115),
-    isArrayLike = __webpack_require__(44);
+    isArrayLike = __webpack_require__(47);
 
 /**
  * Creates an array of the own enumerable property names of `object`.
@@ -1399,12 +1399,12 @@ module.exports = keys;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(65);
-var buildURL = __webpack_require__(68);
-var parseHeaders = __webpack_require__(74);
-var isURLSameOrigin = __webpack_require__(72);
+var settle = __webpack_require__(68);
+var buildURL = __webpack_require__(71);
+var parseHeaders = __webpack_require__(77);
+var isURLSameOrigin = __webpack_require__(75);
 var createError = __webpack_require__(28);
-var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(67);
+var btoa = typeof window !== 'undefined' && window.btoa && window.btoa.bind(window) || __webpack_require__(70);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -1497,7 +1497,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(70);
+      var cookies = __webpack_require__(73);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ? cookies.read(config.xsrfCookieName) : undefined;
@@ -1570,7 +1570,7 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
 /* 26 */
@@ -1616,7 +1616,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(64);
+var enhanceError = __webpack_require__(67);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -1652,6 +1652,122 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 /* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var config = exports.config = {
+  example: 'buildTest',
+  space: '4mjv06nmwwqe',
+  accessToken: 'd924f186a56ef0d8ad255750431af692ced8b6efdc63100822467706a30dd2b7'
+};
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createClient = createClient;
+
+var _axios = __webpack_require__(61);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+var _createContentfulApi = __webpack_require__(86);
+
+var _createContentfulApi2 = _interopRequireDefault(_createContentfulApi);
+
+var _createLinkResolver = __webpack_require__(87);
+
+var _createLinkResolver2 = _interopRequireDefault(_createLinkResolver);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+/**
+ * Contentful Delivery API SDK. Allows you to create instances of a client
+ * with access to the Contentful Content Delivery API.
+ * @namespace contentful
+ * @see ContentfulClientAPI
+ */
+
+/**
+ * Create a client instance
+ * @func
+ * @name createClient
+ * @memberof contentful
+ * @param {Object} params - Client initialization parameters
+ * @prop {string} params.space - Space ID
+ * @prop {string} params.accessToken - Contentful CDA Access Token
+ * @prop {boolean=} params.insecure - Requests will be made over http instead of the default https (default: true)
+ * @prop {string=} params.host - API host (default: cdn.contentful.com). Also usable with preview.contentful.com.
+ * @prop {string=} params.basePath - Path appended to the host to support gateways/proxies with custom urls.
+ * @prop {Object=} params.httpAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
+ * @prop {Object=} params.httpsAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
+ * @prop {Object=} params.proxy - Optional Axios proxy (see <a href="https://github.com/mzabriskie/axios#request-config"> axios docs </a>)
+ * @prop {Object=} params.headers - Optional additional headers
+ * @prop {boolean=?} params.resolveLinks - If we should resolve links between entries (default: true)
+ * @prop {boolean=?} params.retryOnError - If we should retry on errors and 429 rate limit exceptions (default: true)
+ * @prop {string=?} params.application - Application name and version e.g myApp/version
+ * @prop {string=?} params.integration - Integration name and version e.g react/version
+ * @returns {ContentfulClientAPI.ClientAPI}
+ * @example
+ * const contentful = require('contentful')
+ * const client = contentful.createClient({
+ *  accessToken: 'myAccessToken',
+ *  space: 'mySpaceId'
+ * })
+ */
+
+function createClient(params) {
+  if (!params.accessToken) {
+    throw new TypeError('Expected parameter accessToken');
+  }
+
+  if (!params.space) {
+    throw new TypeError('Expected parameter space');
+  }
+
+  // Use resolveLinks param if specified, otherwise default to true
+  var resolveLinks = !!('resolveLinks' in params ? params.resolveLinks : true);
+  var shouldLinksResolve = (0, _createLinkResolver2.default)(resolveLinks);
+  var userAgentHeader = (0, _contentfulSdkCore.getUserAgentHeader)('contentful.js/' + '5.0.5', params.application, params.integration);
+  params.defaultHostname = 'cdn.contentful.com';
+  params.headers = _extends({}, params.headers, {
+    'Content-Type': 'application/vnd.contentful.delivery.v1+json',
+    'X-Contentful-User-Agent': userAgentHeader
+  });
+
+  var http = (0, _contentfulSdkCore.createHttpClient)(_axios2.default, params);
+
+  return (0, _createContentfulApi2.default)({
+    http: http,
+    shouldLinksResolve: shouldLinksResolve
+  });
+}
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1791,7 +1907,7 @@ function mixinLinkGetters(items, includes) {
 }
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1832,4119 +1948,7 @@ function mixinStringifySafe(data) {
 }
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var mapCacheClear = __webpack_require__(152),
-    mapCacheDelete = __webpack_require__(153),
-    mapCacheGet = __webpack_require__(154),
-    mapCacheHas = __webpack_require__(155),
-    mapCacheSet = __webpack_require__(156);
-
-/**
- * Creates a map cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function MapCache(entries) {
-    var index = -1,
-        length = entries == null ? 0 : entries.length;
-
-    this.clear();
-    while (++index < length) {
-        var entry = entries[index];
-        this.set(entry[0], entry[1]);
-    }
-}
-
-// Add methods to `MapCache`.
-MapCache.prototype.clear = mapCacheClear;
-MapCache.prototype['delete'] = mapCacheDelete;
-MapCache.prototype.get = mapCacheGet;
-MapCache.prototype.has = mapCacheHas;
-MapCache.prototype.set = mapCacheSet;
-
-module.exports = MapCache;
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseTimes = __webpack_require__(117),
-    isArguments = __webpack_require__(168),
-    isArray = __webpack_require__(15),
-    isBuffer = __webpack_require__(45),
-    isIndex = __webpack_require__(144),
-    isTypedArray = __webpack_require__(169);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Creates an array of the enumerable property names of the array-like `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @param {boolean} inherited Specify returning inherited property names.
- * @returns {Array} Returns the array of property names.
- */
-function arrayLikeKeys(value, inherited) {
-  var isArr = isArray(value),
-      isArg = !isArr && isArguments(value),
-      isBuff = !isArr && !isArg && isBuffer(value),
-      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
-      skipIndexes = isArr || isArg || isBuff || isType,
-      result = skipIndexes ? baseTimes(value.length, String) : [],
-      length = result.length;
-
-  for (var key in value) {
-    if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && (
-    // Safari 9 has enumerable `arguments.length` in strict mode.
-    key == 'length' ||
-    // Node.js 0.10 has enumerable non-index properties on buffers.
-    isBuff && (key == 'offset' || key == 'parent') ||
-    // PhantomJS 2 has enumerable non-index properties on typed arrays.
-    isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') ||
-    // Skip index properties.
-    isIndex(key, length)))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = arrayLikeKeys;
-
-/***/ }),
 /* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Appends the elements of `values` to `array`.
- *
- * @private
- * @param {Array} array The array to modify.
- * @param {Array} values The values to append.
- * @returns {Array} Returns `array`.
- */
-function arrayPush(array, values) {
-  var index = -1,
-      length = values.length,
-      offset = array.length;
-
-  while (++index < length) {
-    array[offset + index] = values[index];
-  }
-  return array;
-}
-
-module.exports = arrayPush;
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A specialized version of `_.reduce` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @param {*} [accumulator] The initial value.
- * @param {boolean} [initAccum] Specify using the first element of `array` as
- *  the initial value.
- * @returns {*} Returns the accumulated value.
- */
-function arrayReduce(array, iteratee, accumulator, initAccum) {
-  var index = -1,
-      length = array == null ? 0 : array.length;
-
-  if (initAccum && length) {
-    accumulator = array[++index];
-  }
-  while (++index < length) {
-    accumulator = iteratee(accumulator, array[index], index, array);
-  }
-  return accumulator;
-}
-
-module.exports = arrayReduce;
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseAssignValue = __webpack_require__(37),
-    eq = __webpack_require__(43);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Assigns `value` to `key` of `object` if the existing value is not equivalent
- * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * for equality comparisons.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
- */
-function assignValue(object, key, value) {
-  var objValue = object[key];
-  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) || value === undefined && !(key in object)) {
-    baseAssignValue(object, key, value);
-  }
-}
-
-module.exports = assignValue;
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var defineProperty = __webpack_require__(130);
-
-/**
- * The base implementation of `assignValue` and `assignMergeValue` without
- * value checks.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
- */
-function baseAssignValue(object, key, value) {
-  if (key == '__proto__' && defineProperty) {
-    defineProperty(object, key, {
-      'configurable': true,
-      'enumerable': true,
-      'value': value,
-      'writable': true
-    });
-  } else {
-    object[key] = value;
-  }
-}
-
-module.exports = baseAssignValue;
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var arrayPush = __webpack_require__(34),
-    isArray = __webpack_require__(15);
-
-/**
- * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
- * `keysFunc` and `symbolsFunc` to get the enumerable property names and
- * symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Function} keysFunc The function to get the keys of `object`.
- * @param {Function} symbolsFunc The function to get the symbols of `object`.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function baseGetAllKeys(object, keysFunc, symbolsFunc) {
-  var result = keysFunc(object);
-  return isArray(object) ? result : arrayPush(result, symbolsFunc(object));
-}
-
-module.exports = baseGetAllKeys;
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
-
-module.exports = freeGlobal;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var arrayPush = __webpack_require__(34),
-    getPrototype = __webpack_require__(21),
-    getSymbols = __webpack_require__(22),
-    stubArray = __webpack_require__(52);
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeGetSymbols = Object.getOwnPropertySymbols;
-
-/**
- * Creates an array of the own and inherited enumerable symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of symbols.
- */
-var getSymbolsIn = !nativeGetSymbols ? stubArray : function (object) {
-  var result = [];
-  while (object) {
-    arrayPush(result, getSymbols(object));
-    object = getPrototype(object);
-  }
-  return result;
-};
-
-module.exports = getSymbolsIn;
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Creates a unary function that invokes `func` with its argument transformed.
- *
- * @private
- * @param {Function} func The function to wrap.
- * @param {Function} transform The argument transform.
- * @returns {Function} Returns the new function.
- */
-function overArg(func, transform) {
-  return function (arg) {
-    return func(transform(arg));
-  };
-}
-
-module.exports = overArg;
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/**
- * Converts `func` to its source code.
- *
- * @private
- * @param {Function} func The function to convert.
- * @returns {string} Returns the source code.
- */
-function toSource(func) {
-  if (func != null) {
-    try {
-      return funcToString.call(func);
-    } catch (e) {}
-    try {
-      return func + '';
-    } catch (e) {}
-  }
-  return '';
-}
-
-module.exports = toSource;
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Performs a
- * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * comparison between two values to determine if they are equivalent.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to compare.
- * @param {*} other The other value to compare.
- * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
- * @example
- *
- * var object = { 'a': 1 };
- * var other = { 'a': 1 };
- *
- * _.eq(object, object);
- * // => true
- *
- * _.eq(object, other);
- * // => false
- *
- * _.eq('a', 'a');
- * // => true
- *
- * _.eq('a', Object('a'));
- * // => false
- *
- * _.eq(NaN, NaN);
- * // => true
- */
-function eq(value, other) {
-  return value === other || value !== value && other !== other;
-}
-
-module.exports = eq;
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var isFunction = __webpack_require__(47),
-    isLength = __webpack_require__(48);
-
-/**
- * Checks if `value` is array-like. A value is considered array-like if it's
- * not a function and has a `value.length` that's an integer greater than or
- * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- * @example
- *
- * _.isArrayLike([1, 2, 3]);
- * // => true
- *
- * _.isArrayLike(document.body.children);
- * // => true
- *
- * _.isArrayLike('abc');
- * // => true
- *
- * _.isArrayLike(_.noop);
- * // => false
- */
-function isArrayLike(value) {
-  return value != null && isLength(value.length) && !isFunction(value);
-}
-
-module.exports = isArrayLike;
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var root = __webpack_require__(1),
-    stubFalse = __webpack_require__(171);
-
-/** Detect free variable `exports`. */
-var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
-
-/** Detect free variable `module`. */
-var freeModule = freeExports && ( false ? 'undefined' : _typeof(module)) == 'object' && module && !module.nodeType && module;
-
-/** Detect the popular CommonJS extension `module.exports`. */
-var moduleExports = freeModule && freeModule.exports === freeExports;
-
-/** Built-in value references. */
-var Buffer = moduleExports ? root.Buffer : undefined;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
-
-/**
- * Checks if `value` is a buffer.
- *
- * @static
- * @memberOf _
- * @since 4.3.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
- * @example
- *
- * _.isBuffer(new Buffer(2));
- * // => true
- *
- * _.isBuffer(new Uint8Array(2));
- * // => false
- */
-var isBuffer = nativeIsBuffer || stubFalse;
-
-module.exports = isBuffer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var isObjectLike = __webpack_require__(6),
-    isPlainObject = __webpack_require__(49);
-
-/**
- * Checks if `value` is likely a DOM element.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a DOM element, else `false`.
- * @example
- *
- * _.isElement(document.body);
- * // => true
- *
- * _.isElement('<body>');
- * // => false
- */
-function isElement(value) {
-  return isObjectLike(value) && value.nodeType === 1 && !isPlainObject(value);
-}
-
-module.exports = isElement;
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseGetTag = __webpack_require__(5),
-    isObject = __webpack_require__(7);
-
-/** `Object#toString` result references. */
-var asyncTag = '[object AsyncFunction]',
-    funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]',
-    proxyTag = '[object Proxy]';
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-    if (!isObject(value)) {
-        return false;
-    }
-    // The use of `Object#toString` avoids issues with the `typeof` operator
-    // in Safari 9 which returns 'object' for typed arrays and other constructors.
-    var tag = baseGetTag(value);
-    return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
-}
-
-module.exports = isFunction;
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This method is loosely based on
- * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- * @example
- *
- * _.isLength(3);
- * // => true
- *
- * _.isLength(Number.MIN_VALUE);
- * // => false
- *
- * _.isLength(Infinity);
- * // => false
- *
- * _.isLength('3');
- * // => false
- */
-function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-module.exports = isLength;
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseGetTag = __webpack_require__(5),
-    getPrototype = __webpack_require__(21),
-    isObjectLike = __webpack_require__(6);
-
-/** `Object#toString` result references. */
-var objectTag = '[object Object]';
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype,
-    objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to infer the `Object` constructor. */
-var objectCtorString = funcToString.call(Object);
-
-/**
- * Checks if `value` is a plain object, that is, an object created by the
- * `Object` constructor or one with a `[[Prototype]]` of `null`.
- *
- * @static
- * @memberOf _
- * @since 0.8.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- * }
- *
- * _.isPlainObject(new Foo);
- * // => false
- *
- * _.isPlainObject([1, 2, 3]);
- * // => false
- *
- * _.isPlainObject({ 'x': 0, 'y': 0 });
- * // => true
- *
- * _.isPlainObject(Object.create(null));
- * // => true
- */
-function isPlainObject(value) {
-  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
-    return false;
-  }
-  var proto = getPrototype(value);
-  if (proto === null) {
-    return true;
-  }
-  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-}
-
-module.exports = isPlainObject;
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseGetTag = __webpack_require__(5),
-    isArray = __webpack_require__(15),
-    isObjectLike = __webpack_require__(6);
-
-/** `Object#toString` result references. */
-var stringTag = '[object String]';
-
-/**
- * Checks if `value` is classified as a `String` primitive or object.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a string, else `false`.
- * @example
- *
- * _.isString('abc');
- * // => true
- *
- * _.isString(1);
- * // => false
- */
-function isString(value) {
-    return typeof value == 'string' || !isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
-}
-
-module.exports = isString;
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var arrayLikeKeys = __webpack_require__(33),
-    baseKeysIn = __webpack_require__(116),
-    isArrayLike = __webpack_require__(44);
-
-/**
- * Creates an array of the own and inherited enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @memberOf _
- * @since 3.0.0
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keysIn(new Foo);
- * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
- */
-function keysIn(object) {
-  return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
-}
-
-module.exports = keysIn;
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * This method returns a new empty array.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {Array} Returns the new empty array.
- * @example
- *
- * var arrays = _.times(2, _.stubArray);
- *
- * console.log(arrays);
- * // => [[], []]
- *
- * console.log(arrays[0] === arrays[1]);
- * // => false
- */
-function stubArray() {
-  return [];
-}
-
-module.exports = stubArray;
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var replace = String.prototype.replace;
-var percentTwenties = /%20/g;
-
-module.exports = {
-    'default': 'RFC3986',
-    formatters: {
-        RFC1738: function RFC1738(value) {
-            return replace.call(value, percentTwenties, '+');
-        },
-        RFC3986: function RFC3986(value) {
-            return value;
-        }
-    },
-    RFC1738: 'RFC1738',
-    RFC3986: 'RFC3986'
-};
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var has = Object.prototype.hasOwnProperty;
-
-var hexTable = function () {
-    var array = [];
-    for (var i = 0; i < 256; ++i) {
-        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
-    }
-
-    return array;
-}();
-
-var compactQueue = function compactQueue(queue) {
-    var obj;
-
-    while (queue.length) {
-        var item = queue.pop();
-        obj = item.obj[item.prop];
-
-        if (Array.isArray(obj)) {
-            var compacted = [];
-
-            for (var j = 0; j < obj.length; ++j) {
-                if (typeof obj[j] !== 'undefined') {
-                    compacted.push(obj[j]);
-                }
-            }
-
-            item.obj[item.prop] = compacted;
-        }
-    }
-
-    return obj;
-};
-
-exports.arrayToObject = function arrayToObject(source, options) {
-    var obj = options && options.plainObjects ? Object.create(null) : {};
-    for (var i = 0; i < source.length; ++i) {
-        if (typeof source[i] !== 'undefined') {
-            obj[i] = source[i];
-        }
-    }
-
-    return obj;
-};
-
-exports.merge = function merge(target, source, options) {
-    if (!source) {
-        return target;
-    }
-
-    if ((typeof source === 'undefined' ? 'undefined' : _typeof(source)) !== 'object') {
-        if (Array.isArray(target)) {
-            target.push(source);
-        } else if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object') {
-            if (options.plainObjects || options.allowPrototypes || !has.call(Object.prototype, source)) {
-                target[source] = true;
-            }
-        } else {
-            return [target, source];
-        }
-
-        return target;
-    }
-
-    if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== 'object') {
-        return [target].concat(source);
-    }
-
-    var mergeTarget = target;
-    if (Array.isArray(target) && !Array.isArray(source)) {
-        mergeTarget = exports.arrayToObject(target, options);
-    }
-
-    if (Array.isArray(target) && Array.isArray(source)) {
-        source.forEach(function (item, i) {
-            if (has.call(target, i)) {
-                if (target[i] && _typeof(target[i]) === 'object') {
-                    target[i] = exports.merge(target[i], item, options);
-                } else {
-                    target.push(item);
-                }
-            } else {
-                target[i] = item;
-            }
-        });
-        return target;
-    }
-
-    return Object.keys(source).reduce(function (acc, key) {
-        var value = source[key];
-
-        if (has.call(acc, key)) {
-            acc[key] = exports.merge(acc[key], value, options);
-        } else {
-            acc[key] = value;
-        }
-        return acc;
-    }, mergeTarget);
-};
-
-exports.assign = function assignSingleSource(target, source) {
-    return Object.keys(source).reduce(function (acc, key) {
-        acc[key] = source[key];
-        return acc;
-    }, target);
-};
-
-exports.decode = function (str) {
-    try {
-        return decodeURIComponent(str.replace(/\+/g, ' '));
-    } catch (e) {
-        return str;
-    }
-};
-
-exports.encode = function encode(str) {
-    // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
-    // It has been adapted here for stricter adherence to RFC 3986
-    if (str.length === 0) {
-        return str;
-    }
-
-    var string = typeof str === 'string' ? str : String(str);
-
-    var out = '';
-    for (var i = 0; i < string.length; ++i) {
-        var c = string.charCodeAt(i);
-
-        if (c === 0x2D // -
-        || c === 0x2E // .
-        || c === 0x5F // _
-        || c === 0x7E // ~
-        || c >= 0x30 && c <= 0x39 // 0-9
-        || c >= 0x41 && c <= 0x5A // a-z
-        || c >= 0x61 && c <= 0x7A // A-Z
-        ) {
-                out += string.charAt(i);
-                continue;
-            }
-
-        if (c < 0x80) {
-            out = out + hexTable[c];
-            continue;
-        }
-
-        if (c < 0x800) {
-            out = out + (hexTable[0xC0 | c >> 6] + hexTable[0x80 | c & 0x3F]);
-            continue;
-        }
-
-        if (c < 0xD800 || c >= 0xE000) {
-            out = out + (hexTable[0xE0 | c >> 12] + hexTable[0x80 | c >> 6 & 0x3F] + hexTable[0x80 | c & 0x3F]);
-            continue;
-        }
-
-        i += 1;
-        c = 0x10000 + ((c & 0x3FF) << 10 | string.charCodeAt(i) & 0x3FF);
-        out += hexTable[0xF0 | c >> 18] + hexTable[0x80 | c >> 12 & 0x3F] + hexTable[0x80 | c >> 6 & 0x3F] + hexTable[0x80 | c & 0x3F];
-    }
-
-    return out;
-};
-
-exports.compact = function compact(value) {
-    var queue = [{ obj: { o: value }, prop: 'o' }];
-    var refs = [];
-
-    for (var i = 0; i < queue.length; ++i) {
-        var item = queue[i];
-        var obj = item.obj[item.prop];
-
-        var keys = Object.keys(obj);
-        for (var j = 0; j < keys.length; ++j) {
-            var key = keys[j];
-            var val = obj[key];
-            if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object' && val !== null && refs.indexOf(val) === -1) {
-                queue.push({ obj: obj, prop: key });
-                refs.push(val);
-            }
-        }
-    }
-
-    return compactQueue(queue);
-};
-
-exports.isRegExp = function isRegExp(obj) {
-    return Object.prototype.toString.call(obj) === '[object RegExp]';
-};
-
-exports.isBuffer = function isBuffer(obj) {
-    if (obj === null || typeof obj === 'undefined') {
-        return false;
-    }
-
-    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
-};
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var g;
-
-// This works in non-strict mode
-g = function () {
-	return this;
-}();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1, eval)("this");
-} catch (e) {
-	// This works if the window reference is available
-	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _component = __webpack_require__(9);
-
-Object.keys(_component).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _component[key];
-    }
-  });
-});
-
-var _view = __webpack_require__(179);
-
-Object.keys(_view).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _view[key];
-    }
-  });
-});
-
-var _device = __webpack_require__(178);
-
-Object.keys(_device).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _device[key];
-    }
-  });
-});
-
-var _instaFeed = __webpack_require__(182);
-
-Object.keys(_instaFeed).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _instaFeed[key];
-    }
-  });
-});
-
-var _featureCarousel = __webpack_require__(181);
-
-Object.keys(_featureCarousel).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _featureCarousel[key];
-    }
-  });
-});
-
-var _mainNavigation = __webpack_require__(183);
-
-Object.keys(_mainNavigation).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _mainNavigation[key];
-    }
-  });
-});
-
-var _blogFeed = __webpack_require__(180);
-
-Object.keys(_blogFeed).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _blogFeed[key];
-    }
-  });
-});
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _modules = __webpack_require__(56);
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  /**
-   * Classes
-   */
-  // new Browser();
-  new _modules.Component();
-  new _modules.View();
-
-  /**
-   * Views
-   * Run on a particular page.
-   */
-
-  /**
-   * Components
-   */
-  new _modules.instaFeed();
-  new _modules.featureCarousel();
-  new _modules.mainNav();
-  new _modules.blogFeed();
-
-  /**
-   * Init modules
-   */
-});
-
-//Handlebars testing
-// var source   = document.getElementById("entry-template").innerHTML;
-// var template = Handlebars.compile(source);
-
-// var context = {title: "My New Post", body: "This is my first post!"};
-// var html    = template(context);
-
-// //TODO set up JS classes
-
-// var contentful = require('contentful');
-// require('instafetch.js');
-
-// import $ from 'jquery';
-// import whatInput from 'what-input';
-// //var config = require('config'); -- this works
-// //console.log(config.config.example);
-// var config = require('config');
-
-// console.log(config.config.example);
-
-// window.$ = $;
-
-// import Foundation from 'foundation-sites';
-// // If you want to pick and choose which modules to include, comment out the above and uncomment
-// // the line below
-// //import './lib/foundation-explicit-pieces';
-
-
-// $(document).foundation();
-
-// //contentful initialisation 
-// var client = contentful.createClient({
-//   space: config.config.space,
-//   accessToken: config.config.accessToken
-// });
-
-// client.getEntries()
-// .then(function (entries) {
-//   // log the title for all the entries that have it
-//   entries.items.forEach(function (entry) {
-//     if(entry.fields.productName) {
-//       console.log(entry.fields.productName)
-//     }
-//   })
-// });
-
-// console.log('TEST', 2000);
-
-// //instafetch
-
-// instafetch.init({
-//   accessToken: '769159276.1677ed0.67d2617666634feb9e5d1102636c8bef',
-//   target: 'instafetch',
-//   numOfPics: 4,
-//   caption: true
-// });
-/**
- * Import Classes
- */
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(59);
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-var bind = __webpack_require__(29);
-var Axios = __webpack_require__(61);
-var defaults = __webpack_require__(17);
-
-/**
- * Create an instance of Axios
- *
- * @param {Object} defaultConfig The default config for the instance
- * @return {Axios} A new instance of Axios
- */
-function createInstance(defaultConfig) {
-  var context = new Axios(defaultConfig);
-  var instance = bind(Axios.prototype.request, context);
-
-  // Copy axios.prototype to instance
-  utils.extend(instance, Axios.prototype, context);
-
-  // Copy context to instance
-  utils.extend(instance, context);
-
-  return instance;
-}
-
-// Create the default instance to be exported
-var axios = createInstance(defaults);
-
-// Expose Axios class to allow class inheritance
-axios.Axios = Axios;
-
-// Factory for creating new instances
-axios.create = function create(instanceConfig) {
-  return createInstance(utils.merge(defaults, instanceConfig));
-};
-
-// Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(26);
-axios.CancelToken = __webpack_require__(60);
-axios.isCancel = __webpack_require__(27);
-
-// Expose all/spread
-axios.all = function all(promises) {
-  return Promise.all(promises);
-};
-axios.spread = __webpack_require__(75);
-
-module.exports = axios;
-
-// Allow use of default import syntax in TypeScript
-module.exports.default = axios;
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Cancel = __webpack_require__(26);
-
-/**
- * A `CancelToken` is an object that can be used to request cancellation of an operation.
- *
- * @class
- * @param {Function} executor The executor function.
- */
-function CancelToken(executor) {
-  if (typeof executor !== 'function') {
-    throw new TypeError('executor must be a function.');
-  }
-
-  var resolvePromise;
-  this.promise = new Promise(function promiseExecutor(resolve) {
-    resolvePromise = resolve;
-  });
-
-  var token = this;
-  executor(function cancel(message) {
-    if (token.reason) {
-      // Cancellation has already been requested
-      return;
-    }
-
-    token.reason = new Cancel(message);
-    resolvePromise(token.reason);
-  });
-}
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-CancelToken.prototype.throwIfRequested = function throwIfRequested() {
-  if (this.reason) {
-    throw this.reason;
-  }
-};
-
-/**
- * Returns an object that contains a new `CancelToken` and a function that, when called,
- * cancels the `CancelToken`.
- */
-CancelToken.source = function source() {
-  var cancel;
-  var token = new CancelToken(function executor(c) {
-    cancel = c;
-  });
-  return {
-    token: token,
-    cancel: cancel
-  };
-};
-
-module.exports = CancelToken;
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var defaults = __webpack_require__(17);
-var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(62);
-var dispatchRequest = __webpack_require__(63);
-
-/**
- * Create a new instance of Axios
- *
- * @param {Object} instanceConfig The default config for the instance
- */
-function Axios(instanceConfig) {
-  this.defaults = instanceConfig;
-  this.interceptors = {
-    request: new InterceptorManager(),
-    response: new InterceptorManager()
-  };
-}
-
-/**
- * Dispatch a request
- *
- * @param {Object} config The config specific for this request (merged with this.defaults)
- */
-Axios.prototype.request = function request(config) {
-  /*eslint no-param-reassign:0*/
-  // Allow for axios('example/url'[, config]) a la fetch API
-  if (typeof config === 'string') {
-    config = utils.merge({
-      url: arguments[0]
-    }, arguments[1]);
-  }
-
-  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
-  config.method = config.method.toLowerCase();
-
-  // Hook up interceptors middleware
-  var chain = [dispatchRequest, undefined];
-  var promise = Promise.resolve(config);
-
-  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-    chain.unshift(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-    chain.push(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  while (chain.length) {
-    promise = promise.then(chain.shift(), chain.shift());
-  }
-
-  return promise;
-};
-
-// Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function (url, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url
-    }));
-  };
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function (url, data, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url,
-      data: data
-    }));
-  };
-});
-
-module.exports = Axios;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-function InterceptorManager() {
-  this.handlers = [];
-}
-
-/**
- * Add a new interceptor to the stack
- *
- * @param {Function} fulfilled The function to handle `then` for a `Promise`
- * @param {Function} rejected The function to handle `reject` for a `Promise`
- *
- * @return {Number} An ID used to remove interceptor later
- */
-InterceptorManager.prototype.use = function use(fulfilled, rejected) {
-  this.handlers.push({
-    fulfilled: fulfilled,
-    rejected: rejected
-  });
-  return this.handlers.length - 1;
-};
-
-/**
- * Remove an interceptor from the stack
- *
- * @param {Number} id The ID that was returned by `use`
- */
-InterceptorManager.prototype.eject = function eject(id) {
-  if (this.handlers[id]) {
-    this.handlers[id] = null;
-  }
-};
-
-/**
- * Iterate over all the registered interceptors
- *
- * This method is particularly useful for skipping over any
- * interceptors that may have become `null` calling `eject`.
- *
- * @param {Function} fn The function to call for each interceptor
- */
-InterceptorManager.prototype.forEach = function forEach(fn) {
-  utils.forEach(this.handlers, function forEachHandler(h) {
-    if (h !== null) {
-      fn(h);
-    }
-  });
-};
-
-module.exports = InterceptorManager;
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-var transformData = __webpack_require__(66);
-var isCancel = __webpack_require__(27);
-var defaults = __webpack_require__(17);
-var isAbsoluteURL = __webpack_require__(71);
-var combineURLs = __webpack_require__(69);
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-function throwIfCancellationRequested(config) {
-  if (config.cancelToken) {
-    config.cancelToken.throwIfRequested();
-  }
-}
-
-/**
- * Dispatch a request to the server using the configured adapter.
- *
- * @param {object} config The config that is to be used for the request
- * @returns {Promise} The Promise to be fulfilled
- */
-module.exports = function dispatchRequest(config) {
-  throwIfCancellationRequested(config);
-
-  // Support baseURL config
-  if (config.baseURL && !isAbsoluteURL(config.url)) {
-    config.url = combineURLs(config.baseURL, config.url);
-  }
-
-  // Ensure headers exist
-  config.headers = config.headers || {};
-
-  // Transform request data
-  config.data = transformData(config.data, config.headers, config.transformRequest);
-
-  // Flatten headers
-  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers || {});
-
-  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {
-    delete config.headers[method];
-  });
-
-  var adapter = config.adapter || defaults.adapter;
-
-  return adapter(config).then(function onAdapterResolution(response) {
-    throwIfCancellationRequested(config);
-
-    // Transform response data
-    response.data = transformData(response.data, response.headers, config.transformResponse);
-
-    return response;
-  }, function onAdapterRejection(reason) {
-    if (!isCancel(reason)) {
-      throwIfCancellationRequested(config);
-
-      // Transform response data
-      if (reason && reason.response) {
-        reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);
-      }
-    }
-
-    return Promise.reject(reason);
-  });
-};
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
- */
-
-module.exports = function enhanceError(error, config, code, request, response) {
-  error.config = config;
-  if (code) {
-    error.code = code;
-  }
-  error.request = request;
-  error.response = response;
-  return error;
-};
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var createError = __webpack_require__(28);
-
-/**
- * Resolve or reject a Promise based on response status.
- *
- * @param {Function} resolve A function that resolves the promise.
- * @param {Function} reject A function that rejects the promise.
- * @param {object} response The response.
- */
-module.exports = function settle(resolve, reject, response) {
-  var validateStatus = response.config.validateStatus;
-  // Note: status is not exposed by XDomainRequest
-  if (!response.status || !validateStatus || validateStatus(response.status)) {
-    resolve(response);
-  } else {
-    reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));
-  }
-};
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-/**
- * Transform the data for a request or a response
- *
- * @param {Object|String} data The data to be transformed
- * @param {Array} headers The headers for the request or response
- * @param {Array|Function} fns A single function or Array of functions
- * @returns {*} The resulting transformed data
- */
-module.exports = function transformData(data, headers, fns) {
-  /*eslint no-param-reassign:0*/
-  utils.forEach(fns, function transform(fn) {
-    data = fn(data, headers);
-  });
-
-  return data;
-};
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
-
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function E() {
-  this.message = 'String contains an invalid character';
-}
-E.prototype = new Error();
-E.prototype.code = 5;
-E.prototype.name = 'InvalidCharacterError';
-
-function btoa(input) {
-  var str = String(input);
-  var output = '';
-  for (
-  // initialize result and counter
-  var block, charCode, idx = 0, map = chars;
-  // if the next str index does not exist:
-  //   change the mapping table to "="
-  //   check if d has no fractional digits
-  str.charAt(idx | 0) || (map = '=', idx % 1);
-  // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
-  output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
-    charCode = str.charCodeAt(idx += 3 / 4);
-    if (charCode > 0xFF) {
-      throw new E();
-    }
-    block = block << 8 | charCode;
-  }
-  return output;
-}
-
-module.exports = btoa;
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-function encode(val) {
-  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
-}
-
-/**
- * Build a URL by appending params to the end
- *
- * @param {string} url The base of the url (e.g., http://www.google.com)
- * @param {object} [params] The params to be appended
- * @returns {string} The formatted url
- */
-module.exports = function buildURL(url, params, paramsSerializer) {
-  /*eslint no-param-reassign:0*/
-  if (!params) {
-    return url;
-  }
-
-  var serializedParams;
-  if (paramsSerializer) {
-    serializedParams = paramsSerializer(params);
-  } else if (utils.isURLSearchParams(params)) {
-    serializedParams = params.toString();
-  } else {
-    var parts = [];
-
-    utils.forEach(params, function serialize(val, key) {
-      if (val === null || typeof val === 'undefined') {
-        return;
-      }
-
-      if (utils.isArray(val)) {
-        key = key + '[]';
-      }
-
-      if (!utils.isArray(val)) {
-        val = [val];
-      }
-
-      utils.forEach(val, function parseValue(v) {
-        if (utils.isDate(v)) {
-          v = v.toISOString();
-        } else if (utils.isObject(v)) {
-          v = JSON.stringify(v);
-        }
-        parts.push(encode(key) + '=' + encode(v));
-      });
-    });
-
-    serializedParams = parts.join('&');
-  }
-
-  if (serializedParams) {
-    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
-  }
-
-  return url;
-};
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Creates a new URL by combining the specified URLs
- *
- * @param {string} baseURL The base URL
- * @param {string} relativeURL The relative URL
- * @returns {string} The combined URL
- */
-
-module.exports = function combineURLs(baseURL, relativeURL) {
-  return relativeURL ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') : baseURL;
-};
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-module.exports = utils.isStandardBrowserEnv() ?
-
-// Standard browser envs support document.cookie
-function standardBrowserEnv() {
-  return {
-    write: function write(name, value, expires, path, domain, secure) {
-      var cookie = [];
-      cookie.push(name + '=' + encodeURIComponent(value));
-
-      if (utils.isNumber(expires)) {
-        cookie.push('expires=' + new Date(expires).toGMTString());
-      }
-
-      if (utils.isString(path)) {
-        cookie.push('path=' + path);
-      }
-
-      if (utils.isString(domain)) {
-        cookie.push('domain=' + domain);
-      }
-
-      if (secure === true) {
-        cookie.push('secure');
-      }
-
-      document.cookie = cookie.join('; ');
-    },
-
-    read: function read(name) {
-      var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-      return match ? decodeURIComponent(match[3]) : null;
-    },
-
-    remove: function remove(name) {
-      this.write(name, '', Date.now() - 86400000);
-    }
-  };
-}() :
-
-// Non standard browser env (web workers, react-native) lack needed support.
-function nonStandardBrowserEnv() {
-  return {
-    write: function write() {},
-    read: function read() {
-      return null;
-    },
-    remove: function remove() {}
-  };
-}();
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Determines whether the specified URL is absolute
- *
- * @param {string} url The URL to test
- * @returns {boolean} True if the specified URL is absolute, otherwise false
- */
-
-module.exports = function isAbsoluteURL(url) {
-  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-  // by any combination of letters, digits, plus, period, or hyphen.
-  return (/^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
-  );
-};
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-module.exports = utils.isStandardBrowserEnv() ?
-
-// Standard browser envs have full support of the APIs needed to test
-// whether the request URL is of the same origin as current location.
-function standardBrowserEnv() {
-  var msie = /(msie|trident)/i.test(navigator.userAgent);
-  var urlParsingNode = document.createElement('a');
-  var originURL;
-
-  /**
-  * Parse a URL to discover it's components
-  *
-  * @param {String} url The URL to be parsed
-  * @returns {Object}
-  */
-  function resolveURL(url) {
-    var href = url;
-
-    if (msie) {
-      // IE needs attribute set twice to normalize properties
-      urlParsingNode.setAttribute('href', href);
-      href = urlParsingNode.href;
-    }
-
-    urlParsingNode.setAttribute('href', href);
-
-    // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-    return {
-      href: urlParsingNode.href,
-      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-      host: urlParsingNode.host,
-      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-      hostname: urlParsingNode.hostname,
-      port: urlParsingNode.port,
-      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
-    };
-  }
-
-  originURL = resolveURL(window.location.href);
-
-  /**
-  * Determine if a URL shares the same origin as the current location
-  *
-  * @param {String} requestURL The URL to test
-  * @returns {boolean} True if URL shares the same origin, otherwise false
-  */
-  return function isURLSameOrigin(requestURL) {
-    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
-    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
-  };
-}() :
-
-// Non standard browser envs (web workers, react-native) lack needed support.
-function nonStandardBrowserEnv() {
-  return function isURLSameOrigin() {
-    return true;
-  };
-}();
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-module.exports = function normalizeHeaderName(headers, normalizedName) {
-  utils.forEach(headers, function processHeader(value, name) {
-    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-      headers[normalizedName] = value;
-      delete headers[name];
-    }
-  });
-};
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(0);
-
-// Headers whose duplicates are ignored by node
-// c.f. https://nodejs.org/api/http.html#http_message_headers
-var ignoreDuplicateOf = ['age', 'authorization', 'content-length', 'content-type', 'etag', 'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since', 'last-modified', 'location', 'max-forwards', 'proxy-authorization', 'referer', 'retry-after', 'user-agent'];
-
-/**
- * Parse headers into an object
- *
- * ```
- * Date: Wed, 27 Aug 2014 08:58:49 GMT
- * Content-Type: application/json
- * Connection: keep-alive
- * Transfer-Encoding: chunked
- * ```
- *
- * @param {String} headers Headers needing to be parsed
- * @returns {Object} Headers parsed into an object
- */
-module.exports = function parseHeaders(headers) {
-  var parsed = {};
-  var key;
-  var val;
-  var i;
-
-  if (!headers) {
-    return parsed;
-  }
-
-  utils.forEach(headers.split('\n'), function parser(line) {
-    i = line.indexOf(':');
-    key = utils.trim(line.substr(0, i)).toLowerCase();
-    val = utils.trim(line.substr(i + 1));
-
-    if (key) {
-      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
-        return;
-      }
-      if (key === 'set-cookie') {
-        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
-      } else {
-        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-      }
-    }
-  });
-
-  return parsed;
-};
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Syntactic sugar for invoking a function and expanding an array for arguments.
- *
- * Common use case would be to use `Function.prototype.apply`.
- *
- *  ```js
- *  function f(x, y, z) {}
- *  var args = [1, 2, 3];
- *  f.apply(null, args);
- *  ```
- *
- * With `spread` this example can be re-written.
- *
- *  ```js
- *  spread(function(x, y, z) {})([1, 2, 3]);
- *  ```
- *
- * @param {Function} callback
- * @returns {Function}
- */
-
-module.exports = function spread(callback) {
-  return function wrap(arr) {
-    return callback.apply(null, arr);
-  };
-};
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var config = exports.config = {
-  example: 'buildTest',
-  space: '4mjv06nmwwqe',
-  accessToken: 'd924f186a56ef0d8ad255750431af692ced8b6efdc63100822467706a30dd2b7'
-};
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createHttpClient;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-var _qs = __webpack_require__(172);
-
-var _qs2 = _interopRequireDefault(_qs);
-
-var _rateLimit = __webpack_require__(82);
-
-var _rateLimit2 = _interopRequireDefault(_rateLimit);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _slicedToArray = function () {
-  function sliceIterator(arr, i) {
-    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
-      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-        _arr.push(_s.value);if (i && _arr.length === i) break;
-      }
-    } catch (err) {
-      _d = true;_e = err;
-    } finally {
-      try {
-        if (!_n && _i["return"]) _i["return"]();
-      } finally {
-        if (_d) throw _e;
-      }
-    }return _arr;
-  }return function (arr, i) {
-    if (Array.isArray(arr)) {
-      return arr;
-    } else if (Symbol.iterator in Object(arr)) {
-      return sliceIterator(arr, i);
-    } else {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
-    }
-  };
-}();
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-// Matches 'sub.host:port' and extracts hostname and port
-// Also enforces toplevel domain specified, no spaces and no protocol
-var HOST_REGEX = /^(?!\w+:\/\/)([^\s:]+\.[^\s:]+)(?::(\d+))?(?!:)$/;
-
-/**
- * Create pre configured axios instance
- * @private
- * @param {Object} axios - Axios library
- * @param {Object} httpClientParams - Initialization parameters for the HTTP client
- * @prop {string} space - Space ID
- * @prop {string} accessToken - Access Token
- * @prop {boolean=} insecure - If we should use http instead
- * @prop {string=} host - Alternate host
- * @prop {Object=} httpAgent - HTTP agent for node
- * @prop {Object=} httpsAgent - HTTPS agent for node
- * @prop {Object=} proxy - Axios proxy config
- * @prop {Object=} headers - Additional headers
- * @return {Object} Initialized axios instance
- */
-function createHttpClient(axios, options) {
-  var defaultConfig = {
-    insecure: false,
-    retryOnError: true,
-    logHandler: function logHandler(level, data) {
-      if (level === 'error' && data) {
-        var title = [data.name, data.message].filter(function (a) {
-          return a;
-        }).join(' - ');
-        console.error('[error] ' + title);
-        console.error(data);
-        return;
-      }
-      console.log('[' + level + '] ' + data);
-    },
-    // Passed to axios
-    headers: {},
-    httpAgent: false,
-    httpsAgent: false,
-    timeout: 30000,
-    proxy: false,
-    basePath: ''
-  };
-  var config = _extends({}, defaultConfig, options);
-
-  if (!config.accessToken) {
-    var missingAccessTokenError = new TypeError('Expected parameter accessToken');
-    config.logHandler('error', missingAccessTokenError);
-    throw missingAccessTokenError;
-  }
-
-  // Construct axios baseURL option
-  var protocol = config.insecure ? 'http' : 'https';
-  var space = config.space ? config.space + '/' : '';
-  var hostname = config.defaultHostname;
-  var port = config.insecure ? 80 : 443;
-
-  if (HOST_REGEX.test(config.host)) {
-    var parsed = config.host.split(':');
-    if (parsed.length === 2) {
-      var _parsed = _slicedToArray(parsed, 2);
-
-      hostname = _parsed[0];
-      port = _parsed[1];
-    } else {
-      hostname = parsed[0];
-    }
-  }
-
-  // Ensure that basePath does start but not end with a slash
-  if (config.basePath) {
-    config.basePath = '/' + config.basePath.split('/').filter(Boolean).join('/');
-  }
-
-  var baseURL = protocol + '://' + hostname + ':' + port + config.basePath + '/spaces/' + space;
-
-  config.headers['Authorization'] = 'Bearer ' + config.accessToken;
-
-  // Set these headers only for node because browsers don't like it when you
-  // override user-agent or accept-encoding.
-  // The SDKs should set their own X-Contentful-User-Agent.
-  if (process && process.release && process.release.name === 'node') {
-    config.headers['user-agent'] = 'node.js/' + process.version;
-    config.headers['Accept-Encoding'] = 'gzip';
-  }
-
-  var axiosOptions = {
-    // Axios
-    baseURL: baseURL,
-    headers: config.headers,
-    httpAgent: config.httpAgent,
-    httpsAgent: config.httpsAgent,
-    paramsSerializer: _qs2.default.stringify,
-    proxy: config.proxy,
-    timeout: config.timeout,
-    // Contentful
-    logHandler: config.logHandler,
-    retryOnError: config.retryOnError
-  };
-  var instance = axios.create(axiosOptions);
-  instance.httpClientParams = options;
-
-  /**
-   * Creates a new axios instance with the same default base parameters as the
-   * current one, and with any overrides passed to the newParams object
-   * This is useful as the SDKs use dependency injection to get the axios library
-   * and the version of the library comes from different places depending
-   * on whether it's a browser build or a node.js build.
-   * @private
-   * @param {Object} httpClientParams - Initialization parameters for the HTTP client
-   * @return {Object} Initialized axios instance
-   */
-  instance.cloneWithNewParams = function (newParams) {
-    return createHttpClient(axios, _extends({}, (0, _cloneDeep2.default)(options), newParams));
-  };
-  (0, _rateLimit2.default)(instance);
-  return instance;
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createRequestConfig;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Creates request parameters configuration by parsing an existing query object
- * @private
- * @param {Object} query
- * @return {Object} Config object with `params` property, ready to be used in axios
- */
-function createRequestConfig(_ref) {
-  var query = _ref.query;
-
-  var config = {};
-  delete query.resolveLinks;
-  config.params = (0, _cloneDeep2.default)(query);
-  return config;
-}
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = enforceObjPath;
-function enforceObjPath(obj, path) {
-  if (!(path in obj)) {
-    var err = new Error();
-    err.name = 'PropertyMissing';
-    err.message = 'Required property ' + path + ' missing from:\n\n' + JSON.stringify(obj) + '\n\n';
-    throw err;
-  }
-  return true;
-}
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = freezeSys;
-
-var _isPlainObject = __webpack_require__(49);
-
-var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function freezeObjectDeep(obj) {
-  Object.keys(obj).forEach(function (key) {
-    var value = obj[key];
-    if ((0, _isPlainObject2.default)(value)) {
-      freezeObjectDeep(value);
-    }
-  });
-  return Object.freeze(obj);
-}
-
-function freezeSys(obj) {
-  freezeObjectDeep(obj.sys || {});
-  return obj;
-}
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getUserAgentHeader;
-
-var _os = __webpack_require__(175);
-
-function isReactNative() {
-  return typeof window !== 'undefined' && 'navigator' in window && 'product' in window.navigator && window.navigator.product === 'ReactNative';
-}
-
-function isNode() {
-  return typeof process !== 'undefined' && 'release' in process && 'name' in process.release;
-}
-
-function getBrowserOS() {
-  if (!window) {
-    return null;
-  }
-  var userAgent = window.navigator.userAgent;
-  var platform = window.navigator.platform;
-  var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
-  var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
-  var iosPlatforms = ['iPhone', 'iPad', 'iPod'];
-  var os = null;
-
-  if (macosPlatforms.indexOf(platform) !== -1) {
-    os = 'macOS';
-  } else if (iosPlatforms.indexOf(platform) !== -1) {
-    os = 'iOS';
-  } else if (windowsPlatforms.indexOf(platform) !== -1) {
-    os = 'Windows';
-  } else if (/Android/.test(userAgent)) {
-    os = 'Android';
-  } else if (/Linux/.test(platform)) {
-    os = 'Linux';
-  }
-
-  return os;
-}
-
-function getNodeOS() {
-  var os = (0, _os.platform)() || 'linux';
-  var version = (0, _os.release)() || '0.0.0';
-  var osMap = {
-    android: 'Android',
-    aix: 'Linux',
-    darwin: 'macOS',
-    freebsd: 'Linux',
-    linux: 'Linux',
-    openbsd: 'Linux',
-    sunos: 'Linux',
-    win32: 'Windows'
-  };
-  if (os in osMap) {
-    return (osMap[os] || 'Linux') + '/' + version;
-  }
-  return null;
-}
-
-function getUserAgentHeader(sdk, application, integration) {
-  var headerParts = [];
-
-  if (application) {
-    headerParts.push('app ' + application);
-  }
-
-  if (integration) {
-    headerParts.push('integration ' + integration);
-  }
-
-  headerParts.push('sdk ' + sdk);
-
-  var os = null;
-  if (isReactNative()) {
-    os = getBrowserOS();
-    headerParts.push('platform ReactNative');
-  } else if (isNode()) {
-    os = getNodeOS();
-    headerParts.push('platform node.js/' + process.versions.node);
-  } else {
-    os = getBrowserOS();
-    headerParts.push('platform browser');
-  }
-
-  if (os) {
-    headerParts.push('os ' + os);
-  }
-
-  return headerParts.filter(function (item) {
-    return item !== '';
-  }).join('; ') + ';';
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = rateLimit;
-var attempts = {};
-var networkErrorAttempts = 0;
-
-function rateLimit(instance) {
-  var maxRetry = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
-
-  instance.interceptors.response.use(function (response) {
-    // we don't need to do anything here
-    return response;
-  }, function (error) {
-    var response = error.response,
-        config = error.config;
-
-    if (!instance.defaults.retryOnError) {
-      return Promise.reject(error);
-    }
-
-    var retryErrorType = null;
-    var wait = 0;
-
-    // Errors without response or config did not recieve anything from the server
-    // Should be a network related error
-    if (!response || !config) {
-      retryErrorType = 'Connection';
-      networkErrorAttempts++;
-
-      if (networkErrorAttempts > maxRetry) {
-        error.attempts = networkErrorAttempts;
-        return Promise.reject(error);
-      }
-
-      wait = Math.pow(Math.SQRT2, networkErrorAttempts);
-      response = {};
-    } else {
-      networkErrorAttempts = 0;
-    }
-
-    if (response.status >= 500 && response.status < 600) {
-      // 5** errors are server related
-      retryErrorType = 'Server ' + response.status;
-      var headers = response.headers || {};
-      var requestId = headers['x-contentful-request-id'] || null;
-      attempts[requestId] = attempts[requestId] || 0;
-      attempts[requestId]++;
-
-      // we reject if there are too much errors of with the same request id
-      if (attempts[requestId] > maxRetry || !requestId) {
-        error.attempts = attempts[requestId];
-        return Promise.reject(error);
-      }
-      wait = Math.pow(Math.SQRT2, attempts[requestId]);
-    } else if (response.status === 429) {
-      // 429 errors are exceeded rate limit exceptions
-      retryErrorType = 'Rate limit';
-      // all headers are lowercased by axios https://github.com/mzabriskie/axios/issues/413
-      if (response.headers && error.response.headers['x-contentful-ratelimit-reset']) {
-        wait = response.headers['x-contentful-ratelimit-reset'];
-      }
-    }
-
-    if (retryErrorType) {
-      // convert to ms and add jitter
-      wait = Math.floor(wait * 1000 + Math.random() * 200 + 500);
-      instance.defaults.logHandler('warning', retryErrorType + ' error occurred. Waiting for ' + wait + ' ms before retrying...');
-      return new Promise(function (resolve) {
-        setTimeout(function () {
-          resolve(instance(config));
-        }, wait);
-      });
-    }
-    return Promise.reject(error);
-  });
-}
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = toPlainObject;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Mixes in a method to return just a plain object with no additional methods
- * @private
- * @param {Object} data - Any plain JSON response returned from the API
- * @return {Object} Enhanced object with toPlainObject method
- */
-function toPlainObject(data) {
-  return Object.defineProperty(data, 'toPlainObject', {
-    enumerable: false,
-    configurable: false,
-    writable: false,
-    value: function value() {
-      return (0, _cloneDeep2.default)(this);
-    }
-  });
-}
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createClient = createClient;
-
-var _axios = __webpack_require__(58);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-var _createContentfulApi = __webpack_require__(85);
-
-var _createContentfulApi2 = _interopRequireDefault(_createContentfulApi);
-
-var _createLinkResolver = __webpack_require__(86);
-
-var _createLinkResolver2 = _interopRequireDefault(_createLinkResolver);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }return target;
-};
-
-/**
- * Contentful Delivery API SDK. Allows you to create instances of a client
- * with access to the Contentful Content Delivery API.
- * @namespace contentful
- * @see ContentfulClientAPI
- */
-
-/**
- * Create a client instance
- * @func
- * @name createClient
- * @memberof contentful
- * @param {Object} params - Client initialization parameters
- * @prop {string} params.space - Space ID
- * @prop {string} params.accessToken - Contentful CDA Access Token
- * @prop {boolean=} params.insecure - Requests will be made over http instead of the default https (default: true)
- * @prop {string=} params.host - API host (default: cdn.contentful.com). Also usable with preview.contentful.com.
- * @prop {string=} params.basePath - Path appended to the host to support gateways/proxies with custom urls.
- * @prop {Object=} params.httpAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
- * @prop {Object=} params.httpsAgent - Optional Node.js HTTP agent for proxying (see <a href="https://nodejs.org/api/http.html#http_class_http_agent">Node.js docs</a> and <a href="https://www.npmjs.com/package/https-proxy-agent">https-proxy-agent</a>)
- * @prop {Object=} params.proxy - Optional Axios proxy (see <a href="https://github.com/mzabriskie/axios#request-config"> axios docs </a>)
- * @prop {Object=} params.headers - Optional additional headers
- * @prop {boolean=?} params.resolveLinks - If we should resolve links between entries (default: true)
- * @prop {boolean=?} params.retryOnError - If we should retry on errors and 429 rate limit exceptions (default: true)
- * @prop {string=?} params.application - Application name and version e.g myApp/version
- * @prop {string=?} params.integration - Integration name and version e.g react/version
- * @returns {ContentfulClientAPI.ClientAPI}
- * @example
- * const contentful = require('contentful')
- * const client = contentful.createClient({
- *  accessToken: 'myAccessToken',
- *  space: 'mySpaceId'
- * })
- */
-
-function createClient(params) {
-  if (!params.accessToken) {
-    throw new TypeError('Expected parameter accessToken');
-  }
-
-  if (!params.space) {
-    throw new TypeError('Expected parameter space');
-  }
-
-  // Use resolveLinks param if specified, otherwise default to true
-  var resolveLinks = !!('resolveLinks' in params ? params.resolveLinks : true);
-  var shouldLinksResolve = (0, _createLinkResolver2.default)(resolveLinks);
-  var userAgentHeader = (0, _contentfulSdkCore.getUserAgentHeader)('contentful.js/' + '5.0.5', params.application, params.integration);
-  params.defaultHostname = 'cdn.contentful.com';
-  params.headers = _extends({}, params.headers, {
-    'Content-Type': 'application/vnd.contentful.delivery.v1+json',
-    'X-Contentful-User-Agent': userAgentHeader
-  });
-
-  var http = (0, _contentfulSdkCore.createHttpClient)(_axios2.default, params);
-
-  return (0, _createContentfulApi2.default)({
-    http: http,
-    shouldLinksResolve: shouldLinksResolve
-  });
-}
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createContentfulApi;
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-var _entities = __webpack_require__(90);
-
-var _entities2 = _interopRequireDefault(_entities);
-
-var _pagedSync = __webpack_require__(92);
-
-var _pagedSync2 = _interopRequireDefault(_pagedSync);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Creates API object with methods to access functionality from Contentful's
- * Delivery API
- * @private
- * @param {Object} params - API initialization params
- * @prop {Object} http - HTTP client instance
- * @prop {Object} entities - Object with wrapper methods for each kind of entity
- * @prop {Function} shouldLinksResolve - Link resolver preconfigured with global setting
- * @return {ClientAPI}
- */
-function createContentfulApi(_ref) {
-  var http = _ref.http,
-      shouldLinksResolve = _ref.shouldLinksResolve;
-  var wrapSpace = _entities2.default.space.wrapSpace;
-  var _entities$contentType = _entities2.default.contentType,
-      wrapContentType = _entities$contentType.wrapContentType,
-      wrapContentTypeCollection = _entities$contentType.wrapContentTypeCollection;
-  var _entities$entry = _entities2.default.entry,
-      wrapEntry = _entities$entry.wrapEntry,
-      wrapEntryCollection = _entities$entry.wrapEntryCollection;
-  var _entities$asset = _entities2.default.asset,
-      wrapAsset = _entities$asset.wrapAsset,
-      wrapAssetCollection = _entities$asset.wrapAssetCollection;
-
-  function errorHandler(error) {
-    if (error.data) {
-      throw error.data;
-    }
-    throw error;
-  }
-
-  /**
-   * Gets the Space which the client is currently configured to use
-   * @memberof ContentfulClientAPI
-   * @return {Promise<Entities.Space>} Promise for a Space
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   * // returns the space object with the above <space-id>
-   * client.getSpace()
-   * .then((space) => console.log(space))
-   * .catch(console.error)
-   */
-  function getSpace() {
-    return http.get('').then(function (response) {
-      return wrapSpace(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Gets a Content Type
-   * @memberof ContentfulClientAPI
-   * @param  {string} id
-   * @return {Promise<Entities.ContentType>} Promise for a Content Type
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getContentType('<content_type_id>')
-   * .then((contentType) => console.log(contentType))
-   * .catch(console.error)
-   */
-  function getContentType(id) {
-    return http.get('content_types/' + id).then(function (response) {
-      return wrapContentType(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Gets a collection of Content Types
-   * @memberof ContentfulClientAPI
-   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
-   * @return {Promise<Entities.ContentTypeCollection>} Promise for a collection of Content Types
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getContentTypes()
-   * .then((response) => console.log(response.items))
-   * .catch(console.error)
-   */
-  function getContentTypes() {
-    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    return http.get('content_types', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-      return wrapContentTypeCollection(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Gets an Entry
-   * @memberof ContentfulClientAPI
-   * @param  {string} id
-   * @param  {Object=} query - Object with search parameters. In this method it's only useful for `locale`.
-   * @return {Promise<Entities.Entry>} Promise for an Entry
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getEntry('<entry_id>')
-   * .then((entry) => console.log(entry))
-   * .catch(console.error)
-   */
-  function getEntry(id) {
-    var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    normalizeSelect(query);
-    return http.get('entries/' + id, (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-      return wrapEntry(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Gets a collection of Entries
-   * @memberof ContentfulClientAPI
-   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
-   * @return {Promise<Entities.EntryCollection>} Promise for a collection of Entries
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getEntries()
-   * .then((response) => console.log(response.items))
-   * .catch(console.error)
-   */
-  function getEntries() {
-    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    var resolveLinks = shouldLinksResolve(query);
-    var resolveForAllLocales = query.locale && query.locale === '*';
-    normalizeSelect(query);
-    return http.get('entries', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-      return wrapEntryCollection(response.data, resolveLinks, resolveForAllLocales);
-    }, errorHandler);
-  }
-  /**
-   * Gets an Asset
-   * @memberof ContentfulClientAPI
-   * @param  {string} id
-   * @param  {Object=} query - Object with search parameters. In this method it's only useful for `locale`.
-   * @return {Promise<Entities.Asset>} Promise for an Asset
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getAsset('<asset_id>')
-   * .then((asset) => console.log(asset))
-   * .catch(console.error)
-   */
-  function getAsset(id) {
-    var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    normalizeSelect(query);
-    return http.get('assets/' + id, (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-      return wrapAsset(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Gets a collection of Assets
-   * @memberof ContentfulClientAPI
-   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
-   * @return {Promise<Entities.AssetCollection>} Promise for a collection of Assets
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.getAssets()
-   * .then((response) => console.log(response.items))
-   * .catch(console.error)
-   */
-  function getAssets() {
-    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    normalizeSelect(query);
-    return http.get('assets', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-      return wrapAssetCollection(response.data);
-    }, errorHandler);
-  }
-
-  /**
-   * Synchronizes either all the content or only new content since last sync
-   * See <a href="https://www.contentful.com/developers/docs/concepts/sync/">Synchronization</a> for more information.
-   * <strong> Important note: </strong> The the sync api endpoint does not support include or link resolution.
-   * However contentful.js is doing link resolution client side if you only make an initial sync.
-   * For the delta sync (using nextSyncToken) it is not possible since the sdk wont have access to all the data to make such an operation.
-   * @memberof ContentfulClientAPI
-   * @param  {Object} query - Query object for the sync call. One of initial or nextSyncToken always needs to be specified, but not both.
-   * @param  {boolean?} query.initial - Indicates if this is the first sync. Use it if you don't have a sync token.
-   * @param  {string?} query.nextSyncToken - The token you got the last time you used this method. Ensures you only get changed content.
-   * @param  {string=} query.type - Filter by this type (all (default), Entry, Asset, Deletion, DeletedAsset or DeletedEntry)
-   * @param  {string=} query.content_type - Filter by this content type id
-   * @param  {boolean=} query.resolveLinks - When true, links to other Entries or Assets are resolved. Default: true.
-   * @return {Promise<Sync.SyncCollection>} Promise for the collection resulting of a sync operation
-   * @example
-   * const contentful = require('contentful')
-   *
-   * const client = contentful.createClient({
-   *   space: '<space_id>',
-   *   accessToken: '<content_delivery_api_key>'
-   * })
-   *
-   * client.sync({
-   *   initial: true
-   * })
-   * .then((response) => console.log({
-   *   entries: response.entries,
-   *   assets: response.assets,
-   *   nextSyncToken: response.nextSyncToken
-   * }))
-   * .catch(console.error)
-   */
-  function sync() {
-    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    var resolveLinks = shouldLinksResolve(query);
-    return (0, _pagedSync2.default)(http, query, resolveLinks);
-  }
-
-  /**
-  * Parse raw json data into collection of entry objects.Links will be resolved also
-  * @memberof ContentfulClientAPI
-  * @param {Object} raw json data
-  * @example
-  * let data = {items: [
-  *    {
-  *    sys: {type: 'Entry', locale: 'en-US'},
-  *    fields: {
-  *      animal: {sys: {type: 'Link', linkType: 'Animal', id: 'oink'}},
-  *      anotheranimal: {sys: {type: 'Link', linkType: 'Animal', id: 'middle-parrot'}}
-  *    }
-  *  }
-  * ],
-  * includes: {
-  *  Animal: [
-  *    {
-  *      sys: {type: 'Animal', id: 'oink', locale: 'en-US'},
-  *      fields: {
-  *        name: 'Pig',
-  *        friend: {sys: {type: 'Link', linkType: 'Animal', id: 'groundhog'}}
-  *      }
-  *    }
-  *   ]
-  *  }
-  * }
-  * console.log( data.items[0].fields.foo ); // undefined
-  * let parsedData = client.parseEntries(data);
-  * console.log( parsedData.items[0].fields.foo ); // foo
-  */
-  function parseEntries(data) {
-    return wrapEntryCollection(data, true, false);
-  }
-  /*
-   * sdk relies heavily on sys metadata
-   * so we cannot omit the sys property on sdk level
-   * */
-  function normalizeSelect(query) {
-    if (query.select && !/sys/i.test(query.select)) {
-      query.select += ',sys';
-    }
-  }
-
-  return {
-    getSpace: getSpace,
-    getContentType: getContentType,
-    getContentTypes: getContentTypes,
-    getEntry: getEntry,
-    getEntries: getEntries,
-    getAsset: getAsset,
-    getAssets: getAssets,
-    parseEntries: parseEntries,
-    sync: sync
-  };
-} /**
-   * Contentful Delivery API Client. Contains methods which allow access to the
-   * different kinds of entities present in Contentful (Entries, Assets, etc).
-   * @namespace ContentfulClientAPI
-   * @see Entities
-   */
-
-/**
- * The different kinds of top level entities you can find in Contentful
- * @namespace Entities
- */
-
-/**
- * System metadata. See <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes">Common Resource Attributes</a> for more details.
- * @memberof Entities
- * @typedef Sys
- * @prop {string} type
- * @prop {string} id
- * @prop {Entities.Link} space
- * @prop {string} createdAt
- * @prop {string} updatedAt
- * @prop {number} revision
- */
-
-/**
- * Link to another entity. See <a href="https://www.contentful.com/developers/docs/concepts/links/">Links</a> for more details.
- * @memberof Entities
- * @typedef Link
- * @prop {string} type - type of this entity. Always link.
- * @prop {string} id
- * @prop {string} linkType - type of this link. If defined, either Entry or Asset
- */
-
-/**
- * @memberof ContentfulClientAPI
- * @typedef {Object} ClientAPI
- * @prop {function} getSpace
- * @prop {function} getContentType
- * @prop {function} getContentTypes
- * @prop {function} getEntry
- * @prop {function} getEntries
- * @prop {function} getAsset
- * @prop {function} getAssets
- * @prop {function} parseEntries
- * @prop {function} sync
- */
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createLinkResolver;
-/**
- * Link resolution can be set globally, or it can be turned off for the methods
- * which make use of it. The local setting always overrides the global setting.
- * @private
- * @param {boolean} globalSetting - Global library setting for link resolution
- * @returns {function} Link resolver method preconfigured with global setting
- */
-function createLinkResolver(globalSetting) {
-  /**
-   * Link resolver method
-   * @param {Object} query - regular query object used for collection endpoints
-   */
-  return function shouldLinksResolve(query) {
-    return !!('resolveLinks' in query ? query.resolveLinks : globalSetting);
-  };
-}
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.wrapAsset = wrapAsset;
-exports.wrapAssetCollection = wrapAssetCollection;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @memberof Entities
- * @typedef Asset
- * @prop {Entities.Sys} sys - Standard system metadata with additional entry specific properties
- * @prop {string=} sys.locale - If present, indicates the locale which this asset uses
- * @prop {Object} fields - Object with content for each field
- * @prop {string} fields.title - Title for this asset
- * @prop {string} fields.description - Description for this asset
- * @prop {Object} fields.file - File object for this asset
- * @prop {string} fields.file.fileName - Name for the file
- * @prop {string} fields.file.contentType - Mime type for the file
- * @prop {string} fields.file.url - Url where the file is available at.
- * @prop {Object} fields.file.details - Details for the file, depending on file type (example: image size in bytes, etc)
- * @prop {function(): Object} toPlainObject() - Returns this Asset as a plain JS object
- */
-
-/**
- * @private
- * @param {Object} data - Raw asset data
- * @return {Asset} Wrapped asset data
- */
-function wrapAsset(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-}
-
-/**
- * @memberof Entities
- * @typedef AssetCollection
- * @prop {number} total
- * @prop {number} skip
- * @prop {number} limit
- * @prop {Array<Entities.Asset>} items
- * @prop {function(): Object} toPlainObject() - Returns this Asset collection as a plain JS object
- */
-
-/**
- * @private
- * @param {Object} data - Raw asset collection data
- * @return {AssetCollection} Wrapped asset collection data
- */
-function wrapAssetCollection(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-}
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.wrapContentType = wrapContentType;
-exports.wrapContentTypeCollection = wrapContentTypeCollection;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @memberof Entities
- * @typedef ContentType
- * @prop {Entities.Sys} sys - System metadata
- * @prop {string} name
- * @prop {string} description
- * @prop {string} displayField - Field used as the main display field for Entries
- * @prop {string} Array<Field> - All the fields contained in this Content Type
- * @prop {function(): Object} toPlainObject() - Returns this Content Type as a plain JS object
- */
-
-/**
- * @private
- * @param {Object} data - Raw content type data
- * @return {ContentType} Wrapped content type data
- */
-function wrapContentType(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-}
-
-/**
- * @memberof Entities
- * @typedef ContentTypeCollection
- * @prop {number} total
- * @prop {number} skip
- * @prop {number} limit
- * @prop {Array<Entities.ContentType>} items
- * @prop {function(): Object} toPlainObject() - Returns this Content Type collection as a plain JS object
- */
-
-/**
- * @private
- * @param {Object} data - Raw content type collection data
- * @return {ContentTypeCollection} Wrapped content type collection data
- */
-function wrapContentTypeCollection(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-}
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.wrapEntry = wrapEntry;
-exports.wrapEntryCollection = wrapEntryCollection;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-var _linkGetters = __webpack_require__(30);
-
-var _linkGetters2 = _interopRequireDefault(_linkGetters);
-
-var _stringifySafe = __webpack_require__(31);
-
-var _stringifySafe2 = _interopRequireDefault(_stringifySafe);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }return arr2;
-  } else {
-    return Array.from(arr);
-  }
-}
-
-/**
- * Types of fields found in an Entry
- * @namespace EntryFields
- */
-
-/**
- * @memberof EntryFields
- * @typedef Symbol
- * @type string
- */
-
-/**
- * @memberof EntryFields
- * @typedef Text
- * @type string
- */
-
-/**
- * @memberof EntryFields
- * @typedef Integer
- * @type number
- */
-
-/**
- * @memberof EntryFields
- * @typedef Number
- * @type number
- */
-
-/**
- * @memberof EntryFields
- * @typedef Date
- * @type string
- */
-
-/**
- * @memberof EntryFields
- * @typedef Boolean
- * @type boolean
- */
-
-/**
- * @memberof EntryFields
- * @typedef Location
- * @prop {string} lat - latitude
- * @prop {string} lon - longitude
- */
-
-/**
- * A Field in an Entry can have one of the following types that can be defined in Contentful. See <a href="https://www.contentful.com/developers/docs/references/field-type/">Field Types</a> for more details.
- * @memberof Entities
- * @typedef Field
- * @type EntryFields.Symbol | EntryFields.Text | EntryFields.Integer | EntryFields.Number | EntryFields.Date | EntryFields.Boolean | EntryFields.Location | Entities.Link | Array<EntryFields.Symbol|Entities.Link> | Object
- */
-
-/**
- * @memberof Entities
- * @typedef Entry
- * @prop {Entities.Sys} sys - Standard system metadata with additional entry specific properties
- * @prop {Entities.Link} sys.contentType - Content Type used by this Entry
- * @prop {string=} sys.locale - If present, indicates the locale which this entry uses
- * @prop {Object<EntryFields.Field>} fields - Object with content for each field
- * @prop {function(): Object} toPlainObject() - Returns this Entry as a plain JS object
- */
-
-/**
- * @private
- * @param {Object} data - Raw entry data
- * @return {Entry} Wrapped entry data
- */
-function wrapEntry(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-}
-
-/**
- * @memberof Entities
- * @typedef EntryCollection
- * @prop {number} total
- * @prop {number} skip
- * @prop {number} limit
- * @prop {Array<Entities.Entry>} items
- * @prop {Array<Object>=} errors - Array of errors that might occur when retrieving entries.
- * @prop {Object<Array>=} includes - Object with arrays of includes for Entries and Assets. This will be present if resolveLinks is on, and any linked entries or assets exist. Those links will be resolved in the Entries present in the items array, but they are also present here in raw form.
- * @prop {function(): Object} toPlainObject() - Returns this Entry collection as a plain JS object
- * @prop {function(?function=, space=): Object} stringifySafe(replacer,space) - Stringifies the entry collection, accounting for circular references. Circular references will be replaced with just a Link object, with a <code>circular</code> property set to <code>true</code>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">MDN</a> and <a href="https://www.npmjs.com/package/json-stringify-safe">json-stringify-safe</a> for more details on the arguments this method can take.
- */
-
-/**
- * Data is also mixed in with link getters if links exist and includes were requested
- * @private
- * @param {Object} data - Raw entry collection data
- * @return {EntryCollection} Wrapped entry collection data
- */
-function wrapEntryCollection(data, resolveLinks, resolveForAllLocales) {
-  var wrappedData = (0, _stringifySafe2.default)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
-  if (resolveLinks) {
-    var includes = prepareIncludes(wrappedData.includes, wrappedData.items);
-    (0, _linkGetters2.default)(wrappedData.items, includes, resolveForAllLocales);
-  }
-  return (0, _contentfulSdkCore.freezeSys)(wrappedData);
-}
-
-function prepareIncludes() {
-  var includes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var items = arguments[1];
-
-  includes.Entry = includes.Entry || [];
-  includes.Entry = [].concat(_toConsumableArray(new Set([].concat(_toConsumableArray(includes.Entry), _toConsumableArray(items)))));
-  return includes;
-}
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _space = __webpack_require__(91);
-
-var space = _interopRequireWildcard(_space);
-
-var _entry = __webpack_require__(89);
-
-var entry = _interopRequireWildcard(_entry);
-
-var _asset = __webpack_require__(87);
-
-var asset = _interopRequireWildcard(_asset);
-
-var _contentType = __webpack_require__(88);
-
-var contentType = _interopRequireWildcard(_contentType);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-exports.default = {
-  space: space,
-  entry: entry,
-  asset: asset,
-  contentType: contentType
-};
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.wrapSpace = wrapSpace;
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-/**
- * @memberof Entities
- * @typedef Space
- * @prop {Object} sys - System metadata
- * @prop {string} sys.id - Space id
- * @prop {string} sys.type - Entity type
- * @prop {string} name - Space name
- * @prop {Array<string>} locales - Array with locale codes
- * @prop {function(): Object} toPlainObject() - Returns this Space as a plain JS object
- */
-
-/**
- * @private
- * @param  {Object} data - API response for a Space
- * @return {Space}
- */
-function wrapSpace(data) {
-  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)(data));
-}
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = pagedSync;
-
-var _cloneDeep = __webpack_require__(4);
-
-var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
-
-var _contentfulSdkCore = __webpack_require__(2);
-
-var _linkGetters = __webpack_require__(30);
-
-var _linkGetters2 = _interopRequireDefault(_linkGetters);
-
-var _stringifySafe = __webpack_require__(31);
-
-var _stringifySafe2 = _interopRequireDefault(_stringifySafe);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * @memberof Sync
- * @typedef SyncCollection
- * @prop {Array<Entities.Entry>} entries - All existing entries on first sync. New and updated entries on subsequent syncs.
- * @prop {Array<Entities.Asset>} assets - All existing assets on first sync. New and updated assets on subsequent syncs.
- * @prop {Array<Sync.DeletedEntry>} deletedEntries - List of deleted Entries since last sync
- * @prop {Array<Sync.DeletedAsset>} deletedAssets - List of deleted Assets since last sync
- * @prop {string} nextSyncToken - Token to be sent to the next sync call
- * @prop {function(): Object} toPlainObject() - Returns this Sync collection as a plain JS object
- * @prop {function(?function=, space=): Object} stringifySafe(replacer,space) - Stringifies the Sync collection, accounting for circular references. Circular references will be replaced with just a Link object, with a <code>circular</code> property set to <code>true</code>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">MDN</a> and <a href="https://www.npmjs.com/package/json-stringify-safe">json-stringify-safe</a> for more details on the arguments this method can take.
- */
-
-/**
- * Deleted Entries are the same as Entries, but only appear on the sync API.
- * @memberof Sync
- * @typedef DeletedEntry
- * @type Entities.Entry
- */
-
-/**
- * Deleted Assets are the same as Assets, but only appear on the sync API.
- * @memberof Sync
- * @typedef DeletedAsset
- * @type Entities.Asset
- */
-
-/**
- * This module retrieves all the available pages for a sync operation
- * @private
- * @param {Object} http - HTTP client
- * @param {Object} query - Query object
- * @param {boolean} resolveLinks - If links should be resolved
- * @return {Promise<SyncCollection>}
- */
-/**
- * See <a href="https://www.contentful.com/developers/docs/concepts/sync/">Synchronization</a> for more information.
- * @namespace Sync
- */
-function pagedSync(http, query, resolveLinks) {
-  if (!query || !query.initial && !query.nextSyncToken) {
-    throw new Error('Please provide one of `initial` or `nextSyncToken` parameters for syncing');
-  }
-
-  if (query && query.content_type && !query.type) {
-    query.type = 'Entry';
-  } else if (query && query.content_type && query.type && query.type !== 'Entry') {
-    throw new Error('When using the `content_type` filter your `type` parameter cannot be different from `Entry`.');
-  }
-
-  return getSyncPage(http, [], query).then(function (response) {
-    // clones response.items used in includes because we don't want these to be mutated
-    if (resolveLinks) {
-      (0, _linkGetters2.default)(response.items, mapIncludeItems((0, _cloneDeep2.default)(response.items)));
-    }
-    // maps response items again after getters are attached
-    var mappedResponseItems = mapResponseItems(response.items);
-    mappedResponseItems.nextSyncToken = response.nextSyncToken;
-    return (0, _contentfulSdkCore.freezeSys)((0, _stringifySafe2.default)((0, _contentfulSdkCore.toPlainObject)(mappedResponseItems)));
-  }, function (error) {
-    throw error;
-  });
-}
-
-/**
- * @private
- * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
- * @return {Object} Entities mapped to an object for each entity type
- */
-function mapResponseItems(items) {
-  return {
-    entries: items.filter(function (item) {
-      return item.sys.type === 'Entry';
-    }),
-    assets: items.filter(function (item) {
-      return item.sys.type === 'Asset';
-    }),
-    deletedEntries: items.filter(function (item) {
-      return item.sys.type === 'DeletedEntry';
-    }),
-    deletedAssets: items.filter(function (item) {
-      return item.sys.type === 'DeletedAsset';
-    })
-  };
-}
-
-/**
- * Creates an object similar to the one retrieved on `includes` from the `entries`
- * endpoint, for usage with the link getters mixin
- * @private
- * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
- * @return {Object}
- */
-function mapIncludeItems(items) {
-  return {
-    Entry: items.filter(function (item) {
-      return item.sys.type === 'Entry';
-    }),
-    Asset: items.filter(function (item) {
-      return item.sys.type === 'Asset';
-    })
-  };
-}
-
-/**
- * If the response contains a nextPageUrl, extracts the sync token to get the
- * next page and calls itself again with that token.
- * Otherwise, if the response contains a nextSyncUrl, extracts the sync token
- * and returns it.
- * On each call of this function, any retrieved items are collected in the
- * supplied items array, which gets returned in the end
- * @private
- * @param {Object} http
- * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
- * @param {Object} query
- * @return {Promise<{items: Array, nextSyncToken: string}>}
- */
-function getSyncPage(http, items, query) {
-  if (query.nextSyncToken) {
-    query.sync_token = query.nextSyncToken;
-    delete query.nextSyncToken;
-  }
-
-  if (query.sync_token) {
-    delete query.initial;
-    delete query.type;
-    delete query.content_type;
-  }
-
-  return http.get('sync', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
-    var data = response.data;
-    items = items.concat(data.items);
-    if (data.nextPageUrl) {
-      delete query.initial;
-      query.sync_token = getToken(data.nextPageUrl);
-      return getSyncPage(http, items, query);
-    } else if (data.nextSyncUrl) {
-      return {
-        items: items,
-        nextSyncToken: getToken(data.nextSyncUrl)
-      };
-    }
-  });
-}
-
-/**
- * Extracts token out of an url
- * @private
- */
-function getToken(url) {
-  var urlParts = url.split('?');
-  return urlParts.length > 0 ? urlParts[1].replace('sync_token=', '') : '';
-}
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(setImmediate) {var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-(function e(t, n, r) {
-  function s(o, u) {
-    if (!n[o]) {
-      if (!t[o]) {
-        var a = typeof require == "function" && require;if (!u && a) return require(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-        var n = t[o][1][e];return s(n ? n : e);
-      }, l, l.exports, e, t, n, r);
-    }return n[o].exports;
-  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
-    s(r[o]);
-  }return s;
-})({ 1: [function (require, module, exports) {
-    (function (global, factory) {
-      if (true) {
-        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-      } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
-        factory(exports, module);
-      } else {
-        var mod = {
-          exports: {}
-        };
-        factory(mod.exports, mod);
-        global.fetchJsonp = mod.exports;
-      }
-    })(this, function (exports, module) {
-      'use strict';
-
-      var defaultOptions = {
-        timeout: 5000,
-        jsonpCallback: 'callback',
-        jsonpCallbackFunction: null
-      };
-
-      function generateCallbackFunction() {
-        return 'jsonp_' + Date.now() + '_' + Math.ceil(Math.random() * 100000);
-      }
-
-      function clearFunction(functionName) {
-        try {
-          delete window[functionName];
-        } catch (e) {
-          window[functionName] = undefined;
-        }
-      }
-
-      function removeScript(scriptId) {
-        var script = document.getElementById(scriptId);
-        if (script) {
-          document.getElementsByTagName('head')[0].removeChild(script);
-        }
-      }
-
-      function fetchJsonp(_url) {
-        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-        var url = _url;
-        var timeout = options.timeout || defaultOptions.timeout;
-        var jsonpCallback = options.jsonpCallback || defaultOptions.jsonpCallback;
-
-        var timeoutId = undefined;
-
-        return new Promise(function (resolve, reject) {
-          var callbackFunction = options.jsonpCallbackFunction || generateCallbackFunction();
-          var scriptId = jsonpCallback + '_' + callbackFunction;
-
-          window[callbackFunction] = function (response) {
-            resolve({
-              ok: true,
-              json: function json() {
-                return Promise.resolve(response);
-              }
-            });
-
-            if (timeoutId) clearTimeout(timeoutId);
-
-            removeScript(scriptId);
-
-            clearFunction(callbackFunction);
-          };
-
-          url += url.indexOf('?') === -1 ? '?' : '&';
-
-          var jsonpScript = document.createElement('script');
-          jsonpScript.setAttribute('src', '' + url + jsonpCallback + '=' + callbackFunction);
-          if (options.charset) {
-            jsonpScript.setAttribute('charset', options.charset);
-          }
-          jsonpScript.id = scriptId;
-          document.getElementsByTagName('head')[0].appendChild(jsonpScript);
-
-          timeoutId = setTimeout(function () {
-            reject(new Error('JSONP request to ' + _url + ' timed out'));
-
-            clearFunction(callbackFunction);
-            removeScript(scriptId);
-            window[callbackFunction] = function () {
-              clearFunction(callbackFunction);
-            };
-          }, timeout);
-
-          jsonpScript.onerror = function () {
-            reject(new Error('JSONP request to ' + _url + ' failed'));
-
-            clearFunction(callbackFunction);
-            removeScript(scriptId);
-            if (timeoutId) clearTimeout(timeoutId);
-          };
-        });
-      }
-
-      module.exports = fetchJsonp;
-    });
-  }, {}], 2: [function (require, module, exports) {
-    'use strict';
-
-    var setTimeoutFunc = setTimeout;
-
-    function noop() {}
-
-    function bind(fn, thisArg) {
-      return function () {
-        fn.apply(thisArg, arguments);
-      };
-    }
-
-    function handle(self, deferred) {
-      while (self._state === 3) {
-        self = self._value;
-      }
-      if (self._state === 0) {
-        self._deferreds.push(deferred);
-        return;
-      }
-      self._handled = true;
-      Promise._immediateFn(function () {
-        var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
-        if (cb === null) {
-          (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
-          return;
-        }
-        var ret;
-        try {
-          ret = cb(self._value);
-        } catch (e) {
-          reject(deferred.promise, e);
-          return;
-        }
-        resolve(deferred.promise, ret);
-      });
-    }
-
-    function resolve(self, newValue) {
-      try {
-        if (newValue === self) throw new TypeError('A promise cannot be resolved with itself.');
-        if (newValue && ((typeof newValue === "undefined" ? "undefined" : _typeof(newValue)) === 'object' || typeof newValue === 'function')) {
-          var then = newValue.then;
-          if (newValue instanceof Promise) {
-            self._state = 3;
-            self._value = newValue;
-            finale(self);
-            return;
-          } else if (typeof then === 'function') {
-            doResolve(bind(then, newValue), self);
-            return;
-          }
-        }
-        self._state = 1;
-        self._value = newValue;
-        finale(self);
-      } catch (e) {
-        reject(self, e);
-      }
-    }
-
-    function reject(self, newValue) {
-      self._state = 2;
-      self._value = newValue;
-      finale(self);
-    }
-
-    function finale(self) {
-      if (self._state === 2 && self._deferreds.length === 0) {
-        Promise._immediateFn(function () {
-          if (!self._handled) {
-            Promise._unhandledRejectionFn(self._value);
-          }
-        });
-      }
-
-      for (var i = 0, len = self._deferreds.length; i < len; i++) {
-        handle(self, self._deferreds[i]);
-      }
-      self._deferreds = null;
-    }
-
-    function Handler(onFulfilled, onRejected, promise) {
-      this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
-      this.onRejected = typeof onRejected === 'function' ? onRejected : null;
-      this.promise = promise;
-    }
-
-    function doResolve(fn, self) {
-      var done = false;
-      try {
-        fn(function (value) {
-          if (done) return;
-          done = true;
-          resolve(self, value);
-        }, function (reason) {
-          if (done) return;
-          done = true;
-          reject(self, reason);
-        });
-      } catch (ex) {
-        if (done) return;
-        done = true;
-        reject(self, ex);
-      }
-    }
-
-    function Promise(fn) {
-      if (!(this instanceof Promise)) throw new TypeError('Promises must be constructed via new');
-      if (typeof fn !== 'function') throw new TypeError('not a function');
-      this._state = 0;
-      this._handled = false;
-      this._value = undefined;
-      this._deferreds = [];
-
-      doResolve(fn, this);
-    }
-
-    var _proto = Promise.prototype;
-    _proto.catch = function (onRejected) {
-      return this.then(null, onRejected);
-    };
-
-    _proto.then = function (onFulfilled, onRejected) {
-      var prom = new this.constructor(noop);
-
-      handle(this, new Handler(onFulfilled, onRejected, prom));
-      return prom;
-    };
-
-    Promise.all = function (arr) {
-      return new Promise(function (resolve, reject) {
-        if (!arr || typeof arr.length === 'undefined') throw new TypeError('Promise.all accepts an array');
-        var args = Array.prototype.slice.call(arr);
-        if (args.length === 0) return resolve([]);
-        var remaining = args.length;
-
-        function res(i, val) {
-          try {
-            if (val && ((typeof val === "undefined" ? "undefined" : _typeof(val)) === 'object' || typeof val === 'function')) {
-              var then = val.then;
-              if (typeof then === 'function') {
-                then.call(val, function (val) {
-                  res(i, val);
-                }, reject);
-                return;
-              }
-            }
-            args[i] = val;
-            if (--remaining === 0) {
-              resolve(args);
-            }
-          } catch (ex) {
-            reject(ex);
-          }
-        }
-
-        for (var i = 0; i < args.length; i++) {
-          res(i, args[i]);
-        }
-      });
-    };
-
-    Promise.resolve = function (value) {
-      if (value && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && value.constructor === Promise) {
-        return value;
-      }
-
-      return new Promise(function (resolve) {
-        resolve(value);
-      });
-    };
-
-    Promise.reject = function (value) {
-      return new Promise(function (resolve, reject) {
-        reject(value);
-      });
-    };
-
-    Promise.race = function (values) {
-      return new Promise(function (resolve, reject) {
-        for (var i = 0, len = values.length; i < len; i++) {
-          values[i].then(resolve, reject);
-        }
-      });
-    };
-
-    Promise._immediateFn = typeof setImmediate === 'function' && function (fn) {
-      setImmediate(fn);
-    } || function (fn) {
-      setTimeoutFunc(fn, 0);
-    };
-
-    Promise._unhandledRejectionFn = function _unhandledRejectionFn(err) {
-      if (typeof console !== 'undefined' && console) {
-        console.warn('Possible Unhandled Promise Rejection:', err);
-      }
-    };
-
-    module.exports = Promise;
-  }, {}], 3: [function (require, module, exports) {
-    'use strict';
-
-    var _promisePolyfill = require('promise-polyfill');
-
-    var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
-
-    var _fetchJsonp = require('fetch-jsonp');
-
-    var _fetchJsonp2 = _interopRequireDefault(_fetchJsonp);
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-
-    var instafetch = {};
-    var supports = !!document.querySelector && !!document.addEventListener;
-    var settings = void 0,
-        checked = void 0,
-        url = void 0,
-        targetEl = void 0,
-        article = void 0,
-        a = void 0,
-        figure = void 0,
-        img = void 0,
-        div = void 0,
-        p = void 0;
-    var baseUrl = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
-
-    var defaults = {
-      accessToken: null,
-      target: 'instafetch',
-      numOfPics: 20,
-      caption: false
-    };
-
-    var forEach = function forEach(collection, callback, scope) {
-      if (Object.prototype.toString.call(collection) === '[object Object]') {
-        for (var prop in collection) {
-          if (Object.prototype.hasOwnProperty.call(collection, prop)) {
-            callback.call(scope, collection[prop], prop, collection);
-          }
-        }
-      } else {
-        for (var i = 0, len = collection.length; i < len; i++) {
-          callback.call(scope, collection[i], i, collection);
-        }
-      }
-    };
-
-    var extend = function extend(defaults, options) {
-      var extended = {};
-
-      forEach(defaults, function (value, prop) {
-        extended[prop] = defaults[prop];
-      });
-      forEach(options, function (value, prop) {
-        extended[prop] = options[prop];
-      });
-      return extended;
-    };
-
-    var checkSettings = function checkSettings(options) {
-      if (typeof options.accessToken !== 'string') {
-        console.error('accessToken must be a string.');
-        return false;
-      }
-      if (typeof options.target !== 'string') {
-        console.error('target must be a string.');
-        return false;
-      }
-      if (typeof options.numOfPics !== 'number') {
-        console.error('numOfPics must be a number.');
-        return false;
-      }
-      if (typeof options.caption !== 'boolean') {
-        console.error('caption must be a boolean.');
-        return false;
-      }
-
-      return true;
-    };
-
-    var fetchFeed = function fetchFeed(options) {
-      url = baseUrl + options.accessToken + '&count=' + options.numOfPics + '&callback=?';
-
-      if (!window.Promise) {
-        window.Promise = _promisePolyfill2.default;
-      }
-
-      (0, _fetchJsonp2.default)(url).then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        if (json.meta.code === 200) {
-          displayFeed(json, options);
-        } else {
-          console.error(json.meta.error_message);
-        }
-      }).catch(function (error) {
-        console.error(error);
-      });
-    };
-
-    var displayFeed = function displayFeed(json, options) {
-      targetEl = document.getElementById(options.target);
-      if (!targetEl) {
-        console.error('No element with id="' + options.target + '" was found on the page.');
-        return;
-      }
-
-      json.data.forEach(function (data) {
-        article = document.createElement('article');
-        a = document.createElement('a');
-        a.href = data.link;
-        a.target = '_blank';
-        figure = document.createElement('figure');
-        img = document.createElement('img');
-        img.src = data.images.standard_resolution.url;
-        figure.appendChild(img);
-        a.appendChild(figure);
-        article.appendChild(a);
-
-        if (options.caption && data.caption) {
-          div = document.createElement('div');
-          p = document.createElement('p');
-          p.innerHTML = data.caption.text;
-          div.appendChild(p);
-          a.appendChild(div);
-        }
-
-        targetEl.appendChild(article);
-      });
-    };
-
-    instafetch.destroy = function () {
-
-      if (!settings) {
-        return;
-      }
-
-      settings = null;
-      checked = null;
-      url = null;
-      targetEl = null;
-      article = null;
-      a = null;
-      figure = null;
-      img = null;
-      div = null;
-      p = null;
-    };
-
-    instafetch.init = function (options) {
-
-      if (!supports) {
-        return;
-      }
-
-      instafetch.destroy();
-
-      settings = extend(defaults, options || {});
-
-      checked = checkSettings(settings);
-
-      if (checked) {
-        fetchFeed(settings);
-      }
-    };
-
-    window.instafetch = instafetch;
-  }, { "fetch-jsonp": 1, "promise-polyfill": 2 }] }, {}, [3]);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(176).setImmediate))
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
-module.exports = function (obj) {
-  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
-};
-
-function isBuffer(obj) {
-  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
-}
-
-// For Node v0.10 support. Remove this eventually.
-function isSlowBuffer(obj) {
-  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0));
-}
-
-/***/ }),
-/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15780,6 +11784,3957 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
 
 /***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var mapCacheClear = __webpack_require__(152),
+    mapCacheDelete = __webpack_require__(153),
+    mapCacheGet = __webpack_require__(154),
+    mapCacheHas = __webpack_require__(155),
+    mapCacheSet = __webpack_require__(156);
+
+/**
+ * Creates a map cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function MapCache(entries) {
+    var index = -1,
+        length = entries == null ? 0 : entries.length;
+
+    this.clear();
+    while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+    }
+}
+
+// Add methods to `MapCache`.
+MapCache.prototype.clear = mapCacheClear;
+MapCache.prototype['delete'] = mapCacheDelete;
+MapCache.prototype.get = mapCacheGet;
+MapCache.prototype.has = mapCacheHas;
+MapCache.prototype.set = mapCacheSet;
+
+module.exports = MapCache;
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseTimes = __webpack_require__(117),
+    isArguments = __webpack_require__(168),
+    isArray = __webpack_require__(15),
+    isBuffer = __webpack_require__(48),
+    isIndex = __webpack_require__(144),
+    isTypedArray = __webpack_require__(169);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Creates an array of the enumerable property names of the array-like `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @param {boolean} inherited Specify returning inherited property names.
+ * @returns {Array} Returns the array of property names.
+ */
+function arrayLikeKeys(value, inherited) {
+  var isArr = isArray(value),
+      isArg = !isArr && isArguments(value),
+      isBuff = !isArr && !isArg && isBuffer(value),
+      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
+      skipIndexes = isArr || isArg || isBuff || isType,
+      result = skipIndexes ? baseTimes(value.length, String) : [],
+      length = result.length;
+
+  for (var key in value) {
+    if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && (
+    // Safari 9 has enumerable `arguments.length` in strict mode.
+    key == 'length' ||
+    // Node.js 0.10 has enumerable non-index properties on buffers.
+    isBuff && (key == 'offset' || key == 'parent') ||
+    // PhantomJS 2 has enumerable non-index properties on typed arrays.
+    isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') ||
+    // Skip index properties.
+    isIndex(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = arrayLikeKeys;
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Appends the elements of `values` to `array`.
+ *
+ * @private
+ * @param {Array} array The array to modify.
+ * @param {Array} values The values to append.
+ * @returns {Array} Returns `array`.
+ */
+function arrayPush(array, values) {
+  var index = -1,
+      length = values.length,
+      offset = array.length;
+
+  while (++index < length) {
+    array[offset + index] = values[index];
+  }
+  return array;
+}
+
+module.exports = arrayPush;
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A specialized version of `_.reduce` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @param {*} [accumulator] The initial value.
+ * @param {boolean} [initAccum] Specify using the first element of `array` as
+ *  the initial value.
+ * @returns {*} Returns the accumulated value.
+ */
+function arrayReduce(array, iteratee, accumulator, initAccum) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  if (initAccum && length) {
+    accumulator = array[++index];
+  }
+  while (++index < length) {
+    accumulator = iteratee(accumulator, array[index], index, array);
+  }
+  return accumulator;
+}
+
+module.exports = arrayReduce;
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseAssignValue = __webpack_require__(40),
+    eq = __webpack_require__(46);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) || value === undefined && !(key in object)) {
+    baseAssignValue(object, key, value);
+  }
+}
+
+module.exports = assignValue;
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defineProperty = __webpack_require__(130);
+
+/**
+ * The base implementation of `assignValue` and `assignMergeValue` without
+ * value checks.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function baseAssignValue(object, key, value) {
+  if (key == '__proto__' && defineProperty) {
+    defineProperty(object, key, {
+      'configurable': true,
+      'enumerable': true,
+      'value': value,
+      'writable': true
+    });
+  } else {
+    object[key] = value;
+  }
+}
+
+module.exports = baseAssignValue;
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var arrayPush = __webpack_require__(37),
+    isArray = __webpack_require__(15);
+
+/**
+ * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
+ * `keysFunc` and `symbolsFunc` to get the enumerable property names and
+ * symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Function} keysFunc The function to get the keys of `object`.
+ * @param {Function} symbolsFunc The function to get the symbols of `object`.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function baseGetAllKeys(object, keysFunc, symbolsFunc) {
+  var result = keysFunc(object);
+  return isArray(object) ? result : arrayPush(result, symbolsFunc(object));
+}
+
+module.exports = baseGetAllKeys;
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+
+module.exports = freeGlobal;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var arrayPush = __webpack_require__(37),
+    getPrototype = __webpack_require__(21),
+    getSymbols = __webpack_require__(22),
+    stubArray = __webpack_require__(55);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeGetSymbols = Object.getOwnPropertySymbols;
+
+/**
+ * Creates an array of the own and inherited enumerable symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of symbols.
+ */
+var getSymbolsIn = !nativeGetSymbols ? stubArray : function (object) {
+  var result = [];
+  while (object) {
+    arrayPush(result, getSymbols(object));
+    object = getPrototype(object);
+  }
+  return result;
+};
+
+module.exports = getSymbolsIn;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function (arg) {
+    return func(transform(arg));
+  };
+}
+
+module.exports = overArg;
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/**
+ * Converts `func` to its source code.
+ *
+ * @private
+ * @param {Function} func The function to convert.
+ * @returns {string} Returns the source code.
+ */
+function toSource(func) {
+  if (func != null) {
+    try {
+      return funcToString.call(func);
+    } catch (e) {}
+    try {
+      return func + '';
+    } catch (e) {}
+  }
+  return '';
+}
+
+module.exports = toSource;
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Performs a
+ * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * comparison between two values to determine if they are equivalent.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ * var other = { 'a': 1 };
+ *
+ * _.eq(object, object);
+ * // => true
+ *
+ * _.eq(object, other);
+ * // => false
+ *
+ * _.eq('a', 'a');
+ * // => true
+ *
+ * _.eq('a', Object('a'));
+ * // => false
+ *
+ * _.eq(NaN, NaN);
+ * // => true
+ */
+function eq(value, other) {
+  return value === other || value !== value && other !== other;
+}
+
+module.exports = eq;
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isFunction = __webpack_require__(50),
+    isLength = __webpack_require__(51);
+
+/**
+ * Checks if `value` is array-like. A value is considered array-like if it's
+ * not a function and has a `value.length` that's an integer greater than or
+ * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+ * @example
+ *
+ * _.isArrayLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLike(document.body.children);
+ * // => true
+ *
+ * _.isArrayLike('abc');
+ * // => true
+ *
+ * _.isArrayLike(_.noop);
+ * // => false
+ */
+function isArrayLike(value) {
+  return value != null && isLength(value.length) && !isFunction(value);
+}
+
+module.exports = isArrayLike;
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var root = __webpack_require__(1),
+    stubFalse = __webpack_require__(171);
+
+/** Detect free variable `exports`. */
+var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && ( false ? 'undefined' : _typeof(module)) == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/** Built-in value references. */
+var Buffer = moduleExports ? root.Buffer : undefined;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
+
+/**
+ * Checks if `value` is a buffer.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+ * @example
+ *
+ * _.isBuffer(new Buffer(2));
+ * // => true
+ *
+ * _.isBuffer(new Uint8Array(2));
+ * // => false
+ */
+var isBuffer = nativeIsBuffer || stubFalse;
+
+module.exports = isBuffer;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObjectLike = __webpack_require__(6),
+    isPlainObject = __webpack_require__(52);
+
+/**
+ * Checks if `value` is likely a DOM element.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a DOM element, else `false`.
+ * @example
+ *
+ * _.isElement(document.body);
+ * // => true
+ *
+ * _.isElement('<body>');
+ * // => false
+ */
+function isElement(value) {
+  return isObjectLike(value) && value.nodeType === 1 && !isPlainObject(value);
+}
+
+module.exports = isElement;
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(5),
+    isObject = __webpack_require__(8);
+
+/** `Object#toString` result references. */
+var asyncTag = '[object AsyncFunction]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    proxyTag = '[object Proxy]';
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+    if (!isObject(value)) {
+        return false;
+    }
+    // The use of `Object#toString` avoids issues with the `typeof` operator
+    // in Safari 9 which returns 'object' for typed arrays and other constructors.
+    var tag = baseGetTag(value);
+    return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+}
+
+module.exports = isFunction;
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+module.exports = isLength;
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(5),
+    getPrototype = __webpack_require__(21),
+    isObjectLike = __webpack_require__(6);
+
+/** `Object#toString` result references. */
+var objectTag = '[object Object]';
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Used to infer the `Object` constructor. */
+var objectCtorString = funcToString.call(Object);
+
+/**
+ * Checks if `value` is a plain object, that is, an object created by the
+ * `Object` constructor or one with a `[[Prototype]]` of `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.8.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * _.isPlainObject(new Foo);
+ * // => false
+ *
+ * _.isPlainObject([1, 2, 3]);
+ * // => false
+ *
+ * _.isPlainObject({ 'x': 0, 'y': 0 });
+ * // => true
+ *
+ * _.isPlainObject(Object.create(null));
+ * // => true
+ */
+function isPlainObject(value) {
+  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+    return false;
+  }
+  var proto = getPrototype(value);
+  if (proto === null) {
+    return true;
+  }
+  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+}
+
+module.exports = isPlainObject;
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(5),
+    isArray = __webpack_require__(15),
+    isObjectLike = __webpack_require__(6);
+
+/** `Object#toString` result references. */
+var stringTag = '[object String]';
+
+/**
+ * Checks if `value` is classified as a `String` primitive or object.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a string, else `false`.
+ * @example
+ *
+ * _.isString('abc');
+ * // => true
+ *
+ * _.isString(1);
+ * // => false
+ */
+function isString(value) {
+    return typeof value == 'string' || !isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
+}
+
+module.exports = isString;
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var arrayLikeKeys = __webpack_require__(36),
+    baseKeysIn = __webpack_require__(116),
+    isArrayLike = __webpack_require__(47);
+
+/**
+ * Creates an array of the own and inherited enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keysIn(new Foo);
+ * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+ */
+function keysIn(object) {
+  return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+}
+
+module.exports = keysIn;
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * This method returns a new empty array.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {Array} Returns the new empty array.
+ * @example
+ *
+ * var arrays = _.times(2, _.stubArray);
+ *
+ * console.log(arrays);
+ * // => [[], []]
+ *
+ * console.log(arrays[0] === arrays[1]);
+ * // => false
+ */
+function stubArray() {
+  return [];
+}
+
+module.exports = stubArray;
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var replace = String.prototype.replace;
+var percentTwenties = /%20/g;
+
+module.exports = {
+    'default': 'RFC3986',
+    formatters: {
+        RFC1738: function RFC1738(value) {
+            return replace.call(value, percentTwenties, '+');
+        },
+        RFC3986: function RFC3986(value) {
+            return value;
+        }
+    },
+    RFC1738: 'RFC1738',
+    RFC3986: 'RFC3986'
+};
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var has = Object.prototype.hasOwnProperty;
+
+var hexTable = function () {
+    var array = [];
+    for (var i = 0; i < 256; ++i) {
+        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
+    }
+
+    return array;
+}();
+
+var compactQueue = function compactQueue(queue) {
+    var obj;
+
+    while (queue.length) {
+        var item = queue.pop();
+        obj = item.obj[item.prop];
+
+        if (Array.isArray(obj)) {
+            var compacted = [];
+
+            for (var j = 0; j < obj.length; ++j) {
+                if (typeof obj[j] !== 'undefined') {
+                    compacted.push(obj[j]);
+                }
+            }
+
+            item.obj[item.prop] = compacted;
+        }
+    }
+
+    return obj;
+};
+
+exports.arrayToObject = function arrayToObject(source, options) {
+    var obj = options && options.plainObjects ? Object.create(null) : {};
+    for (var i = 0; i < source.length; ++i) {
+        if (typeof source[i] !== 'undefined') {
+            obj[i] = source[i];
+        }
+    }
+
+    return obj;
+};
+
+exports.merge = function merge(target, source, options) {
+    if (!source) {
+        return target;
+    }
+
+    if ((typeof source === 'undefined' ? 'undefined' : _typeof(source)) !== 'object') {
+        if (Array.isArray(target)) {
+            target.push(source);
+        } else if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object') {
+            if (options.plainObjects || options.allowPrototypes || !has.call(Object.prototype, source)) {
+                target[source] = true;
+            }
+        } else {
+            return [target, source];
+        }
+
+        return target;
+    }
+
+    if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== 'object') {
+        return [target].concat(source);
+    }
+
+    var mergeTarget = target;
+    if (Array.isArray(target) && !Array.isArray(source)) {
+        mergeTarget = exports.arrayToObject(target, options);
+    }
+
+    if (Array.isArray(target) && Array.isArray(source)) {
+        source.forEach(function (item, i) {
+            if (has.call(target, i)) {
+                if (target[i] && _typeof(target[i]) === 'object') {
+                    target[i] = exports.merge(target[i], item, options);
+                } else {
+                    target.push(item);
+                }
+            } else {
+                target[i] = item;
+            }
+        });
+        return target;
+    }
+
+    return Object.keys(source).reduce(function (acc, key) {
+        var value = source[key];
+
+        if (has.call(acc, key)) {
+            acc[key] = exports.merge(acc[key], value, options);
+        } else {
+            acc[key] = value;
+        }
+        return acc;
+    }, mergeTarget);
+};
+
+exports.assign = function assignSingleSource(target, source) {
+    return Object.keys(source).reduce(function (acc, key) {
+        acc[key] = source[key];
+        return acc;
+    }, target);
+};
+
+exports.decode = function (str) {
+    try {
+        return decodeURIComponent(str.replace(/\+/g, ' '));
+    } catch (e) {
+        return str;
+    }
+};
+
+exports.encode = function encode(str) {
+    // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
+    // It has been adapted here for stricter adherence to RFC 3986
+    if (str.length === 0) {
+        return str;
+    }
+
+    var string = typeof str === 'string' ? str : String(str);
+
+    var out = '';
+    for (var i = 0; i < string.length; ++i) {
+        var c = string.charCodeAt(i);
+
+        if (c === 0x2D // -
+        || c === 0x2E // .
+        || c === 0x5F // _
+        || c === 0x7E // ~
+        || c >= 0x30 && c <= 0x39 // 0-9
+        || c >= 0x41 && c <= 0x5A // a-z
+        || c >= 0x61 && c <= 0x7A // A-Z
+        ) {
+                out += string.charAt(i);
+                continue;
+            }
+
+        if (c < 0x80) {
+            out = out + hexTable[c];
+            continue;
+        }
+
+        if (c < 0x800) {
+            out = out + (hexTable[0xC0 | c >> 6] + hexTable[0x80 | c & 0x3F]);
+            continue;
+        }
+
+        if (c < 0xD800 || c >= 0xE000) {
+            out = out + (hexTable[0xE0 | c >> 12] + hexTable[0x80 | c >> 6 & 0x3F] + hexTable[0x80 | c & 0x3F]);
+            continue;
+        }
+
+        i += 1;
+        c = 0x10000 + ((c & 0x3FF) << 10 | string.charCodeAt(i) & 0x3FF);
+        out += hexTable[0xF0 | c >> 18] + hexTable[0x80 | c >> 12 & 0x3F] + hexTable[0x80 | c >> 6 & 0x3F] + hexTable[0x80 | c & 0x3F];
+    }
+
+    return out;
+};
+
+exports.compact = function compact(value) {
+    var queue = [{ obj: { o: value }, prop: 'o' }];
+    var refs = [];
+
+    for (var i = 0; i < queue.length; ++i) {
+        var item = queue[i];
+        var obj = item.obj[item.prop];
+
+        var keys = Object.keys(obj);
+        for (var j = 0; j < keys.length; ++j) {
+            var key = keys[j];
+            var val = obj[key];
+            if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object' && val !== null && refs.indexOf(val) === -1) {
+                queue.push({ obj: obj, prop: key });
+                refs.push(val);
+            }
+        }
+    }
+
+    return compactQueue(queue);
+};
+
+exports.isRegExp = function isRegExp(obj) {
+    return Object.prototype.toString.call(obj) === '[object RegExp]';
+};
+
+exports.isBuffer = function isBuffer(obj) {
+    if (obj === null || typeof obj === 'undefined') {
+        return false;
+    }
+
+    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
+};
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var g;
+
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _component = __webpack_require__(7);
+
+Object.keys(_component).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _component[key];
+    }
+  });
+});
+
+var _view = __webpack_require__(179);
+
+Object.keys(_view).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _view[key];
+    }
+  });
+});
+
+var _device = __webpack_require__(178);
+
+Object.keys(_device).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _device[key];
+    }
+  });
+});
+
+var _instaFeed = __webpack_require__(183);
+
+Object.keys(_instaFeed).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _instaFeed[key];
+    }
+  });
+});
+
+var _featureCarousel = __webpack_require__(182);
+
+Object.keys(_featureCarousel).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _featureCarousel[key];
+    }
+  });
+});
+
+var _mainNavigation = __webpack_require__(184);
+
+Object.keys(_mainNavigation).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _mainNavigation[key];
+    }
+  });
+});
+
+var _blogFeed = __webpack_require__(181);
+
+Object.keys(_blogFeed).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _blogFeed[key];
+    }
+  });
+});
+
+var _alertBar = __webpack_require__(180);
+
+Object.keys(_alertBar).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _alertBar[key];
+    }
+  });
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _modules = __webpack_require__(59);
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  /**
+   * Classes
+   */
+  // new Browser();
+  new _modules.Component();
+  new _modules.View();
+
+  /**
+   * Views
+   * Run on a particular page.
+   */
+
+  /**
+   * Components
+   */
+  new _modules.instaFeed();
+  new _modules.featureCarousel();
+  new _modules.mainNav();
+  new _modules.blogFeed();
+  new _modules.alertBar();
+
+  /**
+   * Init modules
+   */
+}); /**
+     * Import Classes
+     */
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(62);
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var bind = __webpack_require__(29);
+var Axios = __webpack_require__(64);
+var defaults = __webpack_require__(17);
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(26);
+axios.CancelToken = __webpack_require__(63);
+axios.isCancel = __webpack_require__(27);
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(78);
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(26);
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__(17);
+var utils = __webpack_require__(0);
+var InterceptorManager = __webpack_require__(65);
+var dispatchRequest = __webpack_require__(66);
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function (url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function (url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var transformData = __webpack_require__(69);
+var isCancel = __webpack_require__(27);
+var defaults = __webpack_require__(17);
+var isAbsoluteURL = __webpack_require__(74);
+var combineURLs = __webpack_require__(72);
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(config.data, config.headers, config.transformRequest);
+
+  // Flatten headers
+  config.headers = utils.merge(config.headers.common || {}, config.headers[config.method] || {}, config.headers || {});
+
+  utils.forEach(['delete', 'get', 'head', 'post', 'put', 'patch', 'common'], function cleanHeaderConfig(method) {
+    delete config.headers[method];
+  });
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(response.data, response.headers, config.transformResponse);
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(28);
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError('Request failed with status code ' + response.status, response.config, null, response.request, response));
+  }
+};
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error();
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+  // initialize result and counter
+  var block, charCode, idx = 0, map = chars;
+  // if the next str index does not exist:
+  //   change the mapping table to "="
+  //   check if d has no fractional digits
+  str.charAt(idx | 0) || (map = '=', idx % 1);
+  // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+  output += map.charAt(63 & block >> 8 - idx % 1 * 8)) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+function encode(val) {
+  return encodeURIComponent(val).replace(/%40/gi, '@').replace(/%3A/gi, ':').replace(/%24/g, '$').replace(/%2C/gi, ',').replace(/%20/g, '+').replace(/%5B/gi, '[').replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      }
+
+      if (!utils.isArray(val)) {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') : baseURL;
+};
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = utils.isStandardBrowserEnv() ?
+
+// Standard browser envs support document.cookie
+function standardBrowserEnv() {
+  return {
+    write: function write(name, value, expires, path, domain, secure) {
+      var cookie = [];
+      cookie.push(name + '=' + encodeURIComponent(value));
+
+      if (utils.isNumber(expires)) {
+        cookie.push('expires=' + new Date(expires).toGMTString());
+      }
+
+      if (utils.isString(path)) {
+        cookie.push('path=' + path);
+      }
+
+      if (utils.isString(domain)) {
+        cookie.push('domain=' + domain);
+      }
+
+      if (secure === true) {
+        cookie.push('secure');
+      }
+
+      document.cookie = cookie.join('; ');
+    },
+
+    read: function read(name) {
+      var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+      return match ? decodeURIComponent(match[3]) : null;
+    },
+
+    remove: function remove(name) {
+      this.write(name, '', Date.now() - 86400000);
+    }
+  };
+}() :
+
+// Non standard browser env (web workers, react-native) lack needed support.
+function nonStandardBrowserEnv() {
+  return {
+    write: function write() {},
+    read: function read() {
+      return null;
+    },
+    remove: function remove() {}
+  };
+}();
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return (/^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
+  );
+};
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = utils.isStandardBrowserEnv() ?
+
+// Standard browser envs have full support of the APIs needed to test
+// whether the request URL is of the same origin as current location.
+function standardBrowserEnv() {
+  var msie = /(msie|trident)/i.test(navigator.userAgent);
+  var urlParsingNode = document.createElement('a');
+  var originURL;
+
+  /**
+  * Parse a URL to discover it's components
+  *
+  * @param {String} url The URL to be parsed
+  * @returns {Object}
+  */
+  function resolveURL(url) {
+    var href = url;
+
+    if (msie) {
+      // IE needs attribute set twice to normalize properties
+      urlParsingNode.setAttribute('href', href);
+      href = urlParsingNode.href;
+    }
+
+    urlParsingNode.setAttribute('href', href);
+
+    // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+    return {
+      href: urlParsingNode.href,
+      protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+      host: urlParsingNode.host,
+      search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+      hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+      hostname: urlParsingNode.hostname,
+      port: urlParsingNode.port,
+      pathname: urlParsingNode.pathname.charAt(0) === '/' ? urlParsingNode.pathname : '/' + urlParsingNode.pathname
+    };
+  }
+
+  originURL = resolveURL(window.location.href);
+
+  /**
+  * Determine if a URL shares the same origin as the current location
+  *
+  * @param {String} requestURL The URL to test
+  * @returns {boolean} True if URL shares the same origin, otherwise false
+  */
+  return function isURLSameOrigin(requestURL) {
+    var parsed = utils.isString(requestURL) ? resolveURL(requestURL) : requestURL;
+    return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
+  };
+}() :
+
+// Non standard browser envs (web workers, react-native) lack needed support.
+function nonStandardBrowserEnv() {
+  return function isURLSameOrigin() {
+    return true;
+  };
+}();
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = ['age', 'authorization', 'content-length', 'content-type', 'etag', 'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since', 'last-modified', 'location', 'max-forwards', 'proxy-authorization', 'referer', 'retry-after', 'user-agent'];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) {
+    return parsed;
+  }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createHttpClient;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _qs = __webpack_require__(172);
+
+var _qs2 = _interopRequireDefault(_qs);
+
+var _rateLimit = __webpack_require__(84);
+
+var _rateLimit2 = _interopRequireDefault(_rateLimit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;_e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }return _arr;
+  }return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+// Matches 'sub.host:port' and extracts hostname and port
+// Also enforces toplevel domain specified, no spaces and no protocol
+var HOST_REGEX = /^(?!\w+:\/\/)([^\s:]+\.[^\s:]+)(?::(\d+))?(?!:)$/;
+
+/**
+ * Create pre configured axios instance
+ * @private
+ * @param {Object} axios - Axios library
+ * @param {Object} httpClientParams - Initialization parameters for the HTTP client
+ * @prop {string} space - Space ID
+ * @prop {string} accessToken - Access Token
+ * @prop {boolean=} insecure - If we should use http instead
+ * @prop {string=} host - Alternate host
+ * @prop {Object=} httpAgent - HTTP agent for node
+ * @prop {Object=} httpsAgent - HTTPS agent for node
+ * @prop {Object=} proxy - Axios proxy config
+ * @prop {Object=} headers - Additional headers
+ * @return {Object} Initialized axios instance
+ */
+function createHttpClient(axios, options) {
+  var defaultConfig = {
+    insecure: false,
+    retryOnError: true,
+    logHandler: function logHandler(level, data) {
+      if (level === 'error' && data) {
+        var title = [data.name, data.message].filter(function (a) {
+          return a;
+        }).join(' - ');
+        console.error('[error] ' + title);
+        console.error(data);
+        return;
+      }
+      console.log('[' + level + '] ' + data);
+    },
+    // Passed to axios
+    headers: {},
+    httpAgent: false,
+    httpsAgent: false,
+    timeout: 30000,
+    proxy: false,
+    basePath: ''
+  };
+  var config = _extends({}, defaultConfig, options);
+
+  if (!config.accessToken) {
+    var missingAccessTokenError = new TypeError('Expected parameter accessToken');
+    config.logHandler('error', missingAccessTokenError);
+    throw missingAccessTokenError;
+  }
+
+  // Construct axios baseURL option
+  var protocol = config.insecure ? 'http' : 'https';
+  var space = config.space ? config.space + '/' : '';
+  var hostname = config.defaultHostname;
+  var port = config.insecure ? 80 : 443;
+
+  if (HOST_REGEX.test(config.host)) {
+    var parsed = config.host.split(':');
+    if (parsed.length === 2) {
+      var _parsed = _slicedToArray(parsed, 2);
+
+      hostname = _parsed[0];
+      port = _parsed[1];
+    } else {
+      hostname = parsed[0];
+    }
+  }
+
+  // Ensure that basePath does start but not end with a slash
+  if (config.basePath) {
+    config.basePath = '/' + config.basePath.split('/').filter(Boolean).join('/');
+  }
+
+  var baseURL = protocol + '://' + hostname + ':' + port + config.basePath + '/spaces/' + space;
+
+  config.headers['Authorization'] = 'Bearer ' + config.accessToken;
+
+  // Set these headers only for node because browsers don't like it when you
+  // override user-agent or accept-encoding.
+  // The SDKs should set their own X-Contentful-User-Agent.
+  if (process && process.release && process.release.name === 'node') {
+    config.headers['user-agent'] = 'node.js/' + process.version;
+    config.headers['Accept-Encoding'] = 'gzip';
+  }
+
+  var axiosOptions = {
+    // Axios
+    baseURL: baseURL,
+    headers: config.headers,
+    httpAgent: config.httpAgent,
+    httpsAgent: config.httpsAgent,
+    paramsSerializer: _qs2.default.stringify,
+    proxy: config.proxy,
+    timeout: config.timeout,
+    // Contentful
+    logHandler: config.logHandler,
+    retryOnError: config.retryOnError
+  };
+  var instance = axios.create(axiosOptions);
+  instance.httpClientParams = options;
+
+  /**
+   * Creates a new axios instance with the same default base parameters as the
+   * current one, and with any overrides passed to the newParams object
+   * This is useful as the SDKs use dependency injection to get the axios library
+   * and the version of the library comes from different places depending
+   * on whether it's a browser build or a node.js build.
+   * @private
+   * @param {Object} httpClientParams - Initialization parameters for the HTTP client
+   * @return {Object} Initialized axios instance
+   */
+  instance.cloneWithNewParams = function (newParams) {
+    return createHttpClient(axios, _extends({}, (0, _cloneDeep2.default)(options), newParams));
+  };
+  (0, _rateLimit2.default)(instance);
+  return instance;
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createRequestConfig;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Creates request parameters configuration by parsing an existing query object
+ * @private
+ * @param {Object} query
+ * @return {Object} Config object with `params` property, ready to be used in axios
+ */
+function createRequestConfig(_ref) {
+  var query = _ref.query;
+
+  var config = {};
+  delete query.resolveLinks;
+  config.params = (0, _cloneDeep2.default)(query);
+  return config;
+}
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = enforceObjPath;
+function enforceObjPath(obj, path) {
+  if (!(path in obj)) {
+    var err = new Error();
+    err.name = 'PropertyMissing';
+    err.message = 'Required property ' + path + ' missing from:\n\n' + JSON.stringify(obj) + '\n\n';
+    throw err;
+  }
+  return true;
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = freezeSys;
+
+var _isPlainObject = __webpack_require__(52);
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function freezeObjectDeep(obj) {
+  Object.keys(obj).forEach(function (key) {
+    var value = obj[key];
+    if ((0, _isPlainObject2.default)(value)) {
+      freezeObjectDeep(value);
+    }
+  });
+  return Object.freeze(obj);
+}
+
+function freezeSys(obj) {
+  freezeObjectDeep(obj.sys || {});
+  return obj;
+}
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getUserAgentHeader;
+
+var _os = __webpack_require__(175);
+
+function isReactNative() {
+  return typeof window !== 'undefined' && 'navigator' in window && 'product' in window.navigator && window.navigator.product === 'ReactNative';
+}
+
+function isNode() {
+  return typeof process !== 'undefined' && 'release' in process && 'name' in process.release;
+}
+
+function getBrowserOS() {
+  if (!window) {
+    return null;
+  }
+  var userAgent = window.navigator.userAgent;
+  var platform = window.navigator.platform;
+  var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+  var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+  var iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+  var os = null;
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'macOS';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android';
+  } else if (/Linux/.test(platform)) {
+    os = 'Linux';
+  }
+
+  return os;
+}
+
+function getNodeOS() {
+  var os = (0, _os.platform)() || 'linux';
+  var version = (0, _os.release)() || '0.0.0';
+  var osMap = {
+    android: 'Android',
+    aix: 'Linux',
+    darwin: 'macOS',
+    freebsd: 'Linux',
+    linux: 'Linux',
+    openbsd: 'Linux',
+    sunos: 'Linux',
+    win32: 'Windows'
+  };
+  if (os in osMap) {
+    return (osMap[os] || 'Linux') + '/' + version;
+  }
+  return null;
+}
+
+function getUserAgentHeader(sdk, application, integration) {
+  var headerParts = [];
+
+  if (application) {
+    headerParts.push('app ' + application);
+  }
+
+  if (integration) {
+    headerParts.push('integration ' + integration);
+  }
+
+  headerParts.push('sdk ' + sdk);
+
+  var os = null;
+  if (isReactNative()) {
+    os = getBrowserOS();
+    headerParts.push('platform ReactNative');
+  } else if (isNode()) {
+    os = getNodeOS();
+    headerParts.push('platform node.js/' + process.versions.node);
+  } else {
+    os = getBrowserOS();
+    headerParts.push('platform browser');
+  }
+
+  if (os) {
+    headerParts.push('os ' + os);
+  }
+
+  return headerParts.filter(function (item) {
+    return item !== '';
+  }).join('; ') + ';';
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = rateLimit;
+var attempts = {};
+var networkErrorAttempts = 0;
+
+function rateLimit(instance) {
+  var maxRetry = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+
+  instance.interceptors.response.use(function (response) {
+    // we don't need to do anything here
+    return response;
+  }, function (error) {
+    var response = error.response,
+        config = error.config;
+
+    if (!instance.defaults.retryOnError) {
+      return Promise.reject(error);
+    }
+
+    var retryErrorType = null;
+    var wait = 0;
+
+    // Errors without response or config did not recieve anything from the server
+    // Should be a network related error
+    if (!response || !config) {
+      retryErrorType = 'Connection';
+      networkErrorAttempts++;
+
+      if (networkErrorAttempts > maxRetry) {
+        error.attempts = networkErrorAttempts;
+        return Promise.reject(error);
+      }
+
+      wait = Math.pow(Math.SQRT2, networkErrorAttempts);
+      response = {};
+    } else {
+      networkErrorAttempts = 0;
+    }
+
+    if (response.status >= 500 && response.status < 600) {
+      // 5** errors are server related
+      retryErrorType = 'Server ' + response.status;
+      var headers = response.headers || {};
+      var requestId = headers['x-contentful-request-id'] || null;
+      attempts[requestId] = attempts[requestId] || 0;
+      attempts[requestId]++;
+
+      // we reject if there are too much errors of with the same request id
+      if (attempts[requestId] > maxRetry || !requestId) {
+        error.attempts = attempts[requestId];
+        return Promise.reject(error);
+      }
+      wait = Math.pow(Math.SQRT2, attempts[requestId]);
+    } else if (response.status === 429) {
+      // 429 errors are exceeded rate limit exceptions
+      retryErrorType = 'Rate limit';
+      // all headers are lowercased by axios https://github.com/mzabriskie/axios/issues/413
+      if (response.headers && error.response.headers['x-contentful-ratelimit-reset']) {
+        wait = response.headers['x-contentful-ratelimit-reset'];
+      }
+    }
+
+    if (retryErrorType) {
+      // convert to ms and add jitter
+      wait = Math.floor(wait * 1000 + Math.random() * 200 + 500);
+      instance.defaults.logHandler('warning', retryErrorType + ' error occurred. Waiting for ' + wait + ' ms before retrying...');
+      return new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve(instance(config));
+        }, wait);
+      });
+    }
+    return Promise.reject(error);
+  });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = toPlainObject;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Mixes in a method to return just a plain object with no additional methods
+ * @private
+ * @param {Object} data - Any plain JSON response returned from the API
+ * @return {Object} Enhanced object with toPlainObject method
+ */
+function toPlainObject(data) {
+  return Object.defineProperty(data, 'toPlainObject', {
+    enumerable: false,
+    configurable: false,
+    writable: false,
+    value: function value() {
+      return (0, _cloneDeep2.default)(this);
+    }
+  });
+}
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createContentfulApi;
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+var _entities = __webpack_require__(91);
+
+var _entities2 = _interopRequireDefault(_entities);
+
+var _pagedSync = __webpack_require__(93);
+
+var _pagedSync2 = _interopRequireDefault(_pagedSync);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Creates API object with methods to access functionality from Contentful's
+ * Delivery API
+ * @private
+ * @param {Object} params - API initialization params
+ * @prop {Object} http - HTTP client instance
+ * @prop {Object} entities - Object with wrapper methods for each kind of entity
+ * @prop {Function} shouldLinksResolve - Link resolver preconfigured with global setting
+ * @return {ClientAPI}
+ */
+function createContentfulApi(_ref) {
+  var http = _ref.http,
+      shouldLinksResolve = _ref.shouldLinksResolve;
+  var wrapSpace = _entities2.default.space.wrapSpace;
+  var _entities$contentType = _entities2.default.contentType,
+      wrapContentType = _entities$contentType.wrapContentType,
+      wrapContentTypeCollection = _entities$contentType.wrapContentTypeCollection;
+  var _entities$entry = _entities2.default.entry,
+      wrapEntry = _entities$entry.wrapEntry,
+      wrapEntryCollection = _entities$entry.wrapEntryCollection;
+  var _entities$asset = _entities2.default.asset,
+      wrapAsset = _entities$asset.wrapAsset,
+      wrapAssetCollection = _entities$asset.wrapAssetCollection;
+
+  function errorHandler(error) {
+    if (error.data) {
+      throw error.data;
+    }
+    throw error;
+  }
+
+  /**
+   * Gets the Space which the client is currently configured to use
+   * @memberof ContentfulClientAPI
+   * @return {Promise<Entities.Space>} Promise for a Space
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   * // returns the space object with the above <space-id>
+   * client.getSpace()
+   * .then((space) => console.log(space))
+   * .catch(console.error)
+   */
+  function getSpace() {
+    return http.get('').then(function (response) {
+      return wrapSpace(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Gets a Content Type
+   * @memberof ContentfulClientAPI
+   * @param  {string} id
+   * @return {Promise<Entities.ContentType>} Promise for a Content Type
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getContentType('<content_type_id>')
+   * .then((contentType) => console.log(contentType))
+   * .catch(console.error)
+   */
+  function getContentType(id) {
+    return http.get('content_types/' + id).then(function (response) {
+      return wrapContentType(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Gets a collection of Content Types
+   * @memberof ContentfulClientAPI
+   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
+   * @return {Promise<Entities.ContentTypeCollection>} Promise for a collection of Content Types
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getContentTypes()
+   * .then((response) => console.log(response.items))
+   * .catch(console.error)
+   */
+  function getContentTypes() {
+    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    return http.get('content_types', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+      return wrapContentTypeCollection(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Gets an Entry
+   * @memberof ContentfulClientAPI
+   * @param  {string} id
+   * @param  {Object=} query - Object with search parameters. In this method it's only useful for `locale`.
+   * @return {Promise<Entities.Entry>} Promise for an Entry
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getEntry('<entry_id>')
+   * .then((entry) => console.log(entry))
+   * .catch(console.error)
+   */
+  function getEntry(id) {
+    var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    normalizeSelect(query);
+    return http.get('entries/' + id, (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+      return wrapEntry(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Gets a collection of Entries
+   * @memberof ContentfulClientAPI
+   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
+   * @return {Promise<Entities.EntryCollection>} Promise for a collection of Entries
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getEntries()
+   * .then((response) => console.log(response.items))
+   * .catch(console.error)
+   */
+  function getEntries() {
+    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    var resolveLinks = shouldLinksResolve(query);
+    var resolveForAllLocales = query.locale && query.locale === '*';
+    normalizeSelect(query);
+    return http.get('entries', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+      return wrapEntryCollection(response.data, resolveLinks, resolveForAllLocales);
+    }, errorHandler);
+  }
+  /**
+   * Gets an Asset
+   * @memberof ContentfulClientAPI
+   * @param  {string} id
+   * @param  {Object=} query - Object with search parameters. In this method it's only useful for `locale`.
+   * @return {Promise<Entities.Asset>} Promise for an Asset
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getAsset('<asset_id>')
+   * .then((asset) => console.log(asset))
+   * .catch(console.error)
+   */
+  function getAsset(id) {
+    var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    normalizeSelect(query);
+    return http.get('assets/' + id, (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+      return wrapAsset(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Gets a collection of Assets
+   * @memberof ContentfulClientAPI
+   * @param  {Object=} query - Object with search parameters. Check the <a href="https://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/#retrieving-entries-with-search-parameters">JS SDK tutorial</a> and the <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters">REST API reference</a> for more details.
+   * @return {Promise<Entities.AssetCollection>} Promise for a collection of Assets
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.getAssets()
+   * .then((response) => console.log(response.items))
+   * .catch(console.error)
+   */
+  function getAssets() {
+    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    normalizeSelect(query);
+    return http.get('assets', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+      return wrapAssetCollection(response.data);
+    }, errorHandler);
+  }
+
+  /**
+   * Synchronizes either all the content or only new content since last sync
+   * See <a href="https://www.contentful.com/developers/docs/concepts/sync/">Synchronization</a> for more information.
+   * <strong> Important note: </strong> The the sync api endpoint does not support include or link resolution.
+   * However contentful.js is doing link resolution client side if you only make an initial sync.
+   * For the delta sync (using nextSyncToken) it is not possible since the sdk wont have access to all the data to make such an operation.
+   * @memberof ContentfulClientAPI
+   * @param  {Object} query - Query object for the sync call. One of initial or nextSyncToken always needs to be specified, but not both.
+   * @param  {boolean?} query.initial - Indicates if this is the first sync. Use it if you don't have a sync token.
+   * @param  {string?} query.nextSyncToken - The token you got the last time you used this method. Ensures you only get changed content.
+   * @param  {string=} query.type - Filter by this type (all (default), Entry, Asset, Deletion, DeletedAsset or DeletedEntry)
+   * @param  {string=} query.content_type - Filter by this content type id
+   * @param  {boolean=} query.resolveLinks - When true, links to other Entries or Assets are resolved. Default: true.
+   * @return {Promise<Sync.SyncCollection>} Promise for the collection resulting of a sync operation
+   * @example
+   * const contentful = require('contentful')
+   *
+   * const client = contentful.createClient({
+   *   space: '<space_id>',
+   *   accessToken: '<content_delivery_api_key>'
+   * })
+   *
+   * client.sync({
+   *   initial: true
+   * })
+   * .then((response) => console.log({
+   *   entries: response.entries,
+   *   assets: response.assets,
+   *   nextSyncToken: response.nextSyncToken
+   * }))
+   * .catch(console.error)
+   */
+  function sync() {
+    var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    var resolveLinks = shouldLinksResolve(query);
+    return (0, _pagedSync2.default)(http, query, resolveLinks);
+  }
+
+  /**
+  * Parse raw json data into collection of entry objects.Links will be resolved also
+  * @memberof ContentfulClientAPI
+  * @param {Object} raw json data
+  * @example
+  * let data = {items: [
+  *    {
+  *    sys: {type: 'Entry', locale: 'en-US'},
+  *    fields: {
+  *      animal: {sys: {type: 'Link', linkType: 'Animal', id: 'oink'}},
+  *      anotheranimal: {sys: {type: 'Link', linkType: 'Animal', id: 'middle-parrot'}}
+  *    }
+  *  }
+  * ],
+  * includes: {
+  *  Animal: [
+  *    {
+  *      sys: {type: 'Animal', id: 'oink', locale: 'en-US'},
+  *      fields: {
+  *        name: 'Pig',
+  *        friend: {sys: {type: 'Link', linkType: 'Animal', id: 'groundhog'}}
+  *      }
+  *    }
+  *   ]
+  *  }
+  * }
+  * console.log( data.items[0].fields.foo ); // undefined
+  * let parsedData = client.parseEntries(data);
+  * console.log( parsedData.items[0].fields.foo ); // foo
+  */
+  function parseEntries(data) {
+    return wrapEntryCollection(data, true, false);
+  }
+  /*
+   * sdk relies heavily on sys metadata
+   * so we cannot omit the sys property on sdk level
+   * */
+  function normalizeSelect(query) {
+    if (query.select && !/sys/i.test(query.select)) {
+      query.select += ',sys';
+    }
+  }
+
+  return {
+    getSpace: getSpace,
+    getContentType: getContentType,
+    getContentTypes: getContentTypes,
+    getEntry: getEntry,
+    getEntries: getEntries,
+    getAsset: getAsset,
+    getAssets: getAssets,
+    parseEntries: parseEntries,
+    sync: sync
+  };
+} /**
+   * Contentful Delivery API Client. Contains methods which allow access to the
+   * different kinds of entities present in Contentful (Entries, Assets, etc).
+   * @namespace ContentfulClientAPI
+   * @see Entities
+   */
+
+/**
+ * The different kinds of top level entities you can find in Contentful
+ * @namespace Entities
+ */
+
+/**
+ * System metadata. See <a href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes">Common Resource Attributes</a> for more details.
+ * @memberof Entities
+ * @typedef Sys
+ * @prop {string} type
+ * @prop {string} id
+ * @prop {Entities.Link} space
+ * @prop {string} createdAt
+ * @prop {string} updatedAt
+ * @prop {number} revision
+ */
+
+/**
+ * Link to another entity. See <a href="https://www.contentful.com/developers/docs/concepts/links/">Links</a> for more details.
+ * @memberof Entities
+ * @typedef Link
+ * @prop {string} type - type of this entity. Always link.
+ * @prop {string} id
+ * @prop {string} linkType - type of this link. If defined, either Entry or Asset
+ */
+
+/**
+ * @memberof ContentfulClientAPI
+ * @typedef {Object} ClientAPI
+ * @prop {function} getSpace
+ * @prop {function} getContentType
+ * @prop {function} getContentTypes
+ * @prop {function} getEntry
+ * @prop {function} getEntries
+ * @prop {function} getAsset
+ * @prop {function} getAssets
+ * @prop {function} parseEntries
+ * @prop {function} sync
+ */
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createLinkResolver;
+/**
+ * Link resolution can be set globally, or it can be turned off for the methods
+ * which make use of it. The local setting always overrides the global setting.
+ * @private
+ * @param {boolean} globalSetting - Global library setting for link resolution
+ * @returns {function} Link resolver method preconfigured with global setting
+ */
+function createLinkResolver(globalSetting) {
+  /**
+   * Link resolver method
+   * @param {Object} query - regular query object used for collection endpoints
+   */
+  return function shouldLinksResolve(query) {
+    return !!('resolveLinks' in query ? query.resolveLinks : globalSetting);
+  };
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapAsset = wrapAsset;
+exports.wrapAssetCollection = wrapAssetCollection;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @memberof Entities
+ * @typedef Asset
+ * @prop {Entities.Sys} sys - Standard system metadata with additional entry specific properties
+ * @prop {string=} sys.locale - If present, indicates the locale which this asset uses
+ * @prop {Object} fields - Object with content for each field
+ * @prop {string} fields.title - Title for this asset
+ * @prop {string} fields.description - Description for this asset
+ * @prop {Object} fields.file - File object for this asset
+ * @prop {string} fields.file.fileName - Name for the file
+ * @prop {string} fields.file.contentType - Mime type for the file
+ * @prop {string} fields.file.url - Url where the file is available at.
+ * @prop {Object} fields.file.details - Details for the file, depending on file type (example: image size in bytes, etc)
+ * @prop {function(): Object} toPlainObject() - Returns this Asset as a plain JS object
+ */
+
+/**
+ * @private
+ * @param {Object} data - Raw asset data
+ * @return {Asset} Wrapped asset data
+ */
+function wrapAsset(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+}
+
+/**
+ * @memberof Entities
+ * @typedef AssetCollection
+ * @prop {number} total
+ * @prop {number} skip
+ * @prop {number} limit
+ * @prop {Array<Entities.Asset>} items
+ * @prop {function(): Object} toPlainObject() - Returns this Asset collection as a plain JS object
+ */
+
+/**
+ * @private
+ * @param {Object} data - Raw asset collection data
+ * @return {AssetCollection} Wrapped asset collection data
+ */
+function wrapAssetCollection(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+}
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapContentType = wrapContentType;
+exports.wrapContentTypeCollection = wrapContentTypeCollection;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @memberof Entities
+ * @typedef ContentType
+ * @prop {Entities.Sys} sys - System metadata
+ * @prop {string} name
+ * @prop {string} description
+ * @prop {string} displayField - Field used as the main display field for Entries
+ * @prop {string} Array<Field> - All the fields contained in this Content Type
+ * @prop {function(): Object} toPlainObject() - Returns this Content Type as a plain JS object
+ */
+
+/**
+ * @private
+ * @param {Object} data - Raw content type data
+ * @return {ContentType} Wrapped content type data
+ */
+function wrapContentType(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+}
+
+/**
+ * @memberof Entities
+ * @typedef ContentTypeCollection
+ * @prop {number} total
+ * @prop {number} skip
+ * @prop {number} limit
+ * @prop {Array<Entities.ContentType>} items
+ * @prop {function(): Object} toPlainObject() - Returns this Content Type collection as a plain JS object
+ */
+
+/**
+ * @private
+ * @param {Object} data - Raw content type collection data
+ * @return {ContentTypeCollection} Wrapped content type collection data
+ */
+function wrapContentTypeCollection(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+}
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapEntry = wrapEntry;
+exports.wrapEntryCollection = wrapEntryCollection;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+var _linkGetters = __webpack_require__(32);
+
+var _linkGetters2 = _interopRequireDefault(_linkGetters);
+
+var _stringifySafe = __webpack_require__(33);
+
+var _stringifySafe2 = _interopRequireDefault(_stringifySafe);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
+/**
+ * Types of fields found in an Entry
+ * @namespace EntryFields
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Symbol
+ * @type string
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Text
+ * @type string
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Integer
+ * @type number
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Number
+ * @type number
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Date
+ * @type string
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Boolean
+ * @type boolean
+ */
+
+/**
+ * @memberof EntryFields
+ * @typedef Location
+ * @prop {string} lat - latitude
+ * @prop {string} lon - longitude
+ */
+
+/**
+ * A Field in an Entry can have one of the following types that can be defined in Contentful. See <a href="https://www.contentful.com/developers/docs/references/field-type/">Field Types</a> for more details.
+ * @memberof Entities
+ * @typedef Field
+ * @type EntryFields.Symbol | EntryFields.Text | EntryFields.Integer | EntryFields.Number | EntryFields.Date | EntryFields.Boolean | EntryFields.Location | Entities.Link | Array<EntryFields.Symbol|Entities.Link> | Object
+ */
+
+/**
+ * @memberof Entities
+ * @typedef Entry
+ * @prop {Entities.Sys} sys - Standard system metadata with additional entry specific properties
+ * @prop {Entities.Link} sys.contentType - Content Type used by this Entry
+ * @prop {string=} sys.locale - If present, indicates the locale which this entry uses
+ * @prop {Object<EntryFields.Field>} fields - Object with content for each field
+ * @prop {function(): Object} toPlainObject() - Returns this Entry as a plain JS object
+ */
+
+/**
+ * @private
+ * @param {Object} data - Raw entry data
+ * @return {Entry} Wrapped entry data
+ */
+function wrapEntry(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+}
+
+/**
+ * @memberof Entities
+ * @typedef EntryCollection
+ * @prop {number} total
+ * @prop {number} skip
+ * @prop {number} limit
+ * @prop {Array<Entities.Entry>} items
+ * @prop {Array<Object>=} errors - Array of errors that might occur when retrieving entries.
+ * @prop {Object<Array>=} includes - Object with arrays of includes for Entries and Assets. This will be present if resolveLinks is on, and any linked entries or assets exist. Those links will be resolved in the Entries present in the items array, but they are also present here in raw form.
+ * @prop {function(): Object} toPlainObject() - Returns this Entry collection as a plain JS object
+ * @prop {function(?function=, space=): Object} stringifySafe(replacer,space) - Stringifies the entry collection, accounting for circular references. Circular references will be replaced with just a Link object, with a <code>circular</code> property set to <code>true</code>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">MDN</a> and <a href="https://www.npmjs.com/package/json-stringify-safe">json-stringify-safe</a> for more details on the arguments this method can take.
+ */
+
+/**
+ * Data is also mixed in with link getters if links exist and includes were requested
+ * @private
+ * @param {Object} data - Raw entry collection data
+ * @return {EntryCollection} Wrapped entry collection data
+ */
+function wrapEntryCollection(data, resolveLinks, resolveForAllLocales) {
+  var wrappedData = (0, _stringifySafe2.default)((0, _contentfulSdkCore.toPlainObject)((0, _cloneDeep2.default)(data)));
+  if (resolveLinks) {
+    var includes = prepareIncludes(wrappedData.includes, wrappedData.items);
+    (0, _linkGetters2.default)(wrappedData.items, includes, resolveForAllLocales);
+  }
+  return (0, _contentfulSdkCore.freezeSys)(wrappedData);
+}
+
+function prepareIncludes() {
+  var includes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var items = arguments[1];
+
+  includes.Entry = includes.Entry || [];
+  includes.Entry = [].concat(_toConsumableArray(new Set([].concat(_toConsumableArray(includes.Entry), _toConsumableArray(items)))));
+  return includes;
+}
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _space = __webpack_require__(92);
+
+var space = _interopRequireWildcard(_space);
+
+var _entry = __webpack_require__(90);
+
+var entry = _interopRequireWildcard(_entry);
+
+var _asset = __webpack_require__(88);
+
+var asset = _interopRequireWildcard(_asset);
+
+var _contentType = __webpack_require__(89);
+
+var contentType = _interopRequireWildcard(_contentType);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+exports.default = {
+  space: space,
+  entry: entry,
+  asset: asset,
+  contentType: contentType
+};
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wrapSpace = wrapSpace;
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+/**
+ * @memberof Entities
+ * @typedef Space
+ * @prop {Object} sys - System metadata
+ * @prop {string} sys.id - Space id
+ * @prop {string} sys.type - Entity type
+ * @prop {string} name - Space name
+ * @prop {Array<string>} locales - Array with locale codes
+ * @prop {function(): Object} toPlainObject() - Returns this Space as a plain JS object
+ */
+
+/**
+ * @private
+ * @param  {Object} data - API response for a Space
+ * @return {Space}
+ */
+function wrapSpace(data) {
+  return (0, _contentfulSdkCore.freezeSys)((0, _contentfulSdkCore.toPlainObject)(data));
+}
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = pagedSync;
+
+var _cloneDeep = __webpack_require__(4);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+var _contentfulSdkCore = __webpack_require__(2);
+
+var _linkGetters = __webpack_require__(32);
+
+var _linkGetters2 = _interopRequireDefault(_linkGetters);
+
+var _stringifySafe = __webpack_require__(33);
+
+var _stringifySafe2 = _interopRequireDefault(_stringifySafe);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @memberof Sync
+ * @typedef SyncCollection
+ * @prop {Array<Entities.Entry>} entries - All existing entries on first sync. New and updated entries on subsequent syncs.
+ * @prop {Array<Entities.Asset>} assets - All existing assets on first sync. New and updated assets on subsequent syncs.
+ * @prop {Array<Sync.DeletedEntry>} deletedEntries - List of deleted Entries since last sync
+ * @prop {Array<Sync.DeletedAsset>} deletedAssets - List of deleted Assets since last sync
+ * @prop {string} nextSyncToken - Token to be sent to the next sync call
+ * @prop {function(): Object} toPlainObject() - Returns this Sync collection as a plain JS object
+ * @prop {function(?function=, space=): Object} stringifySafe(replacer,space) - Stringifies the Sync collection, accounting for circular references. Circular references will be replaced with just a Link object, with a <code>circular</code> property set to <code>true</code>. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">MDN</a> and <a href="https://www.npmjs.com/package/json-stringify-safe">json-stringify-safe</a> for more details on the arguments this method can take.
+ */
+
+/**
+ * Deleted Entries are the same as Entries, but only appear on the sync API.
+ * @memberof Sync
+ * @typedef DeletedEntry
+ * @type Entities.Entry
+ */
+
+/**
+ * Deleted Assets are the same as Assets, but only appear on the sync API.
+ * @memberof Sync
+ * @typedef DeletedAsset
+ * @type Entities.Asset
+ */
+
+/**
+ * This module retrieves all the available pages for a sync operation
+ * @private
+ * @param {Object} http - HTTP client
+ * @param {Object} query - Query object
+ * @param {boolean} resolveLinks - If links should be resolved
+ * @return {Promise<SyncCollection>}
+ */
+/**
+ * See <a href="https://www.contentful.com/developers/docs/concepts/sync/">Synchronization</a> for more information.
+ * @namespace Sync
+ */
+function pagedSync(http, query, resolveLinks) {
+  if (!query || !query.initial && !query.nextSyncToken) {
+    throw new Error('Please provide one of `initial` or `nextSyncToken` parameters for syncing');
+  }
+
+  if (query && query.content_type && !query.type) {
+    query.type = 'Entry';
+  } else if (query && query.content_type && query.type && query.type !== 'Entry') {
+    throw new Error('When using the `content_type` filter your `type` parameter cannot be different from `Entry`.');
+  }
+
+  return getSyncPage(http, [], query).then(function (response) {
+    // clones response.items used in includes because we don't want these to be mutated
+    if (resolveLinks) {
+      (0, _linkGetters2.default)(response.items, mapIncludeItems((0, _cloneDeep2.default)(response.items)));
+    }
+    // maps response items again after getters are attached
+    var mappedResponseItems = mapResponseItems(response.items);
+    mappedResponseItems.nextSyncToken = response.nextSyncToken;
+    return (0, _contentfulSdkCore.freezeSys)((0, _stringifySafe2.default)((0, _contentfulSdkCore.toPlainObject)(mappedResponseItems)));
+  }, function (error) {
+    throw error;
+  });
+}
+
+/**
+ * @private
+ * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
+ * @return {Object} Entities mapped to an object for each entity type
+ */
+function mapResponseItems(items) {
+  return {
+    entries: items.filter(function (item) {
+      return item.sys.type === 'Entry';
+    }),
+    assets: items.filter(function (item) {
+      return item.sys.type === 'Asset';
+    }),
+    deletedEntries: items.filter(function (item) {
+      return item.sys.type === 'DeletedEntry';
+    }),
+    deletedAssets: items.filter(function (item) {
+      return item.sys.type === 'DeletedAsset';
+    })
+  };
+}
+
+/**
+ * Creates an object similar to the one retrieved on `includes` from the `entries`
+ * endpoint, for usage with the link getters mixin
+ * @private
+ * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
+ * @return {Object}
+ */
+function mapIncludeItems(items) {
+  return {
+    Entry: items.filter(function (item) {
+      return item.sys.type === 'Entry';
+    }),
+    Asset: items.filter(function (item) {
+      return item.sys.type === 'Asset';
+    })
+  };
+}
+
+/**
+ * If the response contains a nextPageUrl, extracts the sync token to get the
+ * next page and calls itself again with that token.
+ * Otherwise, if the response contains a nextSyncUrl, extracts the sync token
+ * and returns it.
+ * On each call of this function, any retrieved items are collected in the
+ * supplied items array, which gets returned in the end
+ * @private
+ * @param {Object} http
+ * @param {Array<Entities.Entry|Entities.Array|Sync.DeletedEntry|Sync.DeletedAsset>} items
+ * @param {Object} query
+ * @return {Promise<{items: Array, nextSyncToken: string}>}
+ */
+function getSyncPage(http, items, query) {
+  if (query.nextSyncToken) {
+    query.sync_token = query.nextSyncToken;
+    delete query.nextSyncToken;
+  }
+
+  if (query.sync_token) {
+    delete query.initial;
+    delete query.type;
+    delete query.content_type;
+  }
+
+  return http.get('sync', (0, _contentfulSdkCore.createRequestConfig)({ query: query })).then(function (response) {
+    var data = response.data;
+    items = items.concat(data.items);
+    if (data.nextPageUrl) {
+      delete query.initial;
+      query.sync_token = getToken(data.nextPageUrl);
+      return getSyncPage(http, items, query);
+    } else if (data.nextSyncUrl) {
+      return {
+        items: items,
+        nextSyncToken: getToken(data.nextSyncUrl)
+      };
+    }
+  });
+}
+
+/**
+ * Extracts token out of an url
+ * @private
+ */
+function getToken(url) {
+  var urlParts = url.split('?');
+  return urlParts.length > 0 ? urlParts[1].replace('sync_token=', '') : '';
+}
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(setImmediate) {var require;var require;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = typeof require == "function" && require;if (!u && a) return require(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }var i = typeof require == "function" && require;for (var o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+})({ 1: [function (require, module, exports) {
+    (function (global, factory) {
+      if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, module], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+      } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+        factory(exports, module);
+      } else {
+        var mod = {
+          exports: {}
+        };
+        factory(mod.exports, mod);
+        global.fetchJsonp = mod.exports;
+      }
+    })(this, function (exports, module) {
+      'use strict';
+
+      var defaultOptions = {
+        timeout: 5000,
+        jsonpCallback: 'callback',
+        jsonpCallbackFunction: null
+      };
+
+      function generateCallbackFunction() {
+        return 'jsonp_' + Date.now() + '_' + Math.ceil(Math.random() * 100000);
+      }
+
+      function clearFunction(functionName) {
+        try {
+          delete window[functionName];
+        } catch (e) {
+          window[functionName] = undefined;
+        }
+      }
+
+      function removeScript(scriptId) {
+        var script = document.getElementById(scriptId);
+        if (script) {
+          document.getElementsByTagName('head')[0].removeChild(script);
+        }
+      }
+
+      function fetchJsonp(_url) {
+        var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+        var url = _url;
+        var timeout = options.timeout || defaultOptions.timeout;
+        var jsonpCallback = options.jsonpCallback || defaultOptions.jsonpCallback;
+
+        var timeoutId = undefined;
+
+        return new Promise(function (resolve, reject) {
+          var callbackFunction = options.jsonpCallbackFunction || generateCallbackFunction();
+          var scriptId = jsonpCallback + '_' + callbackFunction;
+
+          window[callbackFunction] = function (response) {
+            resolve({
+              ok: true,
+              json: function json() {
+                return Promise.resolve(response);
+              }
+            });
+
+            if (timeoutId) clearTimeout(timeoutId);
+
+            removeScript(scriptId);
+
+            clearFunction(callbackFunction);
+          };
+
+          url += url.indexOf('?') === -1 ? '?' : '&';
+
+          var jsonpScript = document.createElement('script');
+          jsonpScript.setAttribute('src', '' + url + jsonpCallback + '=' + callbackFunction);
+          if (options.charset) {
+            jsonpScript.setAttribute('charset', options.charset);
+          }
+          jsonpScript.id = scriptId;
+          document.getElementsByTagName('head')[0].appendChild(jsonpScript);
+
+          timeoutId = setTimeout(function () {
+            reject(new Error('JSONP request to ' + _url + ' timed out'));
+
+            clearFunction(callbackFunction);
+            removeScript(scriptId);
+            window[callbackFunction] = function () {
+              clearFunction(callbackFunction);
+            };
+          }, timeout);
+
+          jsonpScript.onerror = function () {
+            reject(new Error('JSONP request to ' + _url + ' failed'));
+
+            clearFunction(callbackFunction);
+            removeScript(scriptId);
+            if (timeoutId) clearTimeout(timeoutId);
+          };
+        });
+      }
+
+      module.exports = fetchJsonp;
+    });
+  }, {}], 2: [function (require, module, exports) {
+    'use strict';
+
+    var setTimeoutFunc = setTimeout;
+
+    function noop() {}
+
+    function bind(fn, thisArg) {
+      return function () {
+        fn.apply(thisArg, arguments);
+      };
+    }
+
+    function handle(self, deferred) {
+      while (self._state === 3) {
+        self = self._value;
+      }
+      if (self._state === 0) {
+        self._deferreds.push(deferred);
+        return;
+      }
+      self._handled = true;
+      Promise._immediateFn(function () {
+        var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+        if (cb === null) {
+          (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
+          return;
+        }
+        var ret;
+        try {
+          ret = cb(self._value);
+        } catch (e) {
+          reject(deferred.promise, e);
+          return;
+        }
+        resolve(deferred.promise, ret);
+      });
+    }
+
+    function resolve(self, newValue) {
+      try {
+        if (newValue === self) throw new TypeError('A promise cannot be resolved with itself.');
+        if (newValue && ((typeof newValue === "undefined" ? "undefined" : _typeof(newValue)) === 'object' || typeof newValue === 'function')) {
+          var then = newValue.then;
+          if (newValue instanceof Promise) {
+            self._state = 3;
+            self._value = newValue;
+            finale(self);
+            return;
+          } else if (typeof then === 'function') {
+            doResolve(bind(then, newValue), self);
+            return;
+          }
+        }
+        self._state = 1;
+        self._value = newValue;
+        finale(self);
+      } catch (e) {
+        reject(self, e);
+      }
+    }
+
+    function reject(self, newValue) {
+      self._state = 2;
+      self._value = newValue;
+      finale(self);
+    }
+
+    function finale(self) {
+      if (self._state === 2 && self._deferreds.length === 0) {
+        Promise._immediateFn(function () {
+          if (!self._handled) {
+            Promise._unhandledRejectionFn(self._value);
+          }
+        });
+      }
+
+      for (var i = 0, len = self._deferreds.length; i < len; i++) {
+        handle(self, self._deferreds[i]);
+      }
+      self._deferreds = null;
+    }
+
+    function Handler(onFulfilled, onRejected, promise) {
+      this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
+      this.onRejected = typeof onRejected === 'function' ? onRejected : null;
+      this.promise = promise;
+    }
+
+    function doResolve(fn, self) {
+      var done = false;
+      try {
+        fn(function (value) {
+          if (done) return;
+          done = true;
+          resolve(self, value);
+        }, function (reason) {
+          if (done) return;
+          done = true;
+          reject(self, reason);
+        });
+      } catch (ex) {
+        if (done) return;
+        done = true;
+        reject(self, ex);
+      }
+    }
+
+    function Promise(fn) {
+      if (!(this instanceof Promise)) throw new TypeError('Promises must be constructed via new');
+      if (typeof fn !== 'function') throw new TypeError('not a function');
+      this._state = 0;
+      this._handled = false;
+      this._value = undefined;
+      this._deferreds = [];
+
+      doResolve(fn, this);
+    }
+
+    var _proto = Promise.prototype;
+    _proto.catch = function (onRejected) {
+      return this.then(null, onRejected);
+    };
+
+    _proto.then = function (onFulfilled, onRejected) {
+      var prom = new this.constructor(noop);
+
+      handle(this, new Handler(onFulfilled, onRejected, prom));
+      return prom;
+    };
+
+    Promise.all = function (arr) {
+      return new Promise(function (resolve, reject) {
+        if (!arr || typeof arr.length === 'undefined') throw new TypeError('Promise.all accepts an array');
+        var args = Array.prototype.slice.call(arr);
+        if (args.length === 0) return resolve([]);
+        var remaining = args.length;
+
+        function res(i, val) {
+          try {
+            if (val && ((typeof val === "undefined" ? "undefined" : _typeof(val)) === 'object' || typeof val === 'function')) {
+              var then = val.then;
+              if (typeof then === 'function') {
+                then.call(val, function (val) {
+                  res(i, val);
+                }, reject);
+                return;
+              }
+            }
+            args[i] = val;
+            if (--remaining === 0) {
+              resolve(args);
+            }
+          } catch (ex) {
+            reject(ex);
+          }
+        }
+
+        for (var i = 0; i < args.length; i++) {
+          res(i, args[i]);
+        }
+      });
+    };
+
+    Promise.resolve = function (value) {
+      if (value && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && value.constructor === Promise) {
+        return value;
+      }
+
+      return new Promise(function (resolve) {
+        resolve(value);
+      });
+    };
+
+    Promise.reject = function (value) {
+      return new Promise(function (resolve, reject) {
+        reject(value);
+      });
+    };
+
+    Promise.race = function (values) {
+      return new Promise(function (resolve, reject) {
+        for (var i = 0, len = values.length; i < len; i++) {
+          values[i].then(resolve, reject);
+        }
+      });
+    };
+
+    Promise._immediateFn = typeof setImmediate === 'function' && function (fn) {
+      setImmediate(fn);
+    } || function (fn) {
+      setTimeoutFunc(fn, 0);
+    };
+
+    Promise._unhandledRejectionFn = function _unhandledRejectionFn(err) {
+      if (typeof console !== 'undefined' && console) {
+        console.warn('Possible Unhandled Promise Rejection:', err);
+      }
+    };
+
+    module.exports = Promise;
+  }, {}], 3: [function (require, module, exports) {
+    'use strict';
+
+    var _promisePolyfill = require('promise-polyfill');
+
+    var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
+
+    var _fetchJsonp = require('fetch-jsonp');
+
+    var _fetchJsonp2 = _interopRequireDefault(_fetchJsonp);
+
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { default: obj };
+    }
+
+    var instafetch = {};
+    var supports = !!document.querySelector && !!document.addEventListener;
+    var settings = void 0,
+        checked = void 0,
+        url = void 0,
+        targetEl = void 0,
+        article = void 0,
+        a = void 0,
+        figure = void 0,
+        img = void 0,
+        div = void 0,
+        p = void 0;
+    var baseUrl = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
+
+    var defaults = {
+      accessToken: null,
+      target: 'instafetch',
+      numOfPics: 20,
+      caption: false
+    };
+
+    var forEach = function forEach(collection, callback, scope) {
+      if (Object.prototype.toString.call(collection) === '[object Object]') {
+        for (var prop in collection) {
+          if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+            callback.call(scope, collection[prop], prop, collection);
+          }
+        }
+      } else {
+        for (var i = 0, len = collection.length; i < len; i++) {
+          callback.call(scope, collection[i], i, collection);
+        }
+      }
+    };
+
+    var extend = function extend(defaults, options) {
+      var extended = {};
+
+      forEach(defaults, function (value, prop) {
+        extended[prop] = defaults[prop];
+      });
+      forEach(options, function (value, prop) {
+        extended[prop] = options[prop];
+      });
+      return extended;
+    };
+
+    var checkSettings = function checkSettings(options) {
+      if (typeof options.accessToken !== 'string') {
+        console.error('accessToken must be a string.');
+        return false;
+      }
+      if (typeof options.target !== 'string') {
+        console.error('target must be a string.');
+        return false;
+      }
+      if (typeof options.numOfPics !== 'number') {
+        console.error('numOfPics must be a number.');
+        return false;
+      }
+      if (typeof options.caption !== 'boolean') {
+        console.error('caption must be a boolean.');
+        return false;
+      }
+
+      return true;
+    };
+
+    var fetchFeed = function fetchFeed(options) {
+      url = baseUrl + options.accessToken + '&count=' + options.numOfPics + '&callback=?';
+
+      if (!window.Promise) {
+        window.Promise = _promisePolyfill2.default;
+      }
+
+      (0, _fetchJsonp2.default)(url).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        if (json.meta.code === 200) {
+          displayFeed(json, options);
+        } else {
+          console.error(json.meta.error_message);
+        }
+      }).catch(function (error) {
+        console.error(error);
+      });
+    };
+
+    var displayFeed = function displayFeed(json, options) {
+      targetEl = document.getElementById(options.target);
+      if (!targetEl) {
+        console.error('No element with id="' + options.target + '" was found on the page.');
+        return;
+      }
+
+      json.data.forEach(function (data) {
+        article = document.createElement('article');
+        a = document.createElement('a');
+        a.href = data.link;
+        a.target = '_blank';
+        figure = document.createElement('figure');
+        img = document.createElement('img');
+        img.src = data.images.standard_resolution.url;
+        figure.appendChild(img);
+        a.appendChild(figure);
+        article.appendChild(a);
+
+        if (options.caption && data.caption) {
+          div = document.createElement('div');
+          p = document.createElement('p');
+          p.innerHTML = data.caption.text;
+          div.appendChild(p);
+          a.appendChild(div);
+        }
+
+        targetEl.appendChild(article);
+      });
+    };
+
+    instafetch.destroy = function () {
+
+      if (!settings) {
+        return;
+      }
+
+      settings = null;
+      checked = null;
+      url = null;
+      targetEl = null;
+      article = null;
+      a = null;
+      figure = null;
+      img = null;
+      div = null;
+      p = null;
+    };
+
+    instafetch.init = function (options) {
+
+      if (!supports) {
+        return;
+      }
+
+      instafetch.destroy();
+
+      settings = extend(defaults, options || {});
+
+      checked = checkSettings(settings);
+
+      if (checked) {
+        fetchFeed(settings);
+      }
+    };
+
+    window.instafetch = instafetch;
+  }, { "fetch-jsonp": 1, "promise-polyfill": 2 }] }, {}, [3]);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(176).setImmediate))
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
+};
+
+function isBuffer(obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer(obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0));
+}
+
+/***/ }),
 /* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16105,7 +16060,7 @@ module.exports = baseAssign;
 
 
 var copyObject = __webpack_require__(12),
-    keysIn = __webpack_require__(51);
+    keysIn = __webpack_require__(54);
 
 /**
  * The base implementation of `_.assignIn` without support for multiple sources
@@ -16131,7 +16086,7 @@ module.exports = baseAssignIn;
 
 var Stack = __webpack_require__(101),
     arrayEach = __webpack_require__(106),
-    assignValue = __webpack_require__(36),
+    assignValue = __webpack_require__(39),
     baseAssign = __webpack_require__(108),
     baseAssignIn = __webpack_require__(109),
     cloneBuffer = __webpack_require__(119),
@@ -16145,8 +16100,8 @@ var Stack = __webpack_require__(101),
     initCloneByTag = __webpack_require__(142),
     initCloneObject = __webpack_require__(143),
     isArray = __webpack_require__(15),
-    isBuffer = __webpack_require__(45),
-    isObject = __webpack_require__(7),
+    isBuffer = __webpack_require__(48),
+    isObject = __webpack_require__(8),
     keys = __webpack_require__(24);
 
 /** Used to compose bitmasks for cloning. */
@@ -16275,7 +16230,7 @@ module.exports = baseClone;
 "use strict";
 
 
-var isObject = __webpack_require__(7);
+var isObject = __webpack_require__(8);
 
 /** Built-in value references. */
 var objectCreate = Object.create;
@@ -16339,10 +16294,10 @@ module.exports = baseIsArguments;
 "use strict";
 
 
-var isFunction = __webpack_require__(47),
+var isFunction = __webpack_require__(50),
     isMasked = __webpack_require__(146),
-    isObject = __webpack_require__(7),
-    toSource = __webpack_require__(42);
+    isObject = __webpack_require__(8),
+    toSource = __webpack_require__(45);
 
 /**
  * Used to match `RegExp`
@@ -16392,7 +16347,7 @@ module.exports = baseIsNative;
 
 
 var baseGetTag = __webpack_require__(5),
-    isLength = __webpack_require__(48),
+    isLength = __webpack_require__(51),
     isObjectLike = __webpack_require__(6);
 
 /** `Object#toString` result references. */
@@ -16485,7 +16440,7 @@ module.exports = baseKeys;
 "use strict";
 
 
-var isObject = __webpack_require__(7),
+var isObject = __webpack_require__(8),
     isPrototype = __webpack_require__(23),
     nativeKeysIn = __webpack_require__(159);
 
@@ -16647,7 +16602,7 @@ module.exports = cloneDataView;
 
 
 var addMapEntry = __webpack_require__(104),
-    arrayReduce = __webpack_require__(35),
+    arrayReduce = __webpack_require__(38),
     mapToArray = __webpack_require__(157);
 
 /** Used to compose bitmasks for cloning. */
@@ -16702,7 +16657,7 @@ module.exports = cloneRegExp;
 
 
 var addSetEntry = __webpack_require__(105),
-    arrayReduce = __webpack_require__(35),
+    arrayReduce = __webpack_require__(38),
     setToArray = __webpack_require__(162);
 
 /** Used to compose bitmasks for cloning. */
@@ -16834,7 +16789,7 @@ module.exports = copySymbols;
 
 
 var copyObject = __webpack_require__(12),
-    getSymbolsIn = __webpack_require__(40);
+    getSymbolsIn = __webpack_require__(43);
 
 /**
  * Copies own and inherited symbols of `source` to `object`.
@@ -16890,7 +16845,7 @@ module.exports = defineProperty;
 "use strict";
 
 
-var baseGetAllKeys = __webpack_require__(38),
+var baseGetAllKeys = __webpack_require__(41),
     getSymbols = __webpack_require__(22),
     keys = __webpack_require__(24);
 
@@ -16914,9 +16869,9 @@ module.exports = getAllKeys;
 "use strict";
 
 
-var baseGetAllKeys = __webpack_require__(38),
-    getSymbolsIn = __webpack_require__(40),
-    keysIn = __webpack_require__(51);
+var baseGetAllKeys = __webpack_require__(41),
+    getSymbolsIn = __webpack_require__(43),
+    keysIn = __webpack_require__(54);
 
 /**
  * Creates an array of own and inherited enumerable property names and
@@ -16999,7 +16954,7 @@ var DataView = __webpack_require__(97),
     Set = __webpack_require__(100),
     WeakMap = __webpack_require__(103),
     baseGetTag = __webpack_require__(5),
-    toSource = __webpack_require__(42);
+    toSource = __webpack_require__(45);
 
 /** `Object#toString` result references. */
 var mapTag = '[object Map]',
@@ -17762,7 +17717,7 @@ module.exports = mapToArray;
 "use strict";
 
 
-var overArg = __webpack_require__(41);
+var overArg = __webpack_require__(44);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = overArg(Object.keys, Object);
@@ -17806,7 +17761,7 @@ module.exports = nativeKeysIn;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var freeGlobal = __webpack_require__(39);
+var freeGlobal = __webpack_require__(42);
 
 /** Detect free variable `exports`. */
 var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
@@ -17988,7 +17943,7 @@ module.exports = stackHas;
 
 var ListCache = __webpack_require__(10),
     Map = __webpack_require__(18),
-    MapCache = __webpack_require__(32);
+    MapCache = __webpack_require__(35);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -18108,7 +18063,7 @@ module.exports = isTypedArray;
 "use strict";
 
 
-var MapCache = __webpack_require__(32);
+var MapCache = __webpack_require__(35);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -18217,7 +18172,7 @@ module.exports = stubFalse;
 
 var stringify = __webpack_require__(174);
 var parse = __webpack_require__(173);
-var formats = __webpack_require__(53);
+var formats = __webpack_require__(56);
 
 module.exports = {
     formats: formats,
@@ -18232,7 +18187,7 @@ module.exports = {
 "use strict";
 
 
-var utils = __webpack_require__(54);
+var utils = __webpack_require__(57);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -18408,8 +18363,8 @@ module.exports = function (str, opts) {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var utils = __webpack_require__(54);
-var formats = __webpack_require__(53);
+var utils = __webpack_require__(57);
+var formats = __webpack_require__(56);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) {
@@ -18888,7 +18843,7 @@ exports.clearImmediate = clearImmediate;
     attachTo.setImmediate = setImmediate;
     attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? undefined : global : self);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58), __webpack_require__(9)))
 
 /***/ }),
 /* 178 */
@@ -18953,11 +18908,11 @@ exports.View = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _isString = __webpack_require__(50);
+var _isString = __webpack_require__(53);
 
 var _isString2 = _interopRequireDefault(_isString);
 
-var _isElement = __webpack_require__(46);
+var _isElement = __webpack_require__(49);
 
 var _isElement2 = _interopRequireDefault(_isElement);
 
@@ -19017,15 +18972,15 @@ exports.View = View;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-exports.blogFeed = undefined;
+exports.alertBar = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(9);
+var _component = __webpack_require__(7);
 
-var _jquery = __webpack_require__(95);
+var _jquery = __webpack_require__(34);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -19037,8 +18992,123 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var contentful = __webpack_require__(84);
-var config = __webpack_require__(76);
+var contentful = __webpack_require__(31);
+var config = __webpack_require__(30);
+
+/**
+ *
+ *
+ * @class blogFeed
+ * @extends {Component}
+ */
+
+var alertBar = function (_Component) {
+    _inherits(alertBar, _Component);
+
+    /**
+     * Creates an instance of alertBar.
+     *
+     * @memberof alertBar
+     */
+    function alertBar() {
+        _classCallCheck(this, alertBar);
+
+        //super not working currently
+
+        //check if element exists on the page
+        var _this = _possibleConstructorReturn(this, (alertBar.__proto__ || Object.getPrototypeOf(alertBar)).call(this, 'C01'));
+
+        var dataID = 'C01';
+        var self = _this;
+        (0, _jquery2.default)("div[data-id]").each(function () {
+            // if exists, execute alertBar
+            if ((0, _jquery2.default)(this).data("id") === dataID) {
+                self.alertContent();
+                self.alertClose();
+            }
+        });
+        return _this;
+    }
+
+    /**
+     * alertBar Method
+     *
+     * @param {string} param sample param
+     * @returns {undefined}
+     * @memberof alertBar
+     */
+
+
+    _createClass(alertBar, [{
+        key: 'alertClose',
+        value: function alertClose(param) {
+            var self = this;
+            var alertBar = (0, _jquery2.default)('.C01-alert-bar');
+            var alertClose = (0, _jquery2.default)(alertBar).children('.close');
+
+            (0, _jquery2.default)(alertClose).on('click touch keyup', function () {
+                (0, _jquery2.default)(alertBar).hide();
+            });
+        }
+    }, {
+        key: 'alertContent',
+        value: function alertContent() {
+            var self = this;
+            var alertCont = (0, _jquery2.default)('.alert-cont');
+
+            //contentful initialisation 
+            var client = contentful.createClient({
+                space: config.config.space,
+                accessToken: config.config.accessToken
+            });
+
+            // get all blog posts and render to the page
+            client.getEntry('1sIbBvEzuYQKeoG2IkQwGG').then(function (entry) {
+                console.log(entry);
+                if (entry.fields.alertActive === true) {
+                    alertCont.html(entry.fields.alertBarContent);
+                } else {
+                    (0, _jquery2.default)('.C01-alert-bar').hide();
+                }
+            }).catch(console.error);
+        }
+    }]);
+
+    return alertBar;
+}(_component.Component);
+
+exports.alertBar = alertBar;
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.blogFeed = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _component = __webpack_require__(7);
+
+var _jquery = __webpack_require__(34);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var contentful = __webpack_require__(31);
+var config = __webpack_require__(30);
 
 /**
  *
@@ -19128,7 +19198,7 @@ var blogFeed = function (_Component) {
 exports.blogFeed = blogFeed;
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19141,9 +19211,9 @@ exports.featureCarousel = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(9);
+var _component = __webpack_require__(7);
 
-var _modules = __webpack_require__(56);
+var _modules = __webpack_require__(59);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19209,7 +19279,7 @@ var featureCarousel = function (_Component) {
 exports.featureCarousel = featureCarousel;
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19222,7 +19292,7 @@ exports.instaFeed = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(9);
+var _component = __webpack_require__(7);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19230,7 +19300,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(93);
+__webpack_require__(94);
 
 /**
  *
@@ -19310,7 +19380,7 @@ var instaFeed = function (_Component) {
 exports.instaFeed = instaFeed;
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19323,7 +19393,7 @@ exports.mainNav = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(9);
+var _component = __webpack_require__(7);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19411,10 +19481,10 @@ var mainNav = function (_Component) {
 exports.mainNav = mainNav;
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(57);
+module.exports = __webpack_require__(60);
 
 
 /***/ })
