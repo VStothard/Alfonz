@@ -8,8 +8,16 @@ $themes: (
         primaryColor: #173347,
         secondaryColor: #F5D6D6,
         tertiaryColor: #E4B498,
+        blogGrey: #E5E5E5,
+
+        //Z-INDEXES
+        blogHeading: 4000,
+        stickyNav: 5000,
+        modalOverlay: 6000,
+        navCont: 7000
     ),
 );
+
 
 /*
  * Implementation of themes

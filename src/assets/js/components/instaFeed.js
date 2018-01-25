@@ -16,9 +16,13 @@ class instaFeed extends Component {
    */
   constructor() {
     super('C07'); //super not working currently
-    console.log('C07 running');
-
-    this.initFeed();
+    const dataID = 'C07';
+    const self = this;
+    $("div[data-id]").each(function() {
+        if ($(this).data("id") === dataID) {
+          self.initFeed();
+        }
+    });
   }
 
   /**

@@ -2,10 +2,12 @@
  * Import Classes
  */
 import {
+  Component,
   View,
   instaFeed,
   featureCarousel,
-  mainNav
+  mainNav,
+  blogFeed
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
    * Classes
    */
   // new Browser();
+  new Component();
   new View();
 
   /**
@@ -28,13 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
   new instaFeed();
   new featureCarousel();
   new mainNav();
+  new blogFeed();
 
   /**
    * Init modules
    */
 });
 
+//Handlebars testing
+// var Handlebars = require('handlebars');
+// var source   = document.getElementById("entry-template").innerHTML;
+// var template = Handlebars.compile(source);
 
+// var context = {title: "My New Post", body: "This is my first post!"};
+// var html    = template(context);
 
 // //TODO set up JS classes
 

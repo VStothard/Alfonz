@@ -1,22 +1,59 @@
 .C03-navigation-bar {
     @include themify($themes) {
-        color: themed('blogWhite');  
-        background-color: themed('primaryColor');  
+        background: themed('blogWhite');
+        border-bottom: 1px solid;  
+        border-color: themed('blogGrey'); 
+        z-index: themed('stickyNav'); 
     }
 
+    position: fixed;
+    top: 0;
+    width: 100%;
+
     .nav-controls {
-        padding: 10px 0;
+        padding: 20px 0;
 
-
-        .search {
-            overflow: auto;
+        .open {
+            text-align: center;
             svg {
-                float: right;
-                padding-top: 3px;
+                margin-top: 10px;
+            }
+        }
+
+        .nav-logo { 
+            margin-top:5px;           
+            svg {
+                width: 160px;
+            }
+        }
+
+        .nav-social {
+            display: none;
+            padding: 5px 20px 0 0;
+
+            @include breakpoint(large) {
+                display: block;
             }
 
-            .search-overlay {
-                border: 1px solid red;
+            .social-icon {
+                cursor: pointer;
+
+                svg {
+                    width: 35px;
+                }
+            }
+        }
+
+        .search {
+            @include themify($themes) {
+                border-color: themed('blogGrey'); 
+            }
+            border-left: 1px solid;
+            overflow: auto;
+            text-align: center;
+            svg {
+                margin-top: 6px;
+                width: 30px;
             }
 
         }
@@ -33,6 +70,7 @@
         @include themify($themes) {
             color: themed('blogWhite');  
             background-color: themed('primaryColor');  
+            z-index: themed('navCont');
         }
 
         padding: 60px 0px;
@@ -48,7 +86,6 @@
         overflow-x: hidden;
         transition: all 0.7s ease;
         transform: translateX(-600px);
-        z-index: 5000;
 
         &.nav-active {
             transition: all 0.7s ease;

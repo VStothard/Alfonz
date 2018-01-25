@@ -13,6 +13,7 @@ export * from './classes/device';
 export * from './components/instaFeed';
 export * from './components/featureCarousel';
 export * from './components/mainNavigation';
+export * from './components/blogFeed';
 
 // Services
 

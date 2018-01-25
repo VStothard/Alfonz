@@ -26,13 +26,15 @@ class Component {
    * @memberof Component
    */
   exists() {
-    console.log('this is running');
+    console.log('hellooo');
     this.elements = document.querySelectorAll(`[data-id='${this.componentId.toLowerCase()}']`);
+    console.log(this.elements, 1000);
+
 
     if (!isElement(this.elements[0])) {
-      // console.info(`Component ${this.componentId.toUpperCase()} Node ✖ is not present, aborting.`);
+      console.info(`Component ${this.componentId.toUpperCase()} Node ✖ is not present, aborting.`);
     } else {
-      // console.info(`Component ${this.componentId.toUpperCase()} Node ✔ is present, running class.`);
+      console.info(`Component ${this.componentId.toUpperCase()} Node ✔ is present, running class.`);
     }
 
     return isElement(this.elements[0]);
