@@ -8,6 +8,7 @@ import {
   featureCarousel,
   mainNav,
   blogFeed,
+  blogTiles,
   alertBar
 } from './modules';
 
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new featureCarousel();
   new mainNav();
   new blogFeed();
+  new blogTiles();
   new alertBar();
 
   /**
