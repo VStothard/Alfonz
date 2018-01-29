@@ -19420,10 +19420,17 @@ var featureCarousel = function (_Component) {
 
         $(".feature-carousel").slick({
           autoplay: true,
-          dots: true,
+          dots: false,
           infinite: true,
           vertical: true,
-          verticalSwiping: true
+          verticalSwiping: true,
+          responsive: [{
+            breakpoint: 768,
+            settings: {
+              vertical: false,
+              verticalSwiping: false
+            }
+          }]
         });
       }).catch(console.error);
     }

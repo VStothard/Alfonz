@@ -1,7 +1,4 @@
 .C04-feature-carousel {
-    .feature-carousel {
-        // position: relative;
-    }
 
     .slide {
         position: relative;
@@ -23,41 +20,41 @@
                 outline-color: themed('blogWhite');
                 // color: themed('blogWhite');
             }
-            // //display: inline-block;
-            // top: 0;
-            // bottom: 0;
-            // left: 0;
-            // opacity: 0.9;
-            // padding: 40px;
-            // position: absolute;
-            // max-width: 500px;
-            // max-height: 200px;
-            // margin: 0 auto;
-            // right: 0;
-            // text-align: center;
-            // transform: translateY(100px);
-            // transition: all 2s ease-in;
-            // width: 100%;
 
             margin: auto;
             position: absolute;
             top: 0; left: 0; bottom: 0; right: 0;
-            max-width: 700px;
+            max-width: 320px;
             max-height: 200px;
-
+            outline: none;
             opacity: 0.9;
-            outline: 4px solid;
             outline-offset: 15px;
             padding: 50px;
             text-align: center;
-            transform: translateY(100px);
+            transform: translate(100px, 0px);
             transition: all 2s ease-in;
 
+            @include breakpoint(medium) {
+                max-width: 600px;
+                outline: 4px solid;
+                transform: translate(0px, 100px);
+            }
+
+            @include breakpoint(large) {
+                max-width: 700px;
+            }
+
             .slide-title {
+                font-size: 25px;
                 width: 100%;
-                white-space: nowrap;
+                white-space: wrap;
                 overflow: hidden;
                 text-overflow: ellipsis; 
+
+                @include breakpoint(medium) {
+                    font-size: 30px;
+                    white-space: nowrap;
+                }
             }
         }
 
