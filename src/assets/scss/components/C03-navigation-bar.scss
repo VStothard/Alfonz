@@ -21,7 +21,8 @@
         }
 
         .nav-logo { 
-            margin-top:5px;           
+            margin-top:5px;   
+            text-align: center;        
             svg {
                 width: 160px;
             }
@@ -48,9 +49,10 @@
             @include themify($themes) {
                 border-color: themed('blogGrey'); 
             }
-            border-left: 1px solid;
             overflow: auto;
-            text-align: center;
+            padding-right: 20px;
+            text-align: right;
+
             svg {
                 margin-top: 6px;
                 width: 30px;
