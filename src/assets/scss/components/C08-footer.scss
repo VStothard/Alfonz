@@ -6,12 +6,20 @@
         justify-content: space-around;
         flex-wrap: wrap;
 
-        .social-icon {
-            display: inline-block;
-            
-            svg {
-                width: 30px;
-                fill: yellow;
+        .social-icons {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 100%;
+
+            .social-icon {
+                &:hover {
+                    transform: rotate(5deg);
+                }
+
+                svg {
+                    width: 25px;
+                }
             }
         }
     }

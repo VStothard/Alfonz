@@ -36,11 +36,19 @@
                 display: block;
             }
 
-            .social-icon {
-                cursor: pointer;
+            .social-icons {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 auto;
 
-                svg {
-                    width: 35px;
+                .social-icon {
+                    &:hover {
+                        transform: rotate(5deg);
+                    }
+
+                    svg {
+                       width: 25px;
+                    }
                 }
             }
         }

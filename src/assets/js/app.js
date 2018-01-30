@@ -9,7 +9,8 @@ import {
   mainNav,
   blogFeed,
   blogTiles,
-  alertBar
+  alertBar,
+  searchBar
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new blogFeed();
   new blogTiles();
   new alertBar();
+  new searchBar();
 
   /**
    * Init modules
