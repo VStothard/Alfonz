@@ -19983,7 +19983,8 @@ var searchBar = function (_Component) {
             var self = this;
             var searchForm = (0, _jquery2.default)('#search-form');
             var searchBtn = (0, _jquery2.default)('.mob-search-submit');
-            var url = '';
+            var url = window.location.href;
+            console.log(url);
 
             //on click search, get value
             (0, _jquery2.default)(searchForm).on('submit', function (e) {
@@ -19991,13 +19992,10 @@ var searchBar = function (_Component) {
                 var searchVal = (0, _jquery2.default)('#mob-search').val();
 
                 //change window location to www/search value
+
                 url = 'http://localhost:8000/search.html?term=' + searchVal;
                 window.location = url;
             });
-
-            // on load search.html, get search term from URL
-            //search contentful
-            //load items onto the page
         }
     }, {
         key: 'fetchResults',
@@ -20035,15 +20033,12 @@ var searchBar = function (_Component) {
                     html = html + searchResult;
                 });
 
-                // replace html with the created blog tiles to display
-                console.log(html);
-                searchCont.html(html);
-                (0, _jquery2.default)('.results-num').html(response.items.length);
-                (0, _jquery2.default)('.results-term').html(term);
-            }).catch(console.error);
+                var resultsHeading = '<h2><span class="results-num">' + response.items.length + '</span> results for "<span class="results-term">' + term + '</span>"</h2>';
 
-            //     //search contentful
-            //     //load items onto the page
+                // append html snippets to search results page
+                searchCont.html(html);
+                (0, _jquery2.default)('.C14-search-results-heading').html(resultsHeading);
+            }).catch(console.error);
         }
     }]);
 

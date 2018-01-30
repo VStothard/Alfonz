@@ -46,7 +46,8 @@ class searchBar extends Component {
     const self = this;
     const searchForm = $('#search-form');
     const searchBtn = $('.mob-search-submit');
-    var url = '';
+    var url = window.location.href;
+    console.log(url);
 
     //on click search, get value
     $(searchForm).on('submit', (e) => {
@@ -54,13 +55,10 @@ class searchBar extends Component {
         var searchVal = $('#mob-search').val();
 
         //change window location to www/search value
+
         url = 'http://localhost:8000/search.html?term=' + searchVal;
         window.location = url;
     });
-
-    // on load search.html, get search term from URL
-    //search contentful
-    //load items onto the page
   }
 
   fetchResults() {
@@ -111,17 +109,13 @@ class searchBar extends Component {
             html = html + searchResult;
         });
 
-        // replace html with the created blog tiles to display
-        console.log(html); 
-        searchCont.html(html);
-        $('.results-num').html(response.items.length);
-        $('.results-term').html(term); 
+        var resultsHeading = '<h2><span class="results-num">' + response.items.length + '</span> results for "<span class="results-term">' + term + '</span>"</h2>';
 
+        // append html snippets to search results page
+        searchCont.html(html);
+        $('.C14-search-results-heading').html(resultsHeading);
     })
     .catch(console.error)
-
-    //     //search contentful
-    //     //load items onto the page
   }
 
 
