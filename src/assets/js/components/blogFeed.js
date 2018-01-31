@@ -1,5 +1,6 @@
 import { Component } from '../classes/component';
 import $ from 'jquery';
+
 var contentful = require('contentful');
 var config = require('config');
 
@@ -62,6 +63,7 @@ class blogFeed extends Component {
            // - limit the numebr of entries per page, implement pagination
            // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
         response.items.forEach(function (entry) {
+            var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
 
             //TODO swap this out with handlebars templating
             var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
@@ -75,7 +77,7 @@ class blogFeed extends Component {
                                 + '<div class="bf-desc">'
                                   + '<p>' + entry.fields.body + '</p>'
                                 + '</div>'
-                                + '<div class="bf-button button bold"><a href="' + '#' + '">Read post</a></div>'
+                                + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>'
                               + '</div>'
                             + '</div>';
             

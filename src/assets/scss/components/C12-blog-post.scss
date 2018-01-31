@@ -29,4 +29,41 @@
             margin: 15px 0;
         }
     }
+
+    // .img-pull-right,
+    // .img-pull-left,
+    // .img-full-width {
+    //     margin: 40px 0;
+    // }
+
+    .img-pull-right {
+        float: right;
+        width: 100%;
+        margin: 20px 0;
+
+        @include breakpoint(medium) {
+            width: 45%;
+            margin: 0 0 0 20px;
+        }
+    }
+
+    .img-pull-left {
+        border: 1px solid green;
+        float: left;
+        width: 100%;
+        margin: 20px 0;
+
+        @include breakpoint(medium) {
+            width: 45%;
+            margin: 20px 20px 20px 0;
+        }
+    }
+
+    .img-full-width {
+        margin: 20px 0;
+
+        @include breakpoint(medium) {
+           margin: 40px 0;
+        }
+    }
 }

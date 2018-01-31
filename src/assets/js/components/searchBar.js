@@ -55,9 +55,12 @@ class searchBar extends Component {
         var searchVal = $('#mob-search').val();
 
         //change window location to www/search value
-
-        url = 'http://localhost:8000/search.html?term=' + searchVal;
-        window.location = url;
+        if (searchVal.length > 0) {
+            url = 'http://localhost:8000/search.html?term=' + searchVal;
+            window.location = url;
+        } else {
+            $('#mob-search').focus();
+        }
     });
   }
 

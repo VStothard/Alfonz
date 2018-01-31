@@ -50,7 +50,8 @@ class blogTiles extends Component {
 
     // get all blog posts and render to the page
     client.getEntries({
-      content_type: '2wKn6yEnZewu2SCCkus4as'
+      content_type: '2wKn6yEnZewu2SCCkus4as',
+      limit: 12
     })
     .then((response) => {
 
@@ -59,7 +60,6 @@ class blogTiles extends Component {
         response.items.forEach(function (entry) {
             var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
             var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
-            console.log(postURL);
             //http://localhost:8000/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
             //TODO swap this out with handlebars templating

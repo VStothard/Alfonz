@@ -55,12 +55,13 @@ class featureCarousel extends Component {
 
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
-          console.log(slideBackground);
+          var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+
           var featureSlide = '<div class="slide">'
                                 + '<div class="slide-cover" style="background-image: url(' + slideBackground + ')"></div>'
-                                + '<div class="slide-details">'
-                                  + '<h2 class="slide-title"><a href="#">'+ entry.fields.title + '</a></h2>'
-                                  + '<p class="slide-date">' + entry.fields.date + '</p>'
+                                + '<div class="slide-details"><a href="' + postURL + '">'
+                                  + '<h2 class="slide-title">' + entry.fields.title + '</h2>'
+                                  + '<p class="slide-date">' + entry.fields.date + '</p></a>'
                                 + '</div>'
                               + '</div>';
           

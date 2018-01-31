@@ -1,0 +1,7 @@
+.C11-blog-feed {
+    margin-top: 50px;
+
+    @include breakpoint(large) {
+        margin-top: 100px;
+    }
+}
