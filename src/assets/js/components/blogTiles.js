@@ -58,10 +58,13 @@ class blogTiles extends Component {
 
         response.items.forEach(function (entry) {
             var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
+            var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+            console.log(postURL);
+            //http://localhost:8000/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
             //TODO swap this out with handlebars templating
             var blogTile = '<div class="blog-tile small-12 medium-6 large-4">'
-                                + '<a class="blog-tile-cont" href="#">'
+                                + '<a class="blog-tile-cont" href="' + postURL + '">'
                                     + '<div class="blog-tile-image" style="background-image: url(' + slideBackground + ')"></div>'
                                     + '<div class="blog-tile-details">'
                                         + '<p class="blog-tile-title bold">'+ entry.fields.title + '</p>'

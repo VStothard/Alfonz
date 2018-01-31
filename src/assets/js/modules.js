@@ -15,10 +15,9 @@ export * from './components/featureCarousel';
 export * from './components/mainNavigation';
 export * from './components/blogFeed';
 export * from './components/blogTiles';
+export * from './components/blogPost';
 export * from './components/alertBar';
 export * from './components/searchBar';
-
-
 
 // Services
 

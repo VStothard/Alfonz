@@ -10,7 +10,8 @@ import {
   blogFeed,
   blogTiles,
   alertBar,
-  searchBar
+  searchBar,
+  blogPost
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new blogTiles();
   new alertBar();
   new searchBar();
+  new blogPost();
 
   /**
    * Init modules

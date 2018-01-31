@@ -46,7 +46,7 @@ class searchBar extends Component {
     const self = this;
     const searchForm = $('#search-form');
     const searchBtn = $('.mob-search-submit');
-    var url = window.location.href;
+    var url = '';
     console.log(url);
 
     //on click search, get value
@@ -84,12 +84,10 @@ class searchBar extends Component {
         'query': term
     })
     .then((response) => {
-        console.log(response.items.length);
+        console.log(response.items);
         var html = '';
 
-        response.items.forEach(function (entry) {
-
-            //TODO swap this out with handlebars templating
+        response.items.forEach(function (entry) {             
             var searchResult = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
                               + '<div class="bf-feature-image">'
                                 + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
@@ -99,12 +97,12 @@ class searchBar extends Component {
                                   + '<h2>' + entry.fields.title + '</h2>'
                                 + '</div>'
                                 + '<div class="bf-desc">'
-                                  + '<p>' + entry.fields.body + '</p>'
+                                  + '<p>' + entry.fields.postPreview + '</p>'
                                 + '</div>'
-                                + '<div class="bf-button button bold"><a href="' + '#' + '">Read post</a></div>'
+                                + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>'
                               + '</div>'
                             + '</div>';
-            
+
             //add the entry to the element
             html = html + searchResult;
         });
