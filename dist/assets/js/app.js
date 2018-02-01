@@ -721,7 +721,7 @@ module.exports = cloneDeep;
 "use strict";
 
 
-var _Symbol = __webpack_require__(23),
+var _Symbol = __webpack_require__(24),
     getRawTag = __webpack_require__(140),
     objectToString = __webpack_require__(168);
 
@@ -10621,7 +10621,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	return jQuery;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
 /* 11 */
@@ -11051,6 +11051,55 @@ module.exports = nativeCreate;
 "use strict";
 
 
+var arrayEach = __webpack_require__(38),
+    baseEach = __webpack_require__(113),
+    castFunction = __webpack_require__(123),
+    isArray = __webpack_require__(11);
+
+/**
+ * Iterates over elements of `collection` and invokes `iteratee` for each element.
+ * The iteratee is invoked with three arguments: (value, index|key, collection).
+ * Iteratee functions may exit iteration early by explicitly returning `false`.
+ *
+ * **Note:** As with other "Collections" methods, objects with a "length"
+ * property are iterated like arrays. To avoid this behavior use `_.forIn`
+ * or `_.forOwn` for object iteration.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @alias each
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [iteratee=_.identity] The function invoked per iteration.
+ * @returns {Array|Object} Returns `collection`.
+ * @see _.forEachRight
+ * @example
+ *
+ * _.forEach([1, 2], function(value) {
+ *   console.log(value);
+ * });
+ * // => Logs `1` then `2`.
+ *
+ * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
+ *   console.log(key);
+ * });
+ * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+ */
+function forEach(collection, iteratee) {
+  var func = isArray(collection) ? arrayEach : baseEach;
+  return func(collection, castFunction(iteratee));
+}
+
+module.exports = forEach;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var arrayLikeKeys = __webpack_require__(39),
     baseKeys = __webpack_require__(119),
     isArrayLike = __webpack_require__(29);
@@ -11090,7 +11139,7 @@ function keys(object) {
 module.exports = keys;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11120,7 +11169,7 @@ module.exports = function (module) {
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11213,7 +11262,7 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11228,7 +11277,7 @@ var Map = getNative(root, 'Map');
 module.exports = Map;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11242,7 +11291,7 @@ var _Symbol = root.Symbol;
 module.exports = _Symbol;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11266,7 +11315,7 @@ function cloneArrayBuffer(arrayBuffer) {
 module.exports = cloneArrayBuffer;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11280,7 +11329,7 @@ var getPrototype = overArg(Object.getPrototypeOf, Object);
 module.exports = getPrototype;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11318,7 +11367,7 @@ var getSymbols = !nativeGetSymbols ? stubArray : function (object) {
 module.exports = getSymbols;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11342,55 +11391,6 @@ function isPrototype(value) {
 }
 
 module.exports = isPrototype;
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var arrayEach = __webpack_require__(38),
-    baseEach = __webpack_require__(113),
-    castFunction = __webpack_require__(123),
-    isArray = __webpack_require__(11);
-
-/**
- * Iterates over elements of `collection` and invokes `iteratee` for each element.
- * The iteratee is invoked with three arguments: (value, index|key, collection).
- * Iteratee functions may exit iteration early by explicitly returning `false`.
- *
- * **Note:** As with other "Collections" methods, objects with a "length"
- * property are iterated like arrays. To avoid this behavior use `_.forIn`
- * or `_.forOwn` for object iteration.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @alias each
- * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} [iteratee=_.identity] The function invoked per iteration.
- * @returns {Array|Object} Returns `collection`.
- * @see _.forEachRight
- * @example
- *
- * _.forEach([1, 2], function(value) {
- *   console.log(value);
- * });
- * // => Logs `1` then `2`.
- *
- * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
- *   console.log(key);
- * });
- * // => Logs 'a' then 'b' (iteration order is not guaranteed).
- */
-function forEach(collection, iteratee) {
-  var func = isArray(collection) ? arrayEach : baseEach;
-  return func(collection, castFunction(iteratee));
-}
-
-module.exports = forEach;
 
 /***/ }),
 /* 29 */
@@ -12179,8 +12179,8 @@ module.exports = freeGlobal;
 
 
 var arrayPush = __webpack_require__(40),
-    getPrototype = __webpack_require__(25),
-    getSymbols = __webpack_require__(26),
+    getPrototype = __webpack_require__(26),
+    getSymbols = __webpack_require__(27),
     stubArray = __webpack_require__(57);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -12353,7 +12353,7 @@ var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
 var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
 /* 51 */
@@ -12483,7 +12483,7 @@ module.exports = isLength;
 
 
 var baseGetTag = __webpack_require__(8),
-    getPrototype = __webpack_require__(25),
+    getPrototype = __webpack_require__(26),
     isObjectLike = __webpack_require__(9);
 
 /** `Object#toString` result references. */
@@ -13116,7 +13116,7 @@ module.exports = __webpack_require__(64);
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(34);
 var Axios = __webpack_require__(66);
-var defaults = __webpack_require__(21);
+var defaults = __webpack_require__(22);
 
 /**
  * Create an instance of Axios
@@ -13234,7 +13234,7 @@ module.exports = CancelToken;
 "use strict";
 
 
-var defaults = __webpack_require__(21);
+var defaults = __webpack_require__(22);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(67);
 var dispatchRequest = __webpack_require__(68);
@@ -13380,7 +13380,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(71);
 var isCancel = __webpack_require__(32);
-var defaults = __webpack_require__(21);
+var defaults = __webpack_require__(22);
 var isAbsoluteURL = __webpack_require__(76);
 var combineURLs = __webpack_require__(74);
 
@@ -16123,7 +16123,7 @@ module.exports = arrayFilter;
 
 
 var copyObject = __webpack_require__(16),
-    keys = __webpack_require__(19);
+    keys = __webpack_require__(20);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -16190,7 +16190,7 @@ var Stack = __webpack_require__(103),
     isArray = __webpack_require__(11),
     isBuffer = __webpack_require__(50),
     isObject = __webpack_require__(12),
-    keys = __webpack_require__(19);
+    keys = __webpack_require__(20);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -16403,7 +16403,7 @@ module.exports = baseFor;
 
 
 var baseFor = __webpack_require__(114),
-    keys = __webpack_require__(19);
+    keys = __webpack_require__(20);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -16560,7 +16560,7 @@ module.exports = baseIsTypedArray;
 "use strict";
 
 
-var isPrototype = __webpack_require__(27),
+var isPrototype = __webpack_require__(28),
     nativeKeys = __webpack_require__(165);
 
 /** Used for built-in method references. */
@@ -16599,7 +16599,7 @@ module.exports = baseKeys;
 
 
 var isObject = __webpack_require__(12),
-    isPrototype = __webpack_require__(27),
+    isPrototype = __webpack_require__(28),
     nativeKeysIn = __webpack_require__(166);
 
 /** Used for built-in method references. */
@@ -16748,7 +16748,7 @@ function cloneBuffer(buffer, isDeep) {
 }
 
 module.exports = cloneBuffer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
 /* 125 */
@@ -16757,7 +16757,7 @@ module.exports = cloneBuffer;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(24);
+var cloneArrayBuffer = __webpack_require__(25);
 
 /**
  * Creates a clone of `dataView`.
@@ -16866,7 +16866,7 @@ module.exports = cloneSet;
 "use strict";
 
 
-var _Symbol = __webpack_require__(23);
+var _Symbol = __webpack_require__(24);
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = _Symbol ? _Symbol.prototype : undefined,
@@ -16892,7 +16892,7 @@ module.exports = cloneSymbol;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(24);
+var cloneArrayBuffer = __webpack_require__(25);
 
 /**
  * Creates a clone of `typedArray`.
@@ -16945,7 +16945,7 @@ module.exports = copyArray;
 
 
 var copyObject = __webpack_require__(16),
-    getSymbols = __webpack_require__(26);
+    getSymbols = __webpack_require__(27);
 
 /**
  * Copies own symbols of `source` to `object`.
@@ -17099,8 +17099,8 @@ module.exports = defineProperty;
 
 
 var baseGetAllKeys = __webpack_require__(44),
-    getSymbols = __webpack_require__(26),
-    keys = __webpack_require__(19);
+    getSymbols = __webpack_require__(27),
+    keys = __webpack_require__(20);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -17147,7 +17147,7 @@ module.exports = getAllKeysIn;
 "use strict";
 
 
-var _Symbol = __webpack_require__(23);
+var _Symbol = __webpack_require__(24);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -17202,7 +17202,7 @@ module.exports = getRawTag;
 
 
 var DataView = __webpack_require__(99),
-    Map = __webpack_require__(22),
+    Map = __webpack_require__(23),
     Promise = __webpack_require__(101),
     Set = __webpack_require__(102),
     WeakMap = __webpack_require__(105),
@@ -17471,7 +17471,7 @@ module.exports = initCloneArray;
 "use strict";
 
 
-var cloneArrayBuffer = __webpack_require__(24),
+var cloneArrayBuffer = __webpack_require__(25),
     cloneDataView = __webpack_require__(125),
     cloneMap = __webpack_require__(126),
     cloneRegExp = __webpack_require__(127),
@@ -17560,8 +17560,8 @@ module.exports = initCloneByTag;
 
 
 var baseCreate = __webpack_require__(112),
-    getPrototype = __webpack_require__(25),
-    isPrototype = __webpack_require__(27);
+    getPrototype = __webpack_require__(26),
+    isPrototype = __webpack_require__(28);
 
 /**
  * Initializes an object clone.
@@ -17813,7 +17813,7 @@ module.exports = listCacheSet;
 
 var Hash = __webpack_require__(100),
     ListCache = __webpack_require__(14),
-    Map = __webpack_require__(22);
+    Map = __webpack_require__(23);
 
 /**
  * Removes all key-value entries from the map.
@@ -18036,7 +18036,7 @@ var nodeUtil = function () {
 }();
 
 module.exports = nodeUtil;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
 /* 168 */
@@ -18195,7 +18195,7 @@ module.exports = stackHas;
 
 
 var ListCache = __webpack_require__(14),
-    Map = __webpack_require__(22),
+    Map = __webpack_require__(23),
     MapCache = __webpack_require__(37);
 
 /** Used as the size to enable large array optimizations. */
@@ -19380,6 +19380,10 @@ var _jquery = __webpack_require__(10);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _forEach = __webpack_require__(19);
+
+var _forEach2 = _interopRequireDefault(_forEach);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19419,27 +19423,17 @@ var blogFeed = function (_Component) {
     (0, _jquery2.default)("div[data-id]").each(function () {
       // if exists, execute blogFeed
       if ((0, _jquery2.default)(this).data("id") === dataID) {
-        self.blogFeed();
+        self.pagination(); //create the pagination
+        // self.blogFeed();
       }
     });
     return _this;
   }
 
-  /**
-   * blogFeed Method
-   *
-   * @param {string} param sample param
-   * @returns {undefined}
-   * @memberof blogFeed
-   */
-
-
   _createClass(blogFeed, [{
-    key: 'blogFeed',
-    value: function blogFeed(param) {
+    key: 'pagination',
+    value: function pagination() {
       var self = this;
-      var feedCont = (0, _jquery2.default)('#blog-feed-cont');
-      console.log('wheres the blog');
 
       //contentful initialisation 
       var client = contentful.createClient({
@@ -19447,30 +19441,99 @@ var blogFeed = function (_Component) {
         accessToken: config.config.accessToken
       });
 
-      // get all blog posts and render to the page
-      client.getEntries({
-        content_type: '2wKn6yEnZewu2SCCkus4as'
-      }).then(function (response) {
-        //create the element you will be plugging into the blog feed container
-        var html = '';
+      // on page load check URL for page=X 
+      var query = window.location.search.substring(1);
+      var page = '';
+      var vars = query.split("&");
 
-        //for each item there is, create an A07 blog tile
-        //Todo 
-        // - limit the numebr of entries per page, implement pagination
-        // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
-        response.items.forEach(function (entry) {
-          var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+      (0, _forEach2.default)(vars, function (el) {
+        var pair = el.split("=");
+        if (pair[0] == 'page') {
+          page = Number(pair[1]); //convert result to a number
+        }
+      });
 
-          //TODO swap this out with handlebars templating
-          var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.body + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>' + '</div>' + '</div>';
+      // from contentful, get the total number of entries, and set inital limits
+      var totalPosts = 0; //create var for total number of posts and set to a number
+      var numPages; // create var for the total number of pages
+      var perPage = 10; //limit number of posts per page
+      var toSkip = page * perPage; //calculate what post to load from 
 
-          //add the entry to the element
-          html = html + blogTile;
-        });
+      //if page number exists in URL, run the getEntries again and set the pagination/blog posts to the right page
+      if (page > 0) {
+        //request entries, starting from the Xth entry (toSkip)
+        client.getEntries({
+          content_type: '2wKn6yEnZewu2SCCkus4as',
+          limit: perPage,
+          skip: toSkip
+        }).then(function (response) {
+          var Response = response;
 
-        // replace html with the created blog tiles to display 
-        feedCont.html(html);
-      }).catch(console.error);
+          totalPosts = response.total; // get the total number of posts
+          numPages = Math.round(totalPosts / perPage); // divide by the number to dispay per page, round up to whole number (eg if there are 22 entried you need 3 pages)
+          // create pagination controls based on the above number
+          // assign 'active' class to the correct pagination number
+          // assign 'skip' value to variable which you can pass into the blog feed function
+          // run blogFeed function to load the blog posts for the first page
+
+          blogFeed.blogFeed(client, response);
+        }).catch(console.error);
+
+        //if page number is not in URL, get entries and set to the first page
+      } else {
+        //request entries, displaying posts from the 1st entry
+        client.getEntries({
+          content_type: '2wKn6yEnZewu2SCCkus4as',
+          limit: perPage,
+          skip: 0
+        }).then(function (response) {
+          var Response = response;
+          totalPosts = response.total; //get the total number of posts
+          numPages = Math.round(totalPosts / perPage); // divide by the number to dispay per page, round up to whole number (eg if there are 22 entried you need 3 pages)
+          // create pagination controls based on the above number
+          // assign 'active' class to the correct pagination number
+          // assign 'skip' value to variable which you can pass into the blog feed function
+          // run blogFeed function to load the blog posts for the first page
+
+          //generate the blogPost html from template and append to page
+          blogFeed.blogFeed(client, response);
+        }).catch(console.error);
+      }
+    }
+
+    /**
+     * blogFeed Method
+     *
+     * @param {string} param sample param
+     * @returns {undefined}
+     * @memberof blogFeed
+     */
+
+  }], [{
+    key: 'blogFeed',
+    value: function blogFeed(client, response) {
+      var self = this;
+      var feedCont = (0, _jquery2.default)('#blog-feed-cont');
+
+      //create the element you will be plugging into the blog feed container
+      var html = '';
+
+      //for each item there is, create an A07 blog tile
+      //Todo 
+      // - limit the number of entries per page, implement pagination
+      // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
+      response.items.forEach(function (entry) {
+        var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+
+        //TODO swap this out with handlebars templating
+        var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>' + '</div>' + '</div>';
+
+        //add the entry to the element
+        html = html + blogTile;
+      });
+
+      // replace html with the created blog tiles to display 
+      feedCont.html(html);
     }
   }]);
 
@@ -19499,7 +19562,7 @@ var _jquery = __webpack_require__(10);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _forEach = __webpack_require__(28);
+var _forEach = __webpack_require__(19);
 
 var _forEach2 = _interopRequireDefault(_forEach);
 
@@ -19952,7 +20015,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _forEach = __webpack_require__(28);
+var _forEach = __webpack_require__(19);
 
 var _forEach2 = _interopRequireDefault(_forEach);
 
@@ -20051,12 +20114,11 @@ var mainNav = function (_Component) {
       });
 
       client.getEntries().then(function (response) {
-        console.log(response.items, 1000);
+        // console.log(response.items, 1000);
         var links = $('#cat-links');
         var html = '';
 
         (0, _forEach2.default)(response.items, function (entry) {
-          console.log('test');
           var id = entry.sys.id;
 
           if (id == '32D9DUawik08UGcmk6eSyo') {
@@ -20066,30 +20128,30 @@ var mainNav = function (_Component) {
 
             html = html + catLink;
 
-            console.log(html, 9000);
+            // console.log(html, 9000);
           } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
-            console.log('business');
+            // console.log('business');
 
             var catURL = window.location.origin + '/category.html?category=' + id;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// Business</a></li>';
 
             html = html + catLink;
           } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
-            console.log('food');
+            // console.log('food');
 
             var catURL = window.location.origin + '/category.html?category=' + id;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// Food</a></li>';
 
             html = html + catLink;
           } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
-            console.log('tech');
+            // console.log('tech');
 
             var catURL = window.location.origin + '/category.html?category=' + id;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// Tech</a></li>';
 
             html = html + catLink;
           } else if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
-            console.log('money');
+            // console.log('money');
 
             var catURL = window.location.origin + '/category.html?category=' + id;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// Money</a></li>';
@@ -20100,7 +20162,7 @@ var mainNav = function (_Component) {
           }
         });
         links.html(html);
-        console.log(html);
+        // console.log(html);
       }).catch(console.error);
     }
   }]);
@@ -20130,7 +20192,7 @@ var _jquery = __webpack_require__(10);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _forEach = __webpack_require__(28);
+var _forEach = __webpack_require__(19);
 
 var _forEach2 = _interopRequireDefault(_forEach);
 

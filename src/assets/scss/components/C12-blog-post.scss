@@ -40,22 +40,27 @@
         float: right;
         width: 100%;
         margin: 20px 0;
+        position: initial;
 
         @include breakpoint(medium) {
             width: 45%;
             margin: 0 0 0 20px;
+            position: relative;
+            right: -20px;
         }
     }
 
     .img-pull-left {
-        border: 1px solid green;
         float: left;
         width: 100%;
         margin: 20px 0;
+        position: initial;
 
         @include breakpoint(medium) {
             width: 45%;
             margin: 20px 20px 20px 0;
+            position: relative;
+            left: -20px;
         }
     }
 

@@ -1,5 +1,6 @@
 import { Component } from '../classes/component';
 import $ from 'jquery';
+import forEach from 'lodash/forEach';
 
 var contentful = require('contentful');
 var config = require('config');
@@ -26,11 +27,84 @@ class blogFeed extends Component {
     $("div[data-id]").each(function() {
         // if exists, execute blogFeed
         if ($(this).data("id") === dataID) {
-          self.blogFeed();
+          self.pagination(); //create the pagination
+          // self.blogFeed();
         }
     });
   }
 
+  pagination() {
+    const self = this;
+
+    //contentful initialisation 
+    var client = contentful.createClient({
+      space: config.config.space,
+      accessToken: config.config.accessToken
+    });
+    
+    // on page load check URL for page=X 
+    var query = window.location.search.substring(1);
+    var page = '';
+    var vars = query.split("&");
+
+    forEach(vars, function (el) {
+        var pair = el.split("=");
+        if(pair[0] == 'page'){
+            page = Number(pair[1]); //convert result to a number
+        }
+    });
+
+    // from contentful, get the total number of entries, and set inital limits
+    var totalPosts = 0; //create var for total number of posts and set to a number
+    var numPages; // create var for the total number of pages
+    const perPage = 10; //limit number of posts per page
+    var toSkip = page * perPage; //calculate what post to load from 
+
+    //if page number exists in URL, run the getEntries again and set the pagination/blog posts to the right page
+    if (page > 0) {
+      //request entries, starting from the Xth entry (toSkip)
+      client.getEntries({
+        content_type: '2wKn6yEnZewu2SCCkus4as',
+        limit: perPage,
+        skip: toSkip
+      })
+      .then((response) => {
+          var Response = response;
+
+          totalPosts = response.total; // get the total number of posts
+          numPages = Math.round(totalPosts / perPage); // divide by the number to dispay per page, round up to whole number (eg if there are 22 entried you need 3 pages)
+          // create pagination controls based on the above number
+          // assign 'active' class to the correct pagination number
+          // assign 'skip' value to variable which you can pass into the blog feed function
+          // run blogFeed function to load the blog posts for the first page
+
+          blogFeed.blogFeed(client, response);
+      })
+      .catch(console.error);
+
+    //if page number is not in URL, get entries and set to the first page
+    } else {
+      //request entries, displaying posts from the 1st entry
+      client.getEntries({
+        content_type: '2wKn6yEnZewu2SCCkus4as',
+        limit: perPage,
+        skip: 0
+      })
+      .then((response) => {
+          var Response = response;
+          totalPosts = response.total; //get the total number of posts
+          numPages = Math.round(totalPosts / perPage); // divide by the number to dispay per page, round up to whole number (eg if there are 22 entried you need 3 pages)
+          // create pagination controls based on the above number
+          // assign 'active' class to the correct pagination number
+          // assign 'skip' value to variable which you can pass into the blog feed function
+          // run blogFeed function to load the blog posts for the first page
+
+          //generate the blogPost html from template and append to page
+          blogFeed.blogFeed(client, response);
+      })
+      .catch(console.error);
+    }
+  }
 
   /**
    * blogFeed Method
@@ -39,56 +113,42 @@ class blogFeed extends Component {
    * @returns {undefined}
    * @memberof blogFeed
    */
-  blogFeed(param) {
+  static blogFeed(client, response) {
     const self = this;
     const feedCont = $('#blog-feed-cont');
-    console.log('wheres the blog');
 
-    //contentful initialisation 
-    var client = contentful.createClient({
-      space: config.config.space,
-      accessToken: config.config.accessToken
+    //create the element you will be plugging into the blog feed container
+    var html = '';
+
+    //for each item there is, create an A07 blog tile
+      //Todo 
+        // - limit the number of entries per page, implement pagination
+        // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
+    response.items.forEach(function (entry) {
+        var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+
+        //TODO swap this out with handlebars templating
+        var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
+                          + '<div class="bf-feature-image">'
+                            + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
+                          + '</div>'
+                          + '<div class="bf-content-overlap">'
+                            + '<div class="bf-heading">'
+                              + '<h2>' + entry.fields.title + '</h2>'
+                            + '</div>'
+                            + '<div class="bf-desc">'
+                              + '<p>' + entry.fields.postPreview + '</p>'
+                            + '</div>'
+                            + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>'
+                          + '</div>'
+                        + '</div>';
+        
+        //add the entry to the element
+        html = html + blogTile;
     });
 
-    // get all blog posts and render to the page
-    client.getEntries({
-      content_type: '2wKn6yEnZewu2SCCkus4as'
-    })
-    .then((response) => {
-        //create the element you will be plugging into the blog feed container
-        var html = '';
-
-        //for each item there is, create an A07 blog tile
-          //Todo 
-           // - limit the numebr of entries per page, implement pagination
-           // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
-        response.items.forEach(function (entry) {
-            var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
-
-            //TODO swap this out with handlebars templating
-            var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
-                              + '<div class="bf-feature-image">'
-                                + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' 
-                              + '</div>'
-                              + '<div class="bf-content-overlap">'
-                                + '<div class="bf-heading">'
-                                  + '<h2>' + entry.fields.title + '</h2>'
-                                + '</div>'
-                                + '<div class="bf-desc">'
-                                  + '<p>' + entry.fields.body + '</p>'
-                                + '</div>'
-                                + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>'
-                              + '</div>'
-                            + '</div>';
-            
-            //add the entry to the element
-            html = html + blogTile;
-        });
-
-        // replace html with the created blog tiles to display 
-        feedCont.html(html); 
-    })
-    .catch(console.error);
+    // replace html with the created blog tiles to display 
+    feedCont.html(html); 
   }
 }
 

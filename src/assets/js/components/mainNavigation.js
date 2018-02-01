@@ -79,12 +79,11 @@ class mainNav extends Component {
 
     client.getEntries()
     .then((response) => {
-      console.log(response.items, 1000);
+      // console.log(response.items, 1000);
       var links = $('#cat-links');
       var html = '';
 
       forEach(response.items, (entry) => {
-        console.log('test');
         var id = entry.sys.id;
 
         if(id == '32D9DUawik08UGcmk6eSyo') {
@@ -94,10 +93,10 @@ class mainNav extends Component {
 
           html = html + catLink;
 
-          console.log(html, 9000);
+          // console.log(html, 9000);
 
         } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
-          console.log('business');
+          // console.log('business');
 
           var catURL = window.location.origin + '/category.html?category=' + id;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// Business</a></li>';
@@ -105,7 +104,7 @@ class mainNav extends Component {
           html = html + catLink;
 
         } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
-          console.log('food');
+          // console.log('food');
 
           var catURL = window.location.origin + '/category.html?category=' + id;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// Food</a></li>';
@@ -113,7 +112,7 @@ class mainNav extends Component {
           html = html + catLink;
 
         } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
-          console.log('tech');
+          // console.log('tech');
 
           var catURL = window.location.origin + '/category.html?category=' + id;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// Tech</a></li>';
@@ -121,7 +120,7 @@ class mainNav extends Component {
           html = html + catLink;
 
         } else if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
-          console.log('money');
+          // console.log('money');
 
           var catURL = window.location.origin + '/category.html?category=' + id;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// Money</a></li>';
@@ -133,7 +132,7 @@ class mainNav extends Component {
         }
       });
       links.html(html);
-      console.log(html);
+      // console.log(html);
     })
     .catch(console.error)
   }
