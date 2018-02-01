@@ -1,6 +1,7 @@
 import { Component } from '../classes/component';
 import $ from 'jquery';
 import forEach from 'lodash/forEach';
+import times from 'lodash/times';
 
 var contentful = require('contentful');
 var config = require('config');
@@ -27,13 +28,12 @@ class blogFeed extends Component {
     $("div[data-id]").each(function() {
         // if exists, execute blogFeed
         if ($(this).data("id") === dataID) {
-          self.pagination(); //create the pagination
-          // self.blogFeed();
+          self.getPosts(); //send request to get posts
         }
     });
   }
 
-  pagination() {
+  getPosts() {
     const self = this;
 
     //contentful initialisation 
@@ -57,7 +57,7 @@ class blogFeed extends Component {
     // from contentful, get the total number of entries, and set inital limits
     var totalPosts = 0; //create var for total number of posts and set to a number
     var numPages; // create var for the total number of pages
-    const perPage = 10; //limit number of posts per page
+    const perPage = 2; //limit number of posts per page
     var toSkip = page * perPage; //calculate what post to load from 
 
     //if page number exists in URL, run the getEntries again and set the pagination/blog posts to the right page
@@ -78,11 +78,12 @@ class blogFeed extends Component {
           // assign 'skip' value to variable which you can pass into the blog feed function
           // run blogFeed function to load the blog posts for the first page
 
-          blogFeed.blogFeed(client, response);
+          blogFeed.blogFeed(response);
+          blogFeed.pagination(numPages);
       })
       .catch(console.error);
 
-    //if page number is not in URL, get entries and set to the first page
+    //if page number is not in URL, or it is equal to 0, get entries and set to the first page
     } else {
       //request entries, displaying posts from the 1st entry
       client.getEntries({
@@ -100,7 +101,8 @@ class blogFeed extends Component {
           // run blogFeed function to load the blog posts for the first page
 
           //generate the blogPost html from template and append to page
-          blogFeed.blogFeed(client, response);
+          blogFeed.blogFeed(response);
+          blogFeed.pagination(numPages);
       })
       .catch(console.error);
     }
@@ -113,7 +115,8 @@ class blogFeed extends Component {
    * @returns {undefined}
    * @memberof blogFeed
    */
-  static blogFeed(client, response) {
+  static blogFeed(response) {
+    console.log(response, 'BLOG FEED RESPONSE');
     const self = this;
     const feedCont = $('#blog-feed-cont');
 
@@ -149,6 +152,21 @@ class blogFeed extends Component {
 
     // replace html with the created blog tiles to display 
     feedCont.html(html); 
+  }
+
+  static pagination(numPages) {
+    console.log('pagination template', numPages);
+    var html = '';
+    var pagination = $('.pagination');
+
+    times(numPages, (page) => {
+      console.log('how many times');
+      var createItem = '<li><a href="' + window.location.origin + '/blog-feed.html?page=' + page + '">' + (page + 1) + '</a></li>';
+      
+      html = html + createItem;
+    });
+
+    pagination.html(html);
   }
 }
 
