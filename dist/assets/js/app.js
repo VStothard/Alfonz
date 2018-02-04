@@ -19839,6 +19839,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.blogPost = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _component = __webpack_require__(2);
@@ -19881,10 +19883,11 @@ var blogPost = function (_Component) {
         _classCallCheck(this, blogPost);
 
         //super not working currently
-
-        //check if element exists on the page
         var _this = _possibleConstructorReturn(this, (blogPost.__proto__ || Object.getPrototypeOf(blogPost)).call(this, 'C12'));
 
+        console.log('blog posts ');
+
+        //check if element exists on the page
         var dataID = 'C12';
         var self = _this;
         (0, _jquery2.default)("div[data-id]").each(function () {
@@ -19921,7 +19924,8 @@ var blogPost = function (_Component) {
             client.getEntries({
                 content_type: '2wKn6yEnZewu2SCCkus4as'
             }).then(function (response) {
-                console.log(response.items);
+                // console.log(response.items);
+                console.log(typeof response === 'undefined' ? 'undefined' : _typeof(response));
                 var html = '';
                 response.items.forEach(function (entry) {
                     if (entry.sys.id == id) {

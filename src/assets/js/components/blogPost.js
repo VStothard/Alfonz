@@ -20,6 +20,7 @@ class blogPost extends Component {
    */
   constructor() {
     super('C12'); //super not working currently
+    console.log('blog posts ');
 
     //check if element exists on the page
     const dataID = 'C12';
@@ -58,7 +59,8 @@ class blogPost extends Component {
         content_type: '2wKn6yEnZewu2SCCkus4as'
     })
     .then((response) => {
-        console.log(response.items);
+        // console.log(response.items);
+        console.log(typeof response);
         var html = '';
         response.items.forEach(function (entry) {
             if(entry.sys.id == id) {
