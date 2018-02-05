@@ -60,7 +60,7 @@ class blogPost extends Component {
     })
     .then((response) => {
         // console.log(response.items);
-        console.log(typeof response);
+        console.log(response.items, 'blog post');
         var html = '';
         response.items.forEach(function (entry) {
             if(entry.sys.id == id) {

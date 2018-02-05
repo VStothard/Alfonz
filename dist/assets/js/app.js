@@ -19722,7 +19722,7 @@ var blogFeed = function (_Component) {
       // from contentful, get the total number of entries, and set inital limits
       var totalPosts = 0; //create var for total number of posts and set to a number
       var numPages; // create var for the total number of pages
-      var perPage = 2; //limit number of posts per page
+      var perPage = 10; //limit number of posts per page
       var toSkip = page * perPage; //calculate what post to load from 
 
       //if page number exists in URL, run the getEntries again and set the pagination/blog posts to the right page
@@ -19839,8 +19839,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.blogPost = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _component = __webpack_require__(2);
@@ -19925,7 +19923,7 @@ var blogPost = function (_Component) {
                 content_type: '2wKn6yEnZewu2SCCkus4as'
             }).then(function (response) {
                 // console.log(response.items);
-                console.log(typeof response === 'undefined' ? 'undefined' : _typeof(response));
+                console.log(response.items, 'blog post');
                 var html = '';
                 response.items.forEach(function (entry) {
                     if (entry.sys.id == id) {
