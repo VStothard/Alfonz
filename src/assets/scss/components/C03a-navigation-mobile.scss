@@ -126,5 +126,19 @@
                 }
             }
         }
+
+        .page-links {
+            &::before {
+                @include themify($themes) {
+                    border-color: themed('blogWhite');  
+                }
+                border-top: 1px solid;
+                content: " ";
+                display: block;
+                padding-top: 20px;
+                width: 80%;
+                max-width: 336px;
+            }
+        }
     }
 }
