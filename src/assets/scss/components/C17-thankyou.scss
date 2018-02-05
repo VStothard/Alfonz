@@ -1,0 +1,16 @@
+.C17-thankyou {
+    padding-bottom: 100px;
+    padding-top: 80px;
+
+    img {
+        float: right;
+    }
+
+    .thankyou-text {
+        transform: translateY(10%);
+
+        @include breakpoint (large) {
+           transform: translateY(40%);
+        }
+    }
+}
