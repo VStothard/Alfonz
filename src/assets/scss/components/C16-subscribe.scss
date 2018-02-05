@@ -1,0 +1,24 @@
+.C16-subscribe {
+     @include themify($themes) {
+        background: themed('softGrey');
+    }
+
+    padding: 100px 0;
+    text-align: center;
+
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        width: 100%;
+
+        input {
+            @include themify($themes) {
+                border-color: themed('softGrey');
+            }
+            border: 1px solid;
+            width: 85%;
+        }
+    }
+}
