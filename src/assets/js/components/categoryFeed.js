@@ -1,6 +1,7 @@
 import { Component } from '../classes/component';
 import $ from 'jquery';
 import forEach from 'lodash/forEach';
+import times from 'lodash/times';
 
 var contentful = require('contentful');
 var config = require('config');
@@ -19,29 +20,37 @@ class categoryFeed extends Component {
      * @memberof categoryFeed
      */
     constructor() {
-    super('C18'); //super not working currently
+        super('C18'); //super not working currently
 
-    //check if element exists on the page
-    const dataID = 'C18';
-    const self = this;
-    $("div[data-id]").each(function() {
+        //contentful initialisation 
+        var client = contentful.createClient({
+            space: config.config.space,
+            accessToken: config.config.accessToken
+        });
+
+        //check if element exists on the page
+        const dataID = 'C18';
+        const self = this;
+        $("div[data-id]").each(function() {
             // if exists, execute categoryFeed
             if ($(this).data("id") === dataID) {
-                console.log('running search for category posts');
-                self.checkURL();
+                self.urlData(client);
             }
+
+
         });
+
     }
 
-    checkURL() {
+    urlData(client) {
+        // on page load check URL for page=X and tag=X
         var query = window.location.search.substring(1);
-        var page = '';
-        var tag = '';
+        var page;
+        var tag;
         var vars = query.split("&");
 
         forEach(vars, function (el) {
             var pair = el.split("=");
-
             if(pair[0] == 'page'){
                 page = Number(pair[1]); //convert result to a number
             }
@@ -51,34 +60,65 @@ class categoryFeed extends Component {
             }
         });
 
-        categoryFeed.getPosts(tag, page);
+        if (page == undefined) {
+            page = 0;
+        }
+
+        categoryFeed.postData(client, page, tag);
+
     }
 
-    static getPosts(tag, page) {
-        console.log('getPosts running');
+    static postData(client, page, tag) {
+        var currentPage = page;
         var totalPosts;
-        var numPages; // create var for the total number of pages
-        const perPage = 1; //limit number of posts per page
-        var toSkip = page * perPage; //calculate what post to load from
-
-        const client = contentful.createClient({
-            space: config.config.space,
-            accessToken: config.config.accessToken
-        });
-
+        var perPage = 1;
+        var numPages;
+        
         client.getEntries({
             'content_type' : '2wKn6yEnZewu2SCCkus4as',
             'fields.tags': tag
-        })
-        .then((response) => {
-            var Response = response.items;
+        }).then((response) => {
+            totalPosts = response.items.length;
+            numPages = Math.round(totalPosts/perPage);
 
+            categoryFeed.pagination(currentPage, numPages, tag);
+            categoryFeed.createPosts(client, tag, perPage, currentPage);
+        })
+        .catch(console.error);
+    }
+
+    static pagination(currentPage, numPages, tag) {
+        console.log('generate pagination');
+        var html = '';
+        var pagination = $('.pagination');
+
+        times(numPages, (page) => {
+            var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+            
+            html = html + createItem;
+        });
+
+        pagination.html(html);
+    }
+
+    static createPosts(client, tag, perPage, currentPage) {
+        client.getEntries({
+            limit : perPage,
+            skip : perPage * currentPage,
+            'content_type' : '2wKn6yEnZewu2SCCkus4as',
+            'fields.tags': tag
+        }).then((response) => {
+            console.log(response.items);
             const feedCont = $('#category-feed-cont');
 
-            //create the element you will be plugging into the category feed container
+            //create the element you will be plugging into the blog feed container
             var html = '';
 
-            Response.forEach(function (entry) {
+            //for each item there is, create an A07 blog tile
+            //Todo 
+                // - limit the number of entries per page, implement pagination
+                // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
+            response.items.forEach(function (entry) {
                 var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
 
                 //TODO swap this out with handlebars templating
@@ -103,11 +143,11 @@ class categoryFeed extends Component {
 
             // replace html with the created blog tiles to display 
             feedCont.html(html); 
-            
-
         })
-        .catch(console.error)
+        .catch(console.error);
     }
+
+
 }
 
 
