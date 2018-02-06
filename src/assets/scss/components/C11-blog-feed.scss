@@ -1,8 +1,14 @@
-.C11-blog-feed {
+.C11-blog-feed,
+.C18-category-feed {
     margin-top: 50px;
 
     @include breakpoint(large) {
         margin-top: 100px;
+    }
+
+    .heading-cont {
+        margin-bottom: 40px;
+        text-align: center;
     }
 
     .pagination-cont {

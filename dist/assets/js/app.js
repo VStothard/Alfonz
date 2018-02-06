@@ -20232,9 +20232,11 @@ var categoryFeed = function (_Component) {
                 'fields.tags': tag
             }).then(function (response) {
                 var feedCont = (0, _jquery2.default)('#category-feed-cont');
+                var headingCont = (0, _jquery2.default)('#category-heading-cont');
 
                 //create the element you will be plugging into the blog feed container
                 var html = '';
+                var heading = '<h2>"' + tag.toUpperCase() + '"</h2>';
 
                 response.items.forEach(function (entry) {
                     var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
@@ -20248,6 +20250,7 @@ var categoryFeed = function (_Component) {
 
                 // replace html with the created blog tiles to display 
                 feedCont.html(html);
+                headingCont.html(heading);
             }).catch(console.error);
         }
     }]);

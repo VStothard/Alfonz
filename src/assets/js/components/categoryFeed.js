@@ -112,9 +112,11 @@ class categoryFeed extends Component {
             'fields.tags': tag
         }).then((response) => {
             const feedCont = $('#category-feed-cont');
+            const headingCont = $('#category-heading-cont');
 
             //create the element you will be plugging into the blog feed container
             var html = '';
+            var heading = '<h2>"'+ tag.toUpperCase() +'"</h2>'
 
             response.items.forEach(function (entry) {
                 var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
@@ -141,6 +143,7 @@ class categoryFeed extends Component {
 
             // replace html with the created blog tiles to display 
             feedCont.html(html); 
+            headingCont.html(heading);
         })
         .catch(console.error);
     }
