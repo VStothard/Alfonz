@@ -14,6 +14,7 @@ export * from './components/instaFeed';
 export * from './components/featureCarousel';
 export * from './components/mainNavigation';
 export * from './components/blogFeed';
+export * from './components/categoryFeed';
 export * from './components/blogTiles';
 export * from './components/blogPost';
 export * from './components/alertBar';

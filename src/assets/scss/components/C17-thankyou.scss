@@ -7,10 +7,10 @@
     }
 
     .thankyou-text {
-        transform: translateY(10%);
+        transform: translateY(0);
 
         @include breakpoint (large) {
-           transform: translateY(40%);
+           transform: translateY(30%);
         }
     }
 }

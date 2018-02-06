@@ -140,5 +140,46 @@
                 max-width: 336px;
             }
         }
+
+        .mob-subscribe {
+            color: white;
+            p {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            form {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                input {
+                    @include themify($themes) {
+                        border-color: themed('softGrey');
+                    }
+                    border: 1px solid;
+                    margin: 0;
+                    height: 58px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 70%;
+                }
+
+                button {
+                    @include themify($themes) {
+                        border-color: themed('tertiaryColor');
+                    }
+
+                    border: 2px solid;
+
+                    &:hover {
+                        @include themify($themes) {
+                            color: themed('tertiaryColor');
+                        }
+                        background: none;
+                    }
+                }
+            }
+        }
     }
 }
