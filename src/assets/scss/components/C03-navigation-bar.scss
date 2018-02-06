@@ -21,15 +21,11 @@
         }
 
         .nav-logo { 
-            margin-top:5px;   
-            text-align: center;        
-            svg {
-                width: 160px;
+            @include themify($themes) {
+                color: themed('spaceGrey');
             }
 
-            a {
-                display: block;
-            }
+            font-size: 25px;
         }
 
         .nav-social {
