@@ -19530,7 +19530,7 @@ exports.View = View;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.alertBar = undefined;
 
@@ -19561,77 +19561,118 @@ var config = __webpack_require__(4);
  */
 
 var alertBar = function (_Component) {
-    _inherits(alertBar, _Component);
+  _inherits(alertBar, _Component);
 
-    /**
-     * Creates an instance of alertBar.
-     *
-     * @memberof alertBar
-     */
-    function alertBar() {
-        _classCallCheck(this, alertBar);
+  /**
+   * Creates an instance of alertBar.
+   *
+   * @memberof alertBar
+   */
+  function alertBar() {
+    _classCallCheck(this, alertBar);
 
-        //super not working currently
+    //super not working currently
 
-        //check if element exists on the page
-        var _this = _possibleConstructorReturn(this, (alertBar.__proto__ || Object.getPrototypeOf(alertBar)).call(this, 'C01'));
+    //check if element exists on the page
+    var _this = _possibleConstructorReturn(this, (alertBar.__proto__ || Object.getPrototypeOf(alertBar)).call(this, 'C01'));
 
-        var dataID = 'C01';
-        var self = _this;
-        (0, _jquery2.default)("div[data-id]").each(function () {
-            // if exists, execute alertBar
-            if ((0, _jquery2.default)(this).data("id") === dataID) {
-                self.alertContent();
-                self.alertClose();
-            }
-        });
-        return _this;
+    var dataID = 'C01';
+    var self = _this;
+    (0, _jquery2.default)("div[data-id]").each(function () {
+      // if exists, execute alertBar
+      if ((0, _jquery2.default)(this).data("id") === dataID) {
+        self.alertContent();
+        self.alertClose();
+        self.checkCookie('BlogCookie', true, 1);
+      }
+    });
+    return _this;
+  }
+
+  /**
+   * alertBar Method
+   *
+   * @param {string} param sample param
+   * @returns {undefined}
+   * @memberof alertBar
+   */
+
+
+  _createClass(alertBar, [{
+    key: 'alertClose',
+    value: function alertClose(param) {
+      var self = this;
+      var alertBar = (0, _jquery2.default)('.C01-alert-bar');
+      var alertClose = (0, _jquery2.default)(alertBar).children('.close');
+
+      (0, _jquery2.default)(alertClose).on('click touch keyup', function () {
+        (0, _jquery2.default)(alertBar).hide();
+      });
     }
+  }, {
+    key: 'alertContent',
+    value: function alertContent() {
+      var self = this;
+      var alertCont = (0, _jquery2.default)('.alert-cont');
 
-    /**
-     * alertBar Method
-     *
-     * @param {string} param sample param
-     * @returns {undefined}
-     * @memberof alertBar
-     */
+      //contentful initialisation 
+      var client = contentful.createClient({
+        space: config.config.space,
+        accessToken: config.config.accessToken
+      });
 
-
-    _createClass(alertBar, [{
-        key: 'alertClose',
-        value: function alertClose(param) {
-            var self = this;
-            var alertBar = (0, _jquery2.default)('.C01-alert-bar');
-            var alertClose = (0, _jquery2.default)(alertBar).children('.close');
-
-            (0, _jquery2.default)(alertClose).on('click touch keyup', function () {
-                (0, _jquery2.default)(alertBar).hide();
-            });
+      // get all blog posts and render to the page
+      client.getEntry('1sIbBvEzuYQKeoG2IkQwGG').then(function (entry) {
+        if (entry.fields.alertActive === true) {
+          alertCont.html(entry.fields.alertBarContent);
+        } else {
+          (0, _jquery2.default)('.C01-alert-bar').hide();
         }
-    }, {
-        key: 'alertContent',
-        value: function alertContent() {
-            var self = this;
-            var alertCont = (0, _jquery2.default)('.alert-cont');
-
-            //contentful initialisation 
-            var client = contentful.createClient({
-                space: config.config.space,
-                accessToken: config.config.accessToken
-            });
-
-            // get all blog posts and render to the page
-            client.getEntry('1sIbBvEzuYQKeoG2IkQwGG').then(function (entry) {
-                if (entry.fields.alertActive === true) {
-                    alertCont.html(entry.fields.alertBarContent);
-                } else {
-                    (0, _jquery2.default)('.C01-alert-bar').hide();
-                }
-            }).catch(console.error);
+      }).catch(console.error);
+    }
+  }, {
+    key: 'setCookie',
+    value: function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = 'expires=' + d.toUTCString();
+      document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+    }
+  }, {
+    key: 'getCookie',
+    value: function getCookie(cname) {
+      var name = cname + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
         }
-    }]);
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return '';
+    }
+  }, {
+    key: 'checkCookie',
+    value: function checkCookie(cname, cvalue, exdays) {
+      var self = this;
+      var user = self.getCookie(cname);
 
-    return alertBar;
+      var popup = document.querySelector('.C01-alert-bar');
+
+      if (user != '') {
+        //if popup present add 'dismiss' class to popup
+        popup.classList.add('dismiss');
+      } else {
+        self.setCookie(cname, cvalue, exdays);
+        popup.classList.add('show');
+      }
+    }
+  }]);
+
+  return alertBar;
 }(_component.Component);
 
 exports.alertBar = alertBar;

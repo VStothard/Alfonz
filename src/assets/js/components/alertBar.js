@@ -27,6 +27,8 @@ class alertBar extends Component {
         if ($(this).data("id") === dataID) {
             self.alertContent();
             self.alertClose();
+            self.checkCookie('BlogCookie', true, 1);
+
         }
     });
   }
@@ -69,6 +71,43 @@ class alertBar extends Component {
         }  
     })
     .catch(console.error);
+  }
+
+  setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+  }
+
+  getCookie(cname) {
+    var name = cname + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+
+  checkCookie(cname, cvalue, exdays) {
+    const self = this;
+    var user = self.getCookie(cname);
+
+    const popup = document.querySelector('.C01-alert-bar');
+
+    if (user != '') {
+      //if popup present add 'dismiss' class to popup
+      popup.classList.add('dismiss');
+    } else {
+      self.setCookie(cname, cvalue, exdays);
+      popup.classList.add('show');
+    }
   }
 }
 

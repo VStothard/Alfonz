@@ -4,6 +4,7 @@
         background-color: themed('secondaryColor');  
     }
 
+    display: none;
     padding: 5px 40px 5px 30px;
     text-align: center;
 
@@ -20,5 +21,13 @@
         svg {
             width: 15px;
         }
+    }
+
+    &.show {
+        display: block;
+    }
+
+    &.dismiss {
+        display: none;
     }
 }
