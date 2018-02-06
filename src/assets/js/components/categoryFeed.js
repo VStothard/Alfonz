@@ -71,7 +71,7 @@ class categoryFeed extends Component {
     static postData(client, page, tag) {
         var currentPage = page;
         var totalPosts;
-        var perPage = 1;
+        var perPage = 10;
         var numPages;
         
         client.getEntries({
@@ -88,12 +88,15 @@ class categoryFeed extends Component {
     }
 
     static pagination(currentPage, numPages, tag) {
-        console.log('generate pagination');
         var html = '';
         var pagination = $('.pagination');
 
         times(numPages, (page) => {
-            var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+            if (page == currentPage) {
+               var createItem = '<li><a class="active" href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+            } else {
+               var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+            }
             
             html = html + createItem;
         });
@@ -108,16 +111,11 @@ class categoryFeed extends Component {
             'content_type' : '2wKn6yEnZewu2SCCkus4as',
             'fields.tags': tag
         }).then((response) => {
-            console.log(response.items);
             const feedCont = $('#category-feed-cont');
 
             //create the element you will be plugging into the blog feed container
             var html = '';
 
-            //for each item there is, create an A07 blog tile
-            //Todo 
-                // - limit the number of entries per page, implement pagination
-                // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
             response.items.forEach(function (entry) {
                 var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
 

@@ -20190,7 +20190,7 @@ var categoryFeed = function (_Component) {
         value: function postData(client, page, tag) {
             var currentPage = page;
             var totalPosts;
-            var perPage = 1;
+            var perPage = 10;
             var numPages;
 
             client.getEntries({
@@ -20207,12 +20207,15 @@ var categoryFeed = function (_Component) {
     }, {
         key: 'pagination',
         value: function pagination(currentPage, numPages, tag) {
-            console.log('generate pagination');
             var html = '';
             var pagination = (0, _jquery2.default)('.pagination');
 
             (0, _times2.default)(numPages, function (page) {
-                var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
+                if (page == currentPage) {
+                    var createItem = '<li><a class="active" href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
+                } else {
+                    var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
+                }
 
                 html = html + createItem;
             });
@@ -20228,16 +20231,11 @@ var categoryFeed = function (_Component) {
                 'content_type': '2wKn6yEnZewu2SCCkus4as',
                 'fields.tags': tag
             }).then(function (response) {
-                console.log(response.items);
                 var feedCont = (0, _jquery2.default)('#category-feed-cont');
 
                 //create the element you will be plugging into the blog feed container
                 var html = '';
 
-                //for each item there is, create an A07 blog tile
-                //Todo 
-                // - limit the number of entries per page, implement pagination
-                // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
                 response.items.forEach(function (entry) {
                     var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
 
