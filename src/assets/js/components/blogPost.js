@@ -3,6 +3,7 @@ import $ from 'jquery';
 import forEach from 'lodash/forEach';
 
 var contentful = require('contentful');
+var marked = require('marked');
 var config = require('config');
 
 /**
@@ -71,8 +72,8 @@ class blogPost extends Component {
 
                 var blogPost = '<div class="bp-feature-image"><img src="' + featureImg + '" alt="feature image"></div>'
                                 + '<div class="bp-content-overlap">'
-                                    + '<div class="bp-heading"><h2>' + title + '</h2></div>'
-                                    + '<div class="bp-content">' + body + '</div>'
+                                    + '<div class="bp-heading"><h2>' + marked(title) + '</h2></div>'
+                                    + '<div class="bp-content">' + marked(body) + '</div>'
                                 + '</div>';
             
                 //add the entry to the element

@@ -30,6 +30,12 @@
             transform: translateX(0px);
         }
 
+        ul, li {
+            @include themify($themes) {
+                color: themed('blogWhite');  
+            }
+        }
+
         .close {
             position: absolute;
             top: 0;

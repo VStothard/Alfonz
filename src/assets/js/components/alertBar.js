@@ -2,6 +2,7 @@ import { Component } from '../classes/component';
 import $ from 'jquery';
 var contentful = require('contentful');
 var config = require('config');
+var marked = require('marked');
 
 /**
  *
@@ -65,7 +66,7 @@ class alertBar extends Component {
     client.getEntry('1sIbBvEzuYQKeoG2IkQwGG')
     .then((entry) => {
         if (entry.fields.alertActive === true) {
-            alertCont.html(entry.fields.alertBarContent);
+            alertCont.html(marked(entry.fields.alertBarContent));
         } else {
             $('.C01-alert-bar').hide();
         }  
