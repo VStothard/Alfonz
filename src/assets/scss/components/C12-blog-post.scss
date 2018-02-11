@@ -65,4 +65,9 @@
            margin: 40px 0;
         }
     }
+
+    iframe {
+        margin: 0 auto!important;
+        position: relative!important; //to override inline code applied to insta embed
+    }
 }
