@@ -12,6 +12,7 @@ import fs            from 'fs';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import replace       from 'gulp-replace';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -58,6 +59,7 @@ function pages() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
+    .pipe(replace('http://localhost:8000/', 'http://veritystothard.com/'))
     .pipe(gulp.dest(PATHS.dist));
 }
 
@@ -120,6 +122,7 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+    .pipe(replace('http://localhost:8000/', 'http://veritystothard.com/'))
     .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 

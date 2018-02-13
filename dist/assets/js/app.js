@@ -21326,7 +21326,7 @@ var blogTiles = function (_Component) {
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
           var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
-          //http://localhost:8000/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
+          //http://veritystothard.com/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
           //TODO swap this out with handlebars templating
           var blogTile = '<div class="blog-tile small-12 medium-6 large-4">' + '<a class="blog-tile-cont" href="' + postURL + '">' + '<div class="blog-tile-image" style="background-image: url(' + slideBackground + ')"></div>' + '<div class="blog-tile-details">' + '<p class="blog-tile-title bold">' + entry.fields.title + '</p>' + '<p class="blog-tile-date">' + entry.fields.date + '</p>' + '</div>' + '</a>' + '</div>';
@@ -21870,37 +21870,37 @@ var mainNav = function (_Component) {
           var title = entry.fields.title;
           var id = entry.sys.id;
 
-          if (id == '32D9DUawik08UGcmk6eSyo') {
-            // console.log(title, 'cat title');
+          //32D9DUawik08UGcmk6eSyo - lifestyle
+          //HwJDGDyVwWKOu04Ga4uQq - food
+          //ugqB5nhECyk8iM2ye28gW - technology
+          //3h0RSqywQ0i8ymKYGaYGoo - money
+
+          if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
             var catURL = window.location.origin + '/category.html?tag=' + title;
-            var catLink = '<li class="menu-item"><a href="' + catURL + '">// Lifestyle</a></li>';
+            var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
 
-            // console.log(html, 9000);
-          } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
-            // console.log('business');
+            // } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
+            //   // console.log('business');
+
+            //   var catURL = window.location.origin + '/category.html?tag=' + title;
+            //   var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
+
+            //   html = html + catLink;
+          } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
 
             var catURL = window.location.origin + '/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
           } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
-            // console.log('food');
 
             var catURL = window.location.origin + '/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
-          } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
-            // console.log('tech');
-
-            var catURL = window.location.origin + '/category.html?tag=' + title;
-            var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
-
-            html = html + catLink;
-          } else if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
-            // console.log('money');
+          } else if (id == '32D9DUawik08UGcmk6eSyo') {
 
             var catURL = window.location.origin + '/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
@@ -22015,7 +22015,7 @@ var searchBar = function (_Component) {
 
                 //change window location to www/search value
                 if (searchVal.length > 0) {
-                    url = 'http://localhost:8000/search.html?term=' + searchVal;
+                    url = 'http://veritystothard.com/search.html?term=' + searchVal;
                     window.location = url;
                 } else {
                     (0, _jquery2.default)('#mob-search').focus();

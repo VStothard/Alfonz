@@ -87,17 +87,26 @@ class mainNav extends Component {
         var title = entry.fields.title;
         var id = entry.sys.id;
 
-        if(id == '32D9DUawik08UGcmk6eSyo') {
-          // console.log(title, 'cat title');
+        //32D9DUawik08UGcmk6eSyo - lifestyle
+        //HwJDGDyVwWKOu04Ga4uQq - food
+        //ugqB5nhECyk8iM2ye28gW - technology
+        //3h0RSqywQ0i8ymKYGaYGoo - money
+
+        if(id == '3h0RSqywQ0i8ymKYGaYGoo') {
           var catURL = window.location.origin + '/category.html?tag=' + title;
-          var catLink = '<li class="menu-item"><a href="' + catURL + '">// Lifestyle</a></li>';
+          var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;
 
-          // console.log(html, 9000);
+        // } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
+        //   // console.log('business');
 
-        } else if (id == '1ZpPZ6GHUwoEYSkQGkOk2e') {
-          // console.log('business');
+        //   var catURL = window.location.origin + '/category.html?tag=' + title;
+        //   var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
+
+        //   html = html + catLink;
+
+        } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
 
           var catURL = window.location.origin + '/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
@@ -105,23 +114,13 @@ class mainNav extends Component {
           html = html + catLink;
 
         } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
-          // console.log('food');
 
           var catURL = window.location.origin + '/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;
 
-        } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
-          // console.log('tech');
-
-          var catURL = window.location.origin + '/category.html?tag=' + title;
-          var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
-
-          html = html + catLink;
-
-        } else if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
-          // console.log('money');
+        } else if (id == '32D9DUawik08UGcmk6eSyo') {
 
           var catURL = window.location.origin + '/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
