@@ -116,7 +116,7 @@ class categoryFeed extends Component {
 
             //create the element you will be plugging into the blog feed container
             var html = '';
-            var heading = '<h2>"'+ tag.toUpperCase() +'"</h2>'
+            var heading = '<h2><span class="results-num">' + response.items.length + '</span> posts on "<span class="results-term">' + tag.toUpperCase() + '</span>"</h2>';
 
             response.items.forEach(function (entry) {
                 var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
@@ -140,6 +140,7 @@ class categoryFeed extends Component {
                 //add the entry to the element
                 html = html + blogTile;
             });
+
 
             // replace html with the created blog tiles to display 
             feedCont.html(html); 

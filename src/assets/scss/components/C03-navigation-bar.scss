@@ -24,8 +24,15 @@
             @include themify($themes) {
                 color: themed('spaceGrey');
             }
+            
+            font-size: 20px;
+            margin-top: 8px;
+            text-align: center;
 
-            font-size: 25px;
+            @include breakpoint(medium) {
+               font-size: 25px;
+               margin-top: 0;
+            }
         }
 
         .nav-social {

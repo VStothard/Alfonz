@@ -22,5 +22,13 @@
             }
         }
     }
+
+    .port-link {
+        margin-bottom: 10px;
+
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
     
 }
