@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import isString from 'lodash/isString';
 import isElement from 'lodash/isElement';
 
@@ -17,6 +18,8 @@ class Component {
   constructor(id) {
     this.componentId = isString(id) ? id : '';
     this.elements;
+    // this.exists();
+    this.browserCheck();
   }
 
   /**
@@ -38,6 +41,14 @@ class Component {
     }
 
     return isElement(this.elements[0]);
+  }
+
+  browserCheck() {
+     if ((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+        console.log('why are yo using IE?');
+     } else {
+       console.log('you may pass');
+     }
   }
 }
 

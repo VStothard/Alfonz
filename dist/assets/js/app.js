@@ -407,6 +407,10 @@ exports.Component = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jquery = __webpack_require__(6);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _isString = __webpack_require__(58);
 
 var _isString2 = _interopRequireDefault(_isString);
@@ -437,6 +441,8 @@ var Component = function () {
 
     this.componentId = (0, _isString2.default)(id) ? id : '';
     this.elements;
+    // this.exists();
+    this.browserCheck();
   }
 
   /**
@@ -461,6 +467,15 @@ var Component = function () {
       }
 
       return (0, _isElement2.default)(this.elements[0]);
+    }
+  }, {
+    key: 'browserCheck',
+    value: function browserCheck() {
+      if (navigator.userAgent.indexOf("MSIE") != -1 || !!document.documentMode == true) {
+        console.log('why are yo using IE?');
+      } else {
+        console.log('you may pass');
+      }
     }
   }]);
 
@@ -654,141 +669,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _Symbol = __webpack_require__(24),
-    getRawTag = __webpack_require__(142),
-    objectToString = __webpack_require__(170);
-
-/** `Object#toString` result references. */
-var nullTag = '[object Null]',
-    undefinedTag = '[object Undefined]';
-
-/** Built-in value references. */
-var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
-
-/**
- * The base implementation of `getTag` without fallbacks for buggy environments.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-function baseGetTag(value) {
-    if (value == null) {
-        return value === undefined ? undefinedTag : nullTag;
-    }
-    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
-}
-
-module.exports = baseGetTag;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseIsNative = __webpack_require__(121),
-    getValue = __webpack_require__(144);
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = getValue(object, key);
-  return baseIsNative(value) ? value : undefined;
-}
-
-module.exports = getNative;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var baseClone = __webpack_require__(115);
-
-/** Used to compose bitmasks for cloning. */
-var CLONE_DEEP_FLAG = 1,
-    CLONE_SYMBOLS_FLAG = 4;
-
-/**
- * This method is like `_.clone` except that it recursively clones `value`.
- *
- * @static
- * @memberOf _
- * @since 1.0.0
- * @category Lang
- * @param {*} value The value to recursively clone.
- * @returns {*} Returns the deep cloned value.
- * @see _.clone
- * @example
- *
- * var objects = [{ 'a': 1 }, { 'b': 2 }];
- *
- * var deep = _.cloneDeep(objects);
- * console.log(deep[0] === objects[0]);
- * // => false
- */
-function cloneDeep(value) {
-  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
-}
-
-module.exports = cloneDeep;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-}
-
-module.exports = isObjectLike;
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10624,6 +10504,141 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)(module)))
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(24),
+    getRawTag = __webpack_require__(142),
+    objectToString = __webpack_require__(170);
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+    if (value == null) {
+        return value === undefined ? undefinedTag : nullTag;
+    }
+    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+}
+
+module.exports = baseGetTag;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsNative = __webpack_require__(121),
+    getValue = __webpack_require__(144);
+
+/**
+ * Gets the native function at `key` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {string} key The key of the method to get.
+ * @returns {*} Returns the function if it's native, else `undefined`.
+ */
+function getNative(object, key) {
+  var value = getValue(object, key);
+  return baseIsNative(value) ? value : undefined;
+}
+
+module.exports = getNative;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseClone = __webpack_require__(115);
+
+/** Used to compose bitmasks for cloning. */
+var CLONE_DEEP_FLAG = 1,
+    CLONE_SYMBOLS_FLAG = 4;
+
+/**
+ * This method is like `_.clone` except that it recursively clones `value`.
+ *
+ * @static
+ * @memberOf _
+ * @since 1.0.0
+ * @category Lang
+ * @param {*} value The value to recursively clone.
+ * @returns {*} Returns the deep cloned value.
+ * @see _.clone
+ * @example
+ *
+ * var objects = [{ 'a': 1 }, { 'b': 2 }];
+ *
+ * var deep = _.cloneDeep(objects);
+ * console.log(deep[0] === objects[0]);
+ * // => false
+ */
+function cloneDeep(value) {
+  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
+}
+
+module.exports = cloneDeep;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+}
+
+module.exports = isObjectLike;
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11086,7 +11101,7 @@ module.exports = getMapData;
 "use strict";
 
 
-var getNative = __webpack_require__(7);
+var getNative = __webpack_require__(8);
 
 /* Built-in method references that are verified to be native. */
 var nativeCreate = getNative(Object, 'create');
@@ -11268,7 +11283,7 @@ module.exports = defaults;
 "use strict";
 
 
-var getNative = __webpack_require__(7),
+var getNative = __webpack_require__(8),
     root = __webpack_require__(1);
 
 /* Built-in method references that are verified to be native. */
@@ -12442,7 +12457,7 @@ module.exports = isBuffer;
 "use strict";
 
 
-var isObjectLike = __webpack_require__(9),
+var isObjectLike = __webpack_require__(10),
     isPlainObject = __webpack_require__(57);
 
 /**
@@ -12475,7 +12490,7 @@ module.exports = isElement;
 "use strict";
 
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isObject = __webpack_require__(11);
 
 /** `Object#toString` result references. */
@@ -12562,9 +12577,9 @@ module.exports = isLength;
 "use strict";
 
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     getPrototype = __webpack_require__(26),
-    isObjectLike = __webpack_require__(9);
+    isObjectLike = __webpack_require__(10);
 
 /** `Object#toString` result references. */
 var objectTag = '[object Object]';
@@ -12631,9 +12646,9 @@ module.exports = isPlainObject;
 "use strict";
 
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isArray = __webpack_require__(13),
-    isObjectLike = __webpack_require__(9);
+    isObjectLike = __webpack_require__(10);
 
 /** `Object#toString` result references. */
 var stringTag = '[object String]';
@@ -15266,7 +15281,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = createHttpClient;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -15447,7 +15462,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = createRequestConfig;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -15721,7 +15736,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = toPlainObject;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -16157,7 +16172,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.wrapAsset = wrapAsset;
 exports.wrapAssetCollection = wrapAssetCollection;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -16222,7 +16237,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.wrapContentType = wrapContentType;
 exports.wrapContentTypeCollection = wrapContentTypeCollection;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -16282,7 +16297,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.wrapEntry = wrapEntry;
 exports.wrapEntryCollection = wrapEntryCollection;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -16501,7 +16516,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = pagedSync;
 
-var _cloneDeep = __webpack_require__(8);
+var _cloneDeep = __webpack_require__(9);
 
 var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
@@ -17240,7 +17255,7 @@ function serializer(replacer, cycleReplacer) {
 "use strict";
 
 
-var getNative = __webpack_require__(7),
+var getNative = __webpack_require__(8),
     root = __webpack_require__(1);
 
 /* Built-in method references that are verified to be native. */
@@ -17295,7 +17310,7 @@ module.exports = Hash;
 "use strict";
 
 
-var getNative = __webpack_require__(7),
+var getNative = __webpack_require__(8),
     root = __webpack_require__(1);
 
 /* Built-in method references that are verified to be native. */
@@ -17310,7 +17325,7 @@ module.exports = Promise;
 "use strict";
 
 
-var getNative = __webpack_require__(7),
+var getNative = __webpack_require__(8),
     root = __webpack_require__(1);
 
 /* Built-in method references that are verified to be native. */
@@ -17374,7 +17389,7 @@ module.exports = Uint8Array;
 "use strict";
 
 
-var getNative = __webpack_require__(7),
+var getNative = __webpack_require__(8),
     root = __webpack_require__(1);
 
 /* Built-in method references that are verified to be native. */
@@ -17772,8 +17787,8 @@ module.exports = baseForOwn;
 "use strict";
 
 
-var baseGetTag = __webpack_require__(6),
-    isObjectLike = __webpack_require__(9);
+var baseGetTag = __webpack_require__(7),
+    isObjectLike = __webpack_require__(10);
 
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]';
@@ -17850,9 +17865,9 @@ module.exports = baseIsNative;
 "use strict";
 
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isLength = __webpack_require__(56),
-    isObjectLike = __webpack_require__(9);
+    isObjectLike = __webpack_require__(10);
 
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]',
@@ -18375,7 +18390,7 @@ module.exports = createBaseFor;
 "use strict";
 
 
-var getNative = __webpack_require__(7);
+var getNative = __webpack_require__(8);
 
 var defineProperty = function () {
   try {
@@ -18502,7 +18517,7 @@ var DataView = __webpack_require__(103),
     Promise = __webpack_require__(105),
     Set = __webpack_require__(106),
     WeakMap = __webpack_require__(109),
-    baseGetTag = __webpack_require__(6),
+    baseGetTag = __webpack_require__(7),
     toSource = __webpack_require__(51);
 
 /** `Object#toString` result references. */
@@ -19562,7 +19577,7 @@ module.exports = identity;
 
 
 var baseIsArguments = __webpack_require__(120),
-    isObjectLike = __webpack_require__(9);
+    isObjectLike = __webpack_require__(10);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -19608,8 +19623,8 @@ module.exports = isArguments;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var baseGetTag = __webpack_require__(6),
-    isObjectLike = __webpack_require__(9);
+var baseGetTag = __webpack_require__(7),
+    isObjectLike = __webpack_require__(10);
 
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
@@ -20762,7 +20777,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -20918,7 +20933,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -21122,7 +21137,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -21245,7 +21260,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -21362,7 +21377,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -21937,7 +21952,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _component = __webpack_require__(2);
 
-var _jquery = __webpack_require__(10);
+var _jquery = __webpack_require__(6);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
