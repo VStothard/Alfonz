@@ -59,7 +59,7 @@ function pages() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
-    .pipe(replace('http://localhost:8000/', 'http://veritystothard.com/'))
+    .pipe(replace('http://localhost:8000/', 'https://veritystothard.com/'))
     .pipe(gulp.dest(PATHS.dist));
 }
 
@@ -122,7 +122,7 @@ function javascript() {
       .on('error', e => { console.log(e); })
     ))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(replace('http://localhost:8000/', 'http://veritystothard.com/'))
+    .pipe(replace('http://localhost:8000/', 'https://veritystothard.com/'))
     .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
