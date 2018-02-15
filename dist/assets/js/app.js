@@ -472,9 +472,7 @@ var Component = function () {
     key: 'browserCheck',
     value: function browserCheck() {
       if (navigator.userAgent.indexOf("MSIE") != -1 || !!document.documentMode == true) {
-        console.log('why are yo using IE?');
-      } else {
-        console.log('you may pass');
+        window.location = 'https://www.veritystothard.com/browser-unsupported.html';
       }
     }
   }]);
@@ -21341,7 +21339,7 @@ var blogTiles = function (_Component) {
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
           var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
-          //http://veritystothard.com/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
+          //https://veritystothard.com/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
           //TODO swap this out with handlebars templating
           var blogTile = '<div class="blog-tile small-12 medium-6 large-4">' + '<a class="blog-tile-cont" href="' + postURL + '">' + '<div class="blog-tile-image" style="background-image: url(' + slideBackground + ')"></div>' + '<div class="blog-tile-details">' + '<p class="blog-tile-title bold">' + entry.fields.title + '</p>' + '<p class="blog-tile-date">' + entry.fields.date + '</p>' + '</div>' + '</a>' + '</div>';
@@ -22030,7 +22028,7 @@ var searchBar = function (_Component) {
 
                 //change window location to www/search value
                 if (searchVal.length > 0) {
-                    url = 'http://veritystothard.com/search.html?term=' + searchVal;
+                    url = 'https://veritystothard.com/search.html?term=' + searchVal;
                     window.location = url;
                 } else {
                     (0, _jquery2.default)('#mob-search').focus();

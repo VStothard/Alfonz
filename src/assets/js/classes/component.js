@@ -45,9 +45,7 @@ class Component {
 
   browserCheck() {
      if ((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
-        console.log('why are yo using IE?');
-     } else {
-       console.log('you may pass');
+        window.location = 'https://www.veritystothard.com/browser-unsupported.html';
      }
   }
 }
