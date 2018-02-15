@@ -19,7 +19,7 @@ class Component {
     this.componentId = isString(id) ? id : '';
     this.elements;
     // this.exists();
-    this.browserCheck();
+    // this.browserCheck();
   }
 
   /**
@@ -43,11 +43,11 @@ class Component {
     return isElement(this.elements[0]);
   }
 
-  browserCheck() {
-     if ((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
-        window.location = 'https://www.veritystothard.com/browser-unsupported.html';
-     }
-  }
+  // browserCheck() {
+  //    if ((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+  //       window.location = 'https://www.veritystothard.com/browser-unsupported.html';
+  //    }
+  // }
 }
 
 export { Component };

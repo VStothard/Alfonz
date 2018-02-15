@@ -20,8 +20,8 @@ class mainNav extends Component {
   constructor() {
     super('C03'); //super not working currently
     console.log('C03 running');
+    this.checkBrowser();//will run on every page
     this.categoryLinks();
-    this.mainNavControls();
   }
 
   mainNavControls(param) {
