@@ -22046,11 +22046,17 @@ var searchBar = function (_Component) {
             client.getEntries({
                 'query': term
             }).then(function (response) {
-                console.log(response.items);
+                console.log(response.items, 10000);
                 var html = '';
 
                 response.items.forEach(function (entry) {
-                    var searchResult = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>' + '</div>' + '</div>';
+
+                    if (entry.sys.contentType.sys.id === '2wKn6yEnZewu2SCCkus4as') {
+                        // console.log(entry.fields.title, 2000);
+                        var searchResult = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>' + '</div>' + '</div>';
+                    } else {
+                        return;
+                    }
 
                     //add the entry to the element
                     html = html + searchResult;
