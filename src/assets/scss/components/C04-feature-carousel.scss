@@ -25,18 +25,20 @@
             position: absolute;
             top: 0; left: 0; bottom: 0; right: 0;
             max-width: 320px;
-            max-height: 200px;
+            max-height: 150px;
             outline: none;
             opacity: 0.9;
             outline-offset: 15px;
-            padding: 50px;
+            padding: 40px 20px;
             text-align: center;
             transform: translate(100px, 0px);
             transition: all 2s ease-in;
 
             @include breakpoint(medium) {
+                max-height: 200px;
                 max-width: 600px;
                 outline: 4px solid;
+                padding: 50px;
                 transform: translate(0px, 100px);
             }
 
@@ -54,9 +56,9 @@
             // }
 
             .slide-title {
-                font-size: 25px;
+                font-size: 20px;
                 width: 100%;
-                white-space: wrap;
+                white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis; 
 

@@ -142,7 +142,7 @@ class blogFeed extends Component {
                             + '<div class="bf-desc">'
                               + '<p>' + entry.fields.postPreview + '</p>'
                             + '</div>'
-                            + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>'
+                            + '<a class="bf-button button bold" href="' + postURL + '">Read post</a>'
                           + '</div>'
                         + '</div>';
         
