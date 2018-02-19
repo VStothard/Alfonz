@@ -20,10 +20,11 @@ class mainNav extends Component {
   constructor() {
     super('C03'); //super not working currently
     console.log('C03 running');
+    this.mainNavControls();
     this.categoryLinks();
   }
 
-  mainNavControls(param) {
+  mainNavControls() {
     console.log('main nav controls');
     const open = $('#open-main-nav');
     const mainNav = $('.nav-cont');
@@ -33,6 +34,7 @@ class mainNav extends Component {
     const search = $('#main-nav-search');
     const mobSearch = $('#mob-search');
 
+    //$().click(function() {}); use this click event as it covers IE
     open.on('click touch', () => {
         console.log('open');
         mainNav.addClass('nav-active');

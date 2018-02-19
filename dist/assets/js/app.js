@@ -18308,6 +18308,7 @@ __webpack_require__(209);
 var _modules = __webpack_require__(189);
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM content loaded');
 
   /**
    * Classes
@@ -31257,13 +31258,14 @@ var mainNav = function (_Component) {
     var _this = _possibleConstructorReturn(this, (mainNav.__proto__ || Object.getPrototypeOf(mainNav)).call(this, 'C03'));
 
     console.log('C03 running');
+    _this.mainNavControls();
     _this.categoryLinks();
     return _this;
   }
 
   _createClass(mainNav, [{
     key: 'mainNavControls',
-    value: function mainNavControls(param) {
+    value: function mainNavControls() {
       console.log('main nav controls');
       var open = $('#open-main-nav');
       var mainNav = $('.nav-cont');
@@ -31273,6 +31275,7 @@ var mainNav = function (_Component) {
       var search = $('#main-nav-search');
       var mobSearch = $('#mob-search');
 
+      //$().click(function() {}); use this click event as it covers IE
       open.on('click touch', function () {
         console.log('open');
         mainNav.addClass('nav-active');

@@ -18,6 +18,7 @@ import {
 } from './modules';
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM content loaded');
 
   /**
    * Classes
