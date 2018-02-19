@@ -988,8 +988,7 @@ var Component = function () {
 
     this.componentId = (0, _isString2.default)(id) ? id : '';
     this.elements;
-    // this.exists();
-    // this.browserCheck();
+    this.exists();
   }
 
   /**
@@ -1003,25 +1002,18 @@ var Component = function () {
   _createClass(Component, [{
     key: 'exists',
     value: function exists() {
-      console.log('hellooo');
       this.elements = document.querySelectorAll('[data-id=\'' + this.componentId.toLowerCase() + '\']');
-      console.log(this.elements, 1000);
+      // console.log(this.elements, 1000);
+
 
       if (!(0, _isElement2.default)(this.elements[0])) {
-        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2716 is not present, aborting.');
+        // console.info(`Component ${this.componentId.toUpperCase()} Node ✖ is not present, aborting.`);
       } else {
-        console.info('Component ' + this.componentId.toUpperCase() + ' Node \u2714 is present, running class.');
-      }
+          // console.info(`Component ${this.componentId.toUpperCase()} Node ✔ is present, running class.`);
+        }
 
       return (0, _isElement2.default)(this.elements[0]);
     }
-
-    // browserCheck() {
-    //    if ((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
-    //       window.location = 'https://www.veritystothard.com/browser-unsupported.html';
-    //    }
-    // }
-
   }]);
 
   return Component;
@@ -31265,7 +31257,6 @@ var mainNav = function (_Component) {
     var _this = _possibleConstructorReturn(this, (mainNav.__proto__ || Object.getPrototypeOf(mainNav)).call(this, 'C03'));
 
     console.log('C03 running');
-    _this.checkBrowser(); //will run on every page
     _this.categoryLinks();
     return _this;
   }
