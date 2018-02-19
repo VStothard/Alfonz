@@ -46,6 +46,22 @@
                 max-width: 700px;
             }
 
+            //IE only, needs forced width to allow absolute positioning
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* IE10+ CSS styles go here */
+            
+                border: 2px solid yellow;
+                width: 320px;
+
+                @include breakpoint (medium) {
+                    width: 600px;
+                }
+
+                @include breakpoint(large) {
+                    width: 700px;
+                }
+            }
+
             // a:hover {
             //     h2,
             //     p {

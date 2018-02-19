@@ -24,7 +24,7 @@
             @include themify($themes) {
                 color: themed('spaceGrey');
             }
-            
+
             font-size: 20px;
             margin-top: 8px;
             text-align: center;
@@ -70,6 +70,7 @@
 
             svg {
                 margin-top: 6px;
+                height: 30px; //required by IE
                 width: 30px;
             }
 
