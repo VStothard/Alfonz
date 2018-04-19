@@ -59,7 +59,7 @@ class blogTiles extends Component {
 
         response.items.forEach(function (entry) {
             var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
-            var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+            var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
             //http://localhost:8000/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
             //TODO swap this out with handlebars templating

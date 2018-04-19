@@ -128,7 +128,7 @@ class blogFeed extends Component {
         // - limit the number of entries per page, implement pagination
         // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
     response.items.forEach(function (entry) {
-        var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+        var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
         //TODO swap this out with handlebars templating
         var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'
@@ -161,7 +161,7 @@ class blogFeed extends Component {
 
     times(numPages, (page) => {
       console.log('how many times');
-      var createItem = '<li><a href="' + window.location.origin + '/blog-feed.html?page=' + page + '">' + (page + 1) + '</a></li>';
+      var createItem = '<li><a href="' + window.location.origin + '/blog/blog-feed.html?page=' + page + '">' + (page + 1) + '</a></li>';
       
       html = html + createItem;
     });

@@ -56,7 +56,7 @@ class searchBar extends Component {
 
         //change window location to www/search value
         if (searchVal.length > 0) {
-            url = 'http://localhost:8000/search.html?term=' + searchVal;
+            url = 'http://localhost:8000/blog/search.html?term=' + searchVal;
             window.location = url;
         } else {
             $('#mob-search').focus();
@@ -105,7 +105,7 @@ class searchBar extends Component {
                                 + '<div class="bf-desc">'
                                   + '<p>' + entry.fields.postPreview + '</p>'
                                 + '</div>'
-                                + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>'
+                                + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>'
                               + '</div>'
                             + '</div>';
             }  else {

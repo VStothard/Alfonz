@@ -30529,7 +30529,7 @@ var blogFeed = function (_Component) {
       // - limit the number of entries per page, implement pagination
       // - limit the number of words that can show up in the blog tile, it should be a preview not the whole post
       response.items.forEach(function (entry) {
-        var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+        var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
         //TODO swap this out with handlebars templating
         var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<a class="bf-button button bold" href="' + postURL + '">Read post</a>' + '</div>' + '</div>';
@@ -30550,7 +30550,7 @@ var blogFeed = function (_Component) {
 
       (0, _times2.default)(numPages, function (page) {
         console.log('how many times');
-        var createItem = '<li><a href="' + window.location.origin + '/blog-feed.html?page=' + page + '">' + (page + 1) + '</a></li>';
+        var createItem = '<li><a href="' + window.location.origin + '/blog/blog-feed.html?page=' + page + '">' + (page + 1) + '</a></li>';
 
         html = html + createItem;
       });
@@ -30783,7 +30783,7 @@ var blogTiles = function (_Component) {
 
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
-          var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+          var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
           //https://veritystothard.com/blog-post.html?id=62RxrOSmeQWqQSsgo4WaAa
 
           //TODO swap this out with handlebars templating
@@ -30937,9 +30937,9 @@ var categoryFeed = function (_Component) {
 
             (0, _times2.default)(numPages, function (page) {
                 if (page == currentPage) {
-                    var createItem = '<li><a class="active" href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
+                    var createItem = '<li><a class="active" href="' + window.location.origin + '/blog/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
                 } else {
-                    var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
+                    var createItem = '<li><a href="' + window.location.origin + '/blog/category.html?tag=' + tag + '&page=' + page + '">' + (page + 1) + '</a></li>';
                 }
 
                 html = html + createItem;
@@ -30964,7 +30964,7 @@ var categoryFeed = function (_Component) {
                 var heading = '<h2><span class="results-num">' + response.items.length + '</span> posts on "<span class="results-term">' + tag.toUpperCase() + '</span>"</h2>';
 
                 response.items.forEach(function (entry) {
-                    var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+                    var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
                     //TODO swap this out with handlebars templating
                     var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + postURL + '">Read post</a></div>' + '</div>' + '</div>';
@@ -31070,7 +31070,7 @@ var featureCarousel = function (_Component) {
 
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
-          var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+          var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
           var featureSlide = '<div class="slide">' + '<div class="slide-cover" style="background-image: url(' + slideBackground + ')"></div>' + '<div class="slide-details"><a href="' + postURL + '">' + '<h2 class="slide-title">' + entry.fields.title + '</h2>' + '<p class="slide-date">' + entry.fields.date + '</p></a>' + '</div>' + '</div>';
 
@@ -31335,7 +31335,7 @@ var mainNav = function (_Component) {
           //3h0RSqywQ0i8ymKYGaYGoo - money
 
           if (id == '3h0RSqywQ0i8ymKYGaYGoo') {
-            var catURL = window.location.origin + '/category.html?tag=' + title;
+            var catURL = window.location.origin + '/blog/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
@@ -31349,19 +31349,19 @@ var mainNav = function (_Component) {
             //   html = html + catLink;
           } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
 
-            var catURL = window.location.origin + '/category.html?tag=' + title;
+            var catURL = window.location.origin + '/blog/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
           } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
 
-            var catURL = window.location.origin + '/category.html?tag=' + title;
+            var catURL = window.location.origin + '/blog/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
           } else if (id == '32D9DUawik08UGcmk6eSyo') {
 
-            var catURL = window.location.origin + '/category.html?tag=' + title;
+            var catURL = window.location.origin + '/blog/category.html?tag=' + title;
             var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
             html = html + catLink;
@@ -31474,7 +31474,7 @@ var searchBar = function (_Component) {
 
                 //change window location to www/search value
                 if (searchVal.length > 0) {
-                    url = 'https://veritystothard.com/search.html?term=' + searchVal;
+                    url = 'https://veritystothard.com/blog/search.html?term=' + searchVal;
                     window.location = url;
                 } else {
                     (0, _jquery2.default)('#mob-search').focus();
@@ -31512,7 +31512,7 @@ var searchBar = function (_Component) {
 
                     if (entry.sys.contentType.sys.id === '2wKn6yEnZewu2SCCkus4as') {
                         // console.log(entry.fields.title, 2000);
-                        var searchResult = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>' + '</div>' + '</div>';
+                        var searchResult = '<div data-id="A07" class="A07-blog-feed-tile small-12">' + '<div class="bf-feature-image">' + '<img src="https:' + entry.fields.featuredImage.fields.file.url + '" alt="' + entry.fields.featuredImage.fields.description + '">' + '</div>' + '<div class="bf-content-overlap">' + '<div class="bf-heading">' + '<h2>' + entry.fields.title + '</h2>' + '</div>' + '<div class="bf-desc">' + '<p>' + entry.fields.postPreview + '</p>' + '</div>' + '<div class="bf-button button bold"><a href="' + window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id + '">Read post</a></div>' + '</div>' + '</div>';
                     } else {
                         return;
                     }

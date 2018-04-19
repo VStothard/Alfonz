@@ -93,9 +93,9 @@ class categoryFeed extends Component {
 
         times(numPages, (page) => {
             if (page == currentPage) {
-               var createItem = '<li><a class="active" href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+               var createItem = '<li><a class="active" href="' + window.location.origin + '/blog/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
             } else {
-               var createItem = '<li><a href="' + window.location.origin + '/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
+               var createItem = '<li><a href="' + window.location.origin + '/blog/category.html?tag=' + tag + '&page=' + (page) + '">' + (page + 1) + '</a></li>';
             }
             
             html = html + createItem;
@@ -119,7 +119,7 @@ class categoryFeed extends Component {
             var heading = '<h2><span class="results-num">' + response.items.length + '</span> posts on "<span class="results-term">' + tag.toUpperCase() + '</span>"</h2>';
 
             response.items.forEach(function (entry) {
-                var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+                var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
                 //TODO swap this out with handlebars templating
                 var blogTile = '<div data-id="A07" class="A07-blog-feed-tile small-12">'

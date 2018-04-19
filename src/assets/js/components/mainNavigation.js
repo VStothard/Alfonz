@@ -94,7 +94,7 @@ class mainNav extends Component {
         //3h0RSqywQ0i8ymKYGaYGoo - money
 
         if(id == '3h0RSqywQ0i8ymKYGaYGoo') {
-          var catURL = window.location.origin + '/category.html?tag=' + title;
+          var catURL = window.location.origin + '/blog/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;
@@ -109,21 +109,21 @@ class mainNav extends Component {
 
         } else if (id == 'ugqB5nhECyk8iM2ye28gW') {
 
-          var catURL = window.location.origin + '/category.html?tag=' + title;
+          var catURL = window.location.origin + '/blog/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;
 
         } else if (id == 'HwJDGDyVwWKOu04Ga4uQq') {
 
-          var catURL = window.location.origin + '/category.html?tag=' + title;
+          var catURL = window.location.origin + '/blog/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;
 
         } else if (id == '32D9DUawik08UGcmk6eSyo') {
 
-          var catURL = window.location.origin + '/category.html?tag=' + title;
+          var catURL = window.location.origin + '/blog/category.html?tag=' + title;
           var catLink = '<li class="menu-item"><a href="' + catURL + '">// ' + title + '</a></li>';
 
           html = html + catLink;

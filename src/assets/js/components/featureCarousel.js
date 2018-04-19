@@ -55,7 +55,7 @@ class featureCarousel extends Component {
 
         response.items.forEach(function (entry) {
           var slideBackground = 'https:' + entry.fields.featuredImage.fields.file.url;
-          var postURL = window.location.origin + '/blog-post.html?id=' + entry.sys.id;
+          var postURL = window.location.origin + '/blog/blog-post.html?id=' + entry.sys.id;
 
           var featureSlide = '<div class="slide">'
                                 + '<div class="slide-cover" style="background-image: url(' + slideBackground + ')"></div>'
